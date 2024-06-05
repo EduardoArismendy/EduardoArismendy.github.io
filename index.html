@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <!-- MENU ENCABEZADO -->
+    <div class="contenedor-header">
+        <header>
+            <div class="logo">
+                <a href="#">Eddy</a>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#inicio" onclick="seleccionar()">INICIO</a></li>
+                    <li><a href="#sobremi" onclick="seleccionar()">SOBRE MI</a></li>
+                    <li><a href="#skills" onclick="seleccionar()">SKILLS</a></li>
+                    <li><a href="#curriculum" onclick="seleccionar()">CURRICULUM</a></li>
+                    <li><a href="#portfolio" onclick="seleccionar()">PORTFOLIO</a></li>
+                    <li><a href="#contacto" onclick="seleccionar()">CONTACTO</a></li>
+                </ul>
+            </nav>
+            <div class="nav-responsive" onclick="mostrarOcultarMenu()">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </header>
+    </div>
+
+    <!-- SECCION INICIO -->
+    <section id="inicio" class="inicio">
+        <div class="contenido-banner">
+            <div class="contenedor-img">
+                <img src="hero.png" alt="">
+            </div>
+            <h1>Eduardo Arismendy</h1>
+            <h2>Philosophy instructor - Dev. mobile</h2>
+            <style>
+                .redes {
+                    display: flex;
+                    align-items: center; /* Alinear verticalmente */
+                }
+            
+                .redes a {
+                    margin-right: 10px; /* Espacio entre los íconos */
+                }
+            
+                .redes a:last-child {
+                    margin-right: 0; /* Eliminar el margen derecho del último ícono */
+                }
+            </style>
+            
+            <div class="redes">
+                <a href="https://www.facebook.com/eduardoarismendyeddy/"><i class="fab fa-facebook"></i></a>
+                <a href="https://twitter.com/ed_arismendy"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/eduardo-arismendy-75a597187/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/channel/UCqz_xO1zr1QoJdejsZ2GKqg"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@_eddy_tk"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.udemy.com/user/dubier-eduardo-montoya-arismendy/"><img src="udemy_logo.png" alt="Udemy" style="width: 40px;"></a>
+            </div>
+            
+            
+            
+            
+            
+        </div>
+    </section>
+
+    <!-- SECCION SOBRE MI -->
+    <section id="sobremi" class="sobremi">
+        <div class="contenido-seccion">
+            <h2>Sobre Mí</h2>
+            <p><span>Hola, soy Eduardo Arismendy.</span> Como Instructor de Filosofía, me apasiona explorar las grandes preguntas sobre la existencia, la ética y el conocimiento. Disfruto guiando a mis estudiantes en el pensamiento crítico y la apreciación de la historia filosófica.
+
+                Además, trabajo en el Desarrollo Móvil. Me encanta diseñar y desarrollar aplicaciones móviles, siempre buscando crear soluciones innovadoras y fáciles de usar.
+                
+                La combinación de filosofía y tecnología me permite abordar problemas con una perspectiva única y ética. Estoy disponible para discutir ideas filosóficas, colaborar en proyectos móviles, o explorar cómo estas disciplinas se intersectan.</p>
+
+            <div class="fila">
+                <!-- datos personales -->
+                <div class="col">
+                    <h3>Datos Personales</h3>
+                    <ul>
+                     
+            
+                        <li>
+                            <strong>Email</strong>
+                            p73306275@gmail.com
+                        </li>
+                        <li>
+                            <strong>Website</strong>
+                            linkr.bio/eddy_tk
+                        </li>
+                        <li>
+                            <strong>Dirección</strong>
+                            Medellín - Antioquia, Colombia
+                        </li>
+                        <li>
+                            <strong>Cargo</strong>
+                            <span>FREELANCE -  INSTRUCTOR</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- intereses -->
+                <div class="col">
+                    <h3>Intereses</h3>
+                    <div class="contenedor-intereses">
+                        <div class="interes">
+                            <i class="fa-solid fa-gamepad"></i>
+                            <span>JUEGOS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-headphones"></i>
+                            <span>MUSICA</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-plane"></i>
+                            <span>VIAJAR</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-brands fa-apple"></i>
+                            <span>MAC OS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-person-hiking"></i>
+                            <span>DEPORTE</span>
+                        </div>
+                        <a href="https://drive.google.com/drive/folders/199XjlxQUcg3aXWcXxDp_1owMTP-8R3u6">
+                            <div class="interes">
+                                <i class="fas fa-book"></i>
+                                <span>LIBROS</span>
+                            </div>
+                        </a>
+                        
+                        <div class="interes">
+                            <i class="fa-solid fa-car"></i>
+                            <span>AUTOS</span>
+                        </div>
+                        <div class="interes">
+                            <i class="fa-solid fa-camera"></i>
+                            <span>FOTOS</span>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <a href="https://drive.google.com/drive/folders/1Z6Lt_xWV2zmklZQ6rfqXvB6RbosRWQ1L" download>
+                <button>
+                    Solicitar CV <i class="fas fa-download"></i>
+                    <span class="overlay"></span>
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- SECCION SKILLS -->
+    <section class="skills" id="skills">
+        <div class="contenido-seccion">
+            <h2>Skills</h2>
+            <div class="fila">
+                <!-- Technical Skill -->
+                <div class="col">
+                    <h3>Technical Skills</h3>
+                    <div class="skill">
+                        <span>Kotlin</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>70%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Conferencias</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>89%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Análisis de datos</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>90%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Android</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>75%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>python</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>55%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Professional Skills -->
+                <div class="col">
+                    <h3>Professional Skills</h3>
+                    <div class="skill">
+                        <span>Comunicación</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>80%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Trabajo en Equipo</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>70%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Creatividad</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>99%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Dedicación</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>65%</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <span>Confidencialidad</span>
+                        <div class="barra-skill">
+                            <div class="progreso">
+                                <span>94%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION CURRICULUM -->
+    <section id="curriculum" class="curriculum">
+        <div class="contenido-seccion">
+            <h2>Curriculum</h2>
+            <div class="fila">
+                <div class="col izquierda">
+                    <h3>Educación</h3>
+                    <div class="item izq">
+                        <h4>Licenciatura en filosofia</h4>
+                        <span class="casa">Universidad San Buenaventura</span>
+                        <span class="fecha">2020 - 2023</span>
+                        <p>Durante mi formación en filosofía, adquirí una sólida base en el pensamiento crítico, la ética y la teoría del conocimiento. Estudié a fondo a los grandes filósofos y sus obras, desarrollando habilidades analíticas y de argumentación.</p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                    <div class="item izq">
+                        <h4>Desarrollo de aplicaciones móviles</h4>
+                        <span class="casa">Instituto tecnologico Metropolitano</span>
+                        <span class="fecha">2023 - actualmente</span>
+                        <p>En el programa de desarrollo de aplicaciones móviles, estoy aprendiendo a diseñar, desarrollar y mantener aplicaciones para dispositivos móviles. He trabajado con diferentes lenguajes de programación y plataformas, y he participado en proyectos prácticos que me han permitido aplicar mis conocimientos.</p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                    <div class="item izq">
+                        <h4>Análisis de datos</h4>
+                        <span class="casa">Universidad Sergio Arboleda</span>
+                        <span class="fecha">2024</span>
+                        <p>Este curso me está proporcionando habilidades en la recopilación, procesamiento y análisis de grandes volúmenes de datos. Estoy aprendiendo a utilizar herramientas y técnicas de análisis avanzado para interpretar datos y tomar decisiones informadas.</p>
+                        <div class="conectori">
+                            <div class="circuloi"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col derecha">
+                    <h3>Experiencia de trabajo</h3>
+                    <div class="item der">
+                        <h4>Coordinador de desarrollo humano</h4>
+                        <span class="casa">Instituto Técnico Industrial Fray Luis Amigó</span>
+                        <span class="fecha">2019</span>
+                        <p>En este rol, fui responsable de coordinar programas y actividades orientadas al desarrollo personal y profesional de los estudiantes. Implementé talleres y seminarios que fomentaron el crecimiento integral y el bienestar de la comunidad educativa.</p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                    <div class="item der">
+                        <h4>Coordinador Operativo</h4>
+                        <span class="casa">Comunidad Terapeutica San Gregorio</span>
+                        <span class="fecha">2020 - 2022</span>
+                        <p>Mi trabajo consistió en supervisar las operaciones diarias de la comunidad terapéutica, asegurando que se cumplieran los protocolos y estándares de calidad. Coordiné el equipo de trabajo y gestioné los recursos necesarios para ofrecer un servicio óptimo a los usuarios.</p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                    <div class="item der">
+                        <h4>Profesor de filosofia</h4>
+                        <span class="casa">Colegio San Pedro - Madrid (Col)</span>
+                        <span class="fecha">2022</span>
+                        <p>Como profesor de filosofía, impartí clases a estudiantes de secundaria, promoviendo el pensamiento crítico y la reflexión. Diseñé planes de estudio y actividades didácticas que facilitaron la comprensión de conceptos filosóficos complejos y fomentaron el debate y la discusión.</p>
+                        <div class="conectord">
+                            <div class="circulod"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION PORTFOLIO -->
+    <section id="portfolio" class="portfolio">
+        <div class="contenido-seccion">
+            <h2>PORTFOLIO</h2>
+            <div class="galeria">
+                <div class="proyecto">
+                    <img src="p1.jpg" alt="">
+                    <div class="overlay">
+                        <h3>App Móvil</h3>
+                        <p>Desarrollo</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="p2.jpg" alt="">
+                    <div class="overlay">
+                        <h3>Gestión administrativa</h3>
+                        <p>Desarrollo</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="p3.jpg" alt="">
+                    <div class="overlay">
+                        <h3>Análisis de sentimientos</h3>
+                        <p>Python</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="p4.jpg" alt="">
+                    <div class="overlay">
+                        <h3>EDA</h3>
+                        <p>Análisis de datos</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="p5.jpg" alt="">
+                    <div class="overlay">
+                        <h3>Asesoria digital</h3>
+                        <p>Filosofía y educación</p>
+                    </div>
+                </div>
+                <div class="proyecto">
+                    <img src="p6.jpg" alt="">
+                    <div class="overlay">
+                        <h3>Diseño Creativo</h3>
+                        <p>Fotografía</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCION CONTACTO -->
+    <section id="contacto" class="contacto">
+        <div class="contenido-seccion">
+            <h2>CONTACTO</h2>
+            <div class="fila">
+                <!-- Formulario -->
+                <div class="col">
+                    <input type="text" placeholder="Tu Nombre" id="nombre">
+                    <input type="text" placeholder="Número telefónico" id="telefono">
+                    <input type="text" placeholder="Dirección de correo" id="correo">
+                    <input type="text" placeholder="Tema" id="tema">
+                    <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="Mensaje"></textarea>
+                    <button onclick="enviarMensaje()">Enviar Mensaje<i class="fa-solid fa-paper-plane"></i></button>
+                </div>
+                <!-- Mapa -->
+                <div class="col">
+                    <img src="ubicacion.png" alt="">
+                    <div class="info">
+                        <ul>
+                            <li>
+                                <i class="fa-solid fa-location-dot"></i>
+                                Colombia, Medellín
+                            </li>
+                    
+                            <li>
+                                <i class="fa-solid fa-envelope"></i>
+                                Email: p73306275@gmail.com
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer>
+        <a href="#inicio" class="arriba">
+            <i class="fa-solid fa-angles-up"></i>
+        </a>
+        <style>
+            .redes {
+                display: flex;
+                align-items: center; /* Alinear verticalmente */
+                justify-content: center; /* Centrar horizontalmente */
+            }
+        
+            .redes a {
+                margin-right: 10px; /* Espacio entre los íconos */
+            }
+        
+            .redes a:last-child {
+                margin-right: 0; /* Eliminar el margen derecho del último ícono */
+            }
+        </style>
+        
+        <div class="redes">
+            <a href="https://www.facebook.com/eduardoarismendyeddy/"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com/ed_arismendy"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/eduardo-arismendy-75a597187/"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/channel/UCqz_xO1zr1QoJdejsZ2GKqg"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.tiktok.com/@_eddy_tk"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.udemy.com/user/dubier-eduardo-montoya-arismendy/"><img src="udemy_logo.png" alt="Udemy" style="width: 40px;"></a>
+        </div>
+    </footer>
+
+    <script>
+        function enviarMensaje() {
+            // Obtener los valores de los campos del formulario
+            var nombre = document.getElementById("nombre").value;
+            var telefono = document.getElementById("telefono").value;
+            var correo = document.getElementById("correo").value;
+            var tema = document.getElementById("tema").value;
+            var mensaje = document.getElementById("mensaje").value;
+
+            // Construir el cuerpo del correo electrónico
+            var cuerpoCorreo = "Nombre: " + nombre + "\n";
+            cuerpoCorreo += "Teléfono: " + telefono + "\n";
+            cuerpoCorreo += "Correo: " + correo + "\n";
+            cuerpoCorreo += "Tema: " + tema + "\n";
+            cuerpoCorreo += "Mensaje: " + mensaje;
+
+            // Enviar correo electrónico
+            window.location.href = "mailto:p73306275@gmail.com?subject=" + encodeURIComponent(tema) + "&body=" + encodeURIComponent(cuerpoCorreo);
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
