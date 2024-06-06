@@ -70,6 +70,78 @@
         </div>
     </section>
 
+   <!-- SECCION CURSOS UDEMY -->
+   
+   <style>
+    .overlay-curso p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+    }
+
+    .overlay-curso p.expandido {
+        white-space: normal; /* Cambia el estilo para mostrar todo el texto */
+    }
+
+    .curso img {
+        cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+    }
+</style>
+
+<script>
+    // Función para expandir o contraer la descripción del curso
+    function toggleDescripcion(id) {
+        var descripcion = document.getElementById(id);
+        descripcion.classList.toggle('expandido');
+    }
+</script>
+
+<section id="cursos-udemy" class="cursos-udemy">
+    <div class="contenido-seccion">
+        <h2> Cursos </h2>
+        <div class="galeria-cursos">
+            <div class="curso">
+                <a href="enlace_al_curso1_en_Udemy" target="_blank"> <!-- Agrega el enlace aquí -->
+                    <img src="curso1.jpg" alt="Curso 1">
+                </a>
+                <div class="overlay-curso">
+                    <h3>EDA</h3>
+                    <p id="descripcion1" onclick="toggleDescripcion('descripcion1')">
+                        El Análisis Exploratorio de Datos (EDA) es una etapa crucial en el análisis de datos que se centra en comprender y resumir las características principales de un conjunto de datos mediante técnicas estadísticas y visuales. Su objetivo es identificar patrones, detectar anomalías y verificar hipótesis antes de aplicar modelos más complejos. Este curso cubre conceptos básicos, estadísticas descriptivas, visualización de datos, detección de valores atípicos, y preparación de datos, utilizando herramientas como Python. Ideal para principiantes y aquellos con conocimientos básicos en análisis de datos. ¡Bienvenidos al curso de EDA!
+                    </p>
+                </div>
+            </div>
+            <!-- Agrega más cursos aquí -->
+            <div class="curso">
+                <a href="https://www.udemy.com/course/introduccion-al-arbol-del-conocimiento-de-maturana-y-varela/" target="_blank"> <!-- Agrega el enlace aquí -->
+                    <img src="curso2.jpg" alt="Curso 2">
+                </a>
+                <div class="overlay-curso">
+                    <h3>Introducción al arbol del conocimiento</h3>
+                    <p id="descripcion2" onclick="toggleDescripcion('descripcion2')">
+                        Este micro curso tiene como finalidad exponer el corazón del libro antes de leerlo, los estudiantes podran acercarse a las ideas de Maturana y Varela con una brújula conceptual que les permita adentrarse en la lectura del libro. ¡Bienvenidos al curso!
+                    </p>
+                </div>
+            </div>
+            <!-- Agrega más cursos aquí -->
+            <div class="curso">
+                <a href="enlace_al_curso1_en_Udemy" target="_blank"> <!-- Agrega el enlace aquí -->
+                    <img src="curso3.jpg" alt="Curso 3">
+                </a>
+                <div class="overlay-curso">
+                    <h3>"Palabras de Poder: Explorando la Literatura Política y Filosófica"</h3>
+                    <p id="descripcion3" onclick="toggleDescripcion('descripcion3')">
+                        Es un curso que sumerge a los estudiantes en el fascinante mundo de la literatura política y filosófica, donde las palabras se convierten en herramientas poderosas para moldear la sociedad y la percepción del mundo. 
+                    </p>
+                </div>
+            </div>
+            <!-- Agrega más cursos aquí -->
+        </div>
+    </div>
+</section>
+
+
     <!-- SECCION SOBRE MI -->
     <section id="sobremi" class="sobremi">
         <div class="contenido-seccion">
