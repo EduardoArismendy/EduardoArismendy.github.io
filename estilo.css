@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
 
+.proyecto-enlace {
+    text-decoration: none; /* Quita el subrayado */
+    color: inherit; /* Usa el color heredado del elemento padre */
+}
+
+
 /* Ajustes de tamaño de fuente */
 html {
     font-size: 16px; /* Tamaño de fuente base */
