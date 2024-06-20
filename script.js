@@ -34,29 +34,6 @@ function efectoHabilidades(){
     }
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    const carrusel = document.getElementById('carrusel');
-    const comentarios = carrusel.getElementsByClassName('comentario');
-    let index = 0;
-
-    function showNextComment() {
-        // Ocultar el comentario actual
-        comentarios[index].classList.remove('visible');
-        
-        // Calcular el próximo índice
-        index = (index + 1) % comentarios.length;
-        
-        // Mostrar el próximo comentario
-        comentarios[index].classList.add('visible');
-    }
-
-    // Inicializar el primer comentario como visible
-    comentarios[index].classList.add('visible');
-
-    // Cambiar el comentario cada 3 segundos
-    setInterval(showNextComment, 3000);
-});
-
 
 
 //detecto el scrolling para aplicar la animacion de la barra de habilidades
