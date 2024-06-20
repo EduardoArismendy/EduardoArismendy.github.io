@@ -22,14 +22,18 @@ body {
     max-width: 800px;
     margin: 0 auto;
     position: relative;
+    transition: transform 0.5s ease;
 }
 
 .comentario {
     flex: 0 0 100%;
-    display: flex;
+    display: none; /* Ocultar todos los comentarios por defecto */
     flex-direction: column;
     align-items: center;
-    transition: transform 0.5s ease;
+}
+
+.comentario.visible {
+    display: flex; /* Mostrar solo el comentario visible */
 }
 
 .foto-cliente {
