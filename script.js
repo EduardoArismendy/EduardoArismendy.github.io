@@ -53,8 +53,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inicializar el primer comentario como visible
     comentarios[index].classList.add('visible');
 
-    // Cambiar el comentario cada 2 segundos
-    setInterval(showNextComment, 2000);
+    // Cambiar el comentario cada 3 segundos
+    setInterval(showNextComment, 3000);
 });
 
 
