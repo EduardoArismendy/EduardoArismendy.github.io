@@ -17,23 +17,23 @@ body {
 }
 
 .carrusel {
-    display: flex;
-    overflow: hidden;
+    position: relative;
     max-width: 800px;
     margin: 0 auto;
-    position: relative;
-    transition: transform 0.5s ease;
+    overflow: hidden;
 }
 
 .comentario {
-    flex: 0 0 100%;
-    display: none; /* Ocultar todos los comentarios por defecto */
+    display: none;
     flex-direction: column;
     align-items: center;
+    transition: opacity 0.5s ease-in-out;
+    opacity: 0;
 }
 
 .comentario.visible {
-    display: flex; /* Mostrar solo el comentario visible */
+    display: flex;
+    opacity: 1;
 }
 
 .foto-cliente {
@@ -43,6 +43,7 @@ body {
     object-fit: cover;
     margin-bottom: 20px;
 }
+
 
 
 .proyecto-enlace {
