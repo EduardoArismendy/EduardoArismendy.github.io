@@ -40,18 +40,23 @@ document.addEventListener('DOMContentLoaded', function () {
     let index = 0;
 
     function showNextComment() {
-        comentarios[index].style.transform = 'translateX(-100%)';
+        // Ocultar el comentario actual
+        comentarios[index].classList.remove('visible');
+        
+        // Calcular el próximo índice
         index = (index + 1) % comentarios.length;
-        comentarios[index].style.transform = 'translateX(0)';
+        
+        // Mostrar el próximo comentario
+        comentarios[index].classList.add('visible');
     }
 
+    // Inicializar el primer comentario como visible
+    comentarios[index].classList.add('visible');
+
+    // Cambiar el comentario cada 2 segundos
     setInterval(showNextComment, 2000);
-
-    // Initial positioning
-    for (let i = 1; i < comentarios.length; i++) {
-        comentarios[i].style.transform = 'translateX(100%)';
-    }
 });
+
 
 
 //detecto el scrolling para aplicar la animacion de la barra de habilidades
