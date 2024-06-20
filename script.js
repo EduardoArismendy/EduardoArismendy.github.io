@@ -34,6 +34,25 @@ function efectoHabilidades(){
     }
 }
 
+document.addEventListener('DOMContentLoaded', function () {
+    const carrusel = document.getElementById('carrusel');
+    const comentarios = carrusel.getElementsByClassName('comentario');
+    let index = 0;
+
+    function showNextComment() {
+        comentarios[index].style.transform = 'translateX(-100%)';
+        index = (index + 1) % comentarios.length;
+        comentarios[index].style.transform = 'translateX(0)';
+    }
+
+    setInterval(showNextComment, 2000);
+
+    // Initial positioning
+    for (let i = 1; i < comentarios.length; i++) {
+        comentarios[i].style.transform = 'translateX(100%)';
+    }
+});
+
 
 //detecto el scrolling para aplicar la animacion de la barra de habilidades
 window.onscroll = function(){
