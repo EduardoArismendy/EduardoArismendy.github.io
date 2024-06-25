@@ -5,12 +5,19 @@
     text-align: center; /* Centra el contenido dentro de la sección */
 }
 
+.video-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .video-container video {
-    width: 80%; /* Ajusta el ancho del video al 80% del contenedor */
-    max-width: 800px; /* Establece un ancho máximo para el video */
+    width: 90%; /* Ajusta el ancho del video al 90% del contenedor */
+    max-width: 1200px; /* Establece un ancho máximo para el video */
     border: 2px solid #000; /* Añade un borde al video */
     border-radius: 10px; /* Bordes redondeados */
 }
+
 
 
 .proyecto-enlace {
