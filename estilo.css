@@ -1,7 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
 
+.video {
+    margin: 40px 0; /* Ajusta la margen superior e inferior */
+    text-align: center; /* Centra el contenido dentro de la sección */
+}
 
-
+.video-container video {
+    width: 80%; /* Ajusta el ancho del video al 80% del contenedor */
+    max-width: 800px; /* Establece un ancho máximo para el video */
+    border: 2px solid #000; /* Añade un borde al video */
+    border-radius: 10px; /* Bordes redondeados */
+}
 
 
 .proyecto-enlace {
