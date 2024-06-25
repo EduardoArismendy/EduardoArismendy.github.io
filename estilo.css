@@ -1,8 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
 
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    margin: 0;
+    padding: 0;
+}
+
 .video {
-    margin: 40px 0; /* Ajusta la margen superior e inferior */
-    text-align: center; /* Centra el contenido dentro de la sección */
+    margin: 0;
+    padding: 0;
+    text-align: center;
 }
 
 .video-container {
@@ -12,10 +23,10 @@
 }
 
 .video-container video {
-    width: 90%; /* Ajusta el ancho del video al 90% del contenedor */
-    max-width: 1200px; /* Establece un ancho máximo para el video */
-    border: 2px solid #000; /* Añade un borde al video */
-    border-radius: 10px; /* Bordes redondeados */
+    width: 100%; /* Ajusta el ancho del video al 100% del contenedor */
+    max-width: 100%; /* Asegura que el video no exceda el ancho del contenedor */
+    border: none; /* Elimina el borde */
+    border-radius: 0; /* Elimina los bordes redondeados */
 }
 
 
