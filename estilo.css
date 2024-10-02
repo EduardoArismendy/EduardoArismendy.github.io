@@ -1,5 +1,160 @@
 @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Work+Sans:wght@100;300;400;600;800&display=swap');
 
+/* General Styles */
+body {
+    font-family: 'Work Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+/* Article Styles */
+.article {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.article.active {
+    display: block;
+}
+
+.article-title {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.article-content {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Control Buttons */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.control-btn {
+    background-color: #1CB698; /* Ajustado a tu paleta de colores */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.control-btn:hover {
+    background-color: #16a085;
+}
+
+.control-btn:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Comments Section */
+.comments-section {
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.comment-form {
+    margin-bottom: 30px;
+}
+
+.comment-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.comment-form button {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+.comment-form button:hover {
+    background-color: #27ae60;
+}
+
+.comment {
+    background-color: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.comment-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.comment-date {
+    font-size: 0.8em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+#moreCommentsBtn {
+    display: block;
+    margin: 20px auto;
+    background-color: #1CB698; /* Ajustado a tu paleta de colores */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+#moreCommentsBtn:hover {
+    background-color: #16a085;
+}
+
+.hidden-comments {
+    display: none;
+}
+
+/* final css de Pensamientos */
+
 body, html {
     margin: 0;
     padding: 0;
