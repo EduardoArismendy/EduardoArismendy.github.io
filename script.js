@@ -46,7 +46,7 @@ window.onscroll = function(){
 const pensamientos = [
   {
     title: "El Valor del Silencio",
-    content: "En un mundo lleno de ruido, el silencio se ha convertido en un lujo..."
+    content: "En un mundo lleno de ruido, el silencio se ha convertido en un lujo. Sin embargo, es en esos momentos de quietud cuando encontramos las respuestas más profundas. El silencio nos permite escuchar nuestra voz interior, esa sabiduría innata que a menudo queda ahogada por el bullicio de la vida cotidiana. Cultivar el hábito de buscar momentos de silencio puede transformar nuestra perspectiva y enriquecer nuestra existencia de maneras insospechadas."
   },
   // (otros pensamientos)
     {
