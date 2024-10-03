@@ -68,7 +68,7 @@
 
 /* Encapsulated Styles for Comentarios */
 .comentarios-container {
-    max-width: 700px; /* Ajusta el ancho máximo de la tarjeta */
+    max-width: 800px; /* Ajusta el ancho máximo de la tarjeta */
     margin: 50px auto; /* Centra la tarjeta en la página */
     padding: 30px; /* Añade un poco de espacio interno */
     background-color: #fff; /* Color de fondo blanco para la tarjeta */
