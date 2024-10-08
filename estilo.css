@@ -228,7 +228,7 @@ html{
 .contenedor-header header .logo a{
     font-family: 'Righteous';
     font-size: 36px;
-    color: #6f2628;
+    color: #4e7779;
     text-decoration: none;
 }
 .contenedor-header header ul{
@@ -244,10 +244,10 @@ html{
     text-decoration: none;
 }
 .contenedor-header header nav ul li a:hover{
-    color: #6f2628;
+    color: #4e7779;
 }
 .nav-responsive{
-    background-color: #3498db;
+    background-color: #4e7779;
     color:#fff;
     padding: 5px 10px;
     border-radius: 5px;
@@ -275,7 +275,7 @@ html{
 }
 .inicio .contenido-banner img{
     margin-top: 40px;
-    border: 10px solid #6f2628;
+    border: 10px solid #4e7779;
     display: block;
     width: 80%;
     margin: auto;
