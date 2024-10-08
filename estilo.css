@@ -275,7 +275,7 @@ html{
 }
 .inicio .contenido-banner img{
     margin-top: 40px;
-    border: 10px solid #1CB698;
+    border: 10px solid #3498db;
     display: block;
     width: 80%;
     margin: auto;
@@ -351,7 +351,7 @@ html{
 }
 .sobremi .fila .col ul li strong{
     display: inline-block;
-    color: #1CB698;
+    color: #3498db;
     width: 130px;
 }
 .sobremi .fila .col ul li span{
@@ -401,7 +401,7 @@ html{
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #1CB698;
+    background-color: #3498db;
     z-index: -1;
     transition: 1s;
 }
