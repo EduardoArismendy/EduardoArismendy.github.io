@@ -228,7 +228,7 @@ html{
 .contenedor-header header .logo a{
     font-family: 'Righteous';
     font-size: 36px;
-    color: #2D3E4F;
+    color: #6f2628;
     text-decoration: none;
 }
 .contenedor-header header ul{
@@ -244,7 +244,7 @@ html{
     text-decoration: none;
 }
 .contenedor-header header nav ul li a:hover{
-    color: #3498db;
+    color: #6f2628;
 }
 .nav-responsive{
     background-color: #3498db;
@@ -275,7 +275,7 @@ html{
 }
 .inicio .contenido-banner img{
     margin-top: 40px;
-    border: 10px solid #2D3E4F;
+    border: 10px solid #6f2628;
     display: block;
     width: 80%;
     margin: auto;
