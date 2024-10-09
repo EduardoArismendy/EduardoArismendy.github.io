@@ -512,7 +512,7 @@ html{
     margin-bottom: 30px;
 }
 .skills .skill .progreso{
-    background-color: #1CB698;
+    background-color: #4e7779;
     position: absolute;
     top: 0;
     left: 0;
@@ -522,7 +522,7 @@ html{
     position: absolute;
     height: 40px;
     width: 40px;
-    background-color: #1CB698;
+    background-color: #4e7779;
     border-radius: 50px;
     line-height: 40px;
     text-align: center;
