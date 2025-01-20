@@ -9,6 +9,8 @@
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 2;
 }
 
 
@@ -74,6 +76,8 @@
     background-color: #fff; /* Color de fondo blanco para la tarjeta */
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para la tarjeta */
+    position: relative;
+    z-index: 2;
 }
 
 .comentarios-container .comment-form {
