@@ -892,8 +892,10 @@ body {
   color: var(--text-color);
   min-height: 100vh;
   position: relative;
-  overflow-x: hidden;
+  overflow-x: hidden; /* Se mantiene para evitar desplazamiento horizontal no deseado */
+  overflow-y: auto; /* Asegura que el scroll vertical esté habilitado */
 }
+
 
 .floating-background {
   position: fixed;
