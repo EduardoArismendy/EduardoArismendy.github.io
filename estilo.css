@@ -655,7 +655,7 @@ html{
     color: #fff;
     padding: 50px 20px;
     position: relative;
-    z-index: 2;
+    
 }
 .curriculum .contenido-seccion{
     max-width: 1100px;
@@ -764,10 +764,14 @@ html{
     background-color: #252A2E;
     color: #fff;
     padding: 50px 20px;
+    position: relative;
+    
 }
 .portfolio .contenido-seccion{
     max-width: 1100px;
     margin: auto;
+    position: relative;
+    z-index: 2;
 }
 .portfolio h2{
     font-size: 48px;
