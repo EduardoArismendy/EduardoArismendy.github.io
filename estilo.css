@@ -257,7 +257,7 @@ html{
 }
 /* SECCION I N I C I O */
 .inicio{
-    background: linear-gradient(to top, rgba(30,35,38,.8), rgba(30,35,38,1)),
+    background: none,
     url(fondo.jpg);
     background-size: cover;
     height: 100vh;
@@ -265,6 +265,9 @@ html{
     display: flex;
     align-items: center;
     margin-top: 60px;
+    overflow: hidden;
+    position: relative;
+    
 }
 .inicio .contenido-banner{
     padding: 20px;
@@ -273,6 +276,8 @@ html{
     margin: auto;
     text-align: center;
     border-radius: 40px;
+    position: relative;
+    z-index: 2;
 }
 .inicio .contenido-banner img{
     margin-top: 40px;
@@ -984,7 +989,7 @@ footer .arriba{
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  z-index: 1;
   overflow: hidden;
 }
 
