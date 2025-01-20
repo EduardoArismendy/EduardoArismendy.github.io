@@ -225,7 +225,7 @@ html{
 /* MENU */
 .contenedor-header{
     background: #1e2326;
-    position: relative;
+    position: fixed;
     width: 100%;
     top: 0;
     left: 0;
