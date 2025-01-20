@@ -826,10 +826,14 @@ html{
     background-color: #1e2326;
     color: #fff;
     padding: 50px 0;
+    position: relative;
+   
 }
 .contacto .contenido-seccion{
     max-width: 1100px;
     margin: auto;
+    position: relative;
+    z-index: 2;
 }
 .contacto h2{
     font-size: 48px;
@@ -914,6 +918,8 @@ footer{
 }
 footer .redes{
     margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
 }
 footer .redes a{
     color: #fff;
