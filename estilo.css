@@ -167,6 +167,8 @@ section {
     width: 100%;
     display: flex;
     justify-content: center;
+    position: relative;
+    z-index: 2;
 }
 
 .video-container video {
@@ -174,8 +176,7 @@ section {
     max-width: 100%; /* Asegura que el video no exceda el ancho del contenedor */
     border: none; /* Elimina el borde */
     border-radius: 0; /* Elimina los bordes redondeados */
-    position: relative;
-    z-index: 2;
+    
 }
 
 
