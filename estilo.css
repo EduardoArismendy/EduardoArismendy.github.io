@@ -327,6 +327,7 @@ html{
     color: #fff;
     padding: 50px 20px;
     position: relative; 
+    z-index: 2;
 }
 .sobremi .contenido-seccion{
     max-width: 1100px;
@@ -434,12 +435,16 @@ html{
 .cursos-udemy {
     padding: 60px 0;
     background-color: #f4f4f4;
+    position: relative;
+    z-index: 2;
 }
 
 .cursos-udemy .contenido-seccion {
     max-width: 1200px;
     margin: 0 auto;
     text-align: center;
+    position: relative;
+    z-index: 2;
 }
 
 .cursos-udemy h2 {
@@ -649,10 +654,14 @@ html{
     background-color: #1e2326;
     color: #fff;
     padding: 50px 20px;
+    position: relative;
+    z-index: 2;
 }
 .curriculum .contenido-seccion{
     max-width: 1100px;
     margin: auto;
+    position: relative;
+    z-index: 2;
 }
 .curriculum h2{
     font-size: 48px;
