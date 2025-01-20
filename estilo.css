@@ -228,6 +228,13 @@ html{
     align-items: center;
     padding: 15px 20px;
 }
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenedor-header {
+        position: relative; /* Aseguramos que se mueva con el contenido */
+    }
+}
 .contenedor-header header .logo a{
     font-family: 'Righteous';
     font-size: 36px;
