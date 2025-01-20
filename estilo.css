@@ -874,6 +874,27 @@ footer .arriba{
 
 /* Fondo proyectos y tecnologías */
 
+:root {
+  --primary-color: #84b6bd;
+  --bg-color: #1a2225;
+  --text-color: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
 .floating-background {
   position: fixed;
   top: 0;
