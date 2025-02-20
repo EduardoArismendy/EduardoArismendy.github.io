@@ -873,7 +873,7 @@ footer .arriba{
     }
 }
 
-/* Fondo proyectos y tecnologías */
+/* Fondo proyectos y tecnologías 
 
 :root {
   --primary-color: #84b6bd;
@@ -1223,5 +1223,5 @@ body {
 
     opacity: 1;
     transform: translate(-50%, -50%);
-  }
+  }*/
 }
