@@ -576,7 +576,16 @@ window.addEventListener('resize', () => {
 
    
 // Función para expandir o contraer la descripción del curso
-    function toggleDescripcion(id) {
+  /*  function toggleDescripcion(id) {
         var descripcion = document.getElementById(id);
         descripcion.classList.toggle('expandido');
-    }
+    }*/
+
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".descripcion-curso").forEach(function(parrafo) {
+        parrafo.addEventListener("click", function() {
+            this.classList.toggle("expandido");
+        });
+    });
+});
+
