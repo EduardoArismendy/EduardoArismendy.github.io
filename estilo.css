@@ -1225,3 +1225,29 @@ body {
     transform: translate(-50%, -50%);
   }*/
 }
+
+ /*Udemy*/
+   
+    .overlay-curso p {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+    }
+
+    .overlay-curso p.expandido {
+        white-space: normal; /* Cambia el estilo para mostrar todo el texto */
+    }
+
+    .curso img {
+        cursor: pointer; /* Cambia el cursor para indicar que es interactivo */
+    }
+       
+    .cursos-udemy h2 {
+    color: white;
+}
+
+
+
+    
+
