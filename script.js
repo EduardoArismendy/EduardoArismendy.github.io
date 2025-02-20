@@ -44,7 +44,7 @@ window.onscroll = function(){
 
 //Fondo con proyectos y tecnologías
 // Updated tech stack focused on mobile development and common tools
-const techStack = [
+/*const techStack = [
   // Mobile Development
   { name: 'React Native', icon: '<i class="fab fa-react"></i>' },
   { name: 'Flutter', icon: '<i class="fas fa-mobile-alt"></i>' },
@@ -511,7 +511,7 @@ document.addEventListener('mousemove', (e) => {
   });
 });
 
-function animateBackground() {
+/*function animateBackground() {
   const background = document.querySelector('.floating-background');
   background.innerHTML = '';
   
@@ -572,4 +572,11 @@ let resizeTimeout;
 window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout);
   resizeTimeout = setTimeout(animateBackground, 300);
-});
+});*/
+
+   
+// Función para expandir o contraer la descripción del curso
+    function toggleDescripcion(id) {
+        var descripcion = document.getElementById(id);
+        descripcion.classList.toggle('expandido');
+    }
