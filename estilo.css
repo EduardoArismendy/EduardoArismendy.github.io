@@ -135,7 +135,7 @@ html{
 }
 .inicio .contenido-banner{
     padding: 20px;
-    background-color: #1e2326;
+    background-color: #FAF3E0;
     max-width: 350px;
     margin: auto;
     text-align: center;
@@ -145,7 +145,7 @@ html{
 }
 .inicio .contenido-banner img{
     margin-top: 40px;
-    border: 10px solid #4e7779;
+    border: 10px solid #8B8580;
     display: block;
     width: 80%;
     margin: auto;
