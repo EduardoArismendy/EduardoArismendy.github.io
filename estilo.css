@@ -616,8 +616,8 @@ html{
 }
 /* SECCION PORTFOLIO */
 .portfolio{
-    background-color: #252A2E;
-    color: #fff;
+    background-color: #2c2c2c;
+    color: #d0d0d0;
     padding: 50px 20px;
     position: relative;
     
@@ -678,7 +678,7 @@ html{
 /* SECCION CONTACTO */
 .contacto{
     background-image: url(contact_bg.png);
-    background-color: #1e2326;
+    background-color: #252A2E;
     color: #fff;
     padding: 50px 0;
     position: relative;
@@ -710,8 +710,8 @@ html{
     padding: 18px;
     border: none;
     margin-bottom: 20px;
-    background-color: #252A2E;
-    color: #fff;
+    background-color: #2c2c2c;
+    color: #d0d0d0;
     font-size: 18px;
 }
 .contacto button{
@@ -746,7 +746,7 @@ html{
 .contacto .col .info{
     position: absolute;
     top: 40%;
-    background-color: #252A2E;
+    background-color: #2c2c2c;
     padding: 20px;
     max-swidth: 350px;
     left: 50%;
@@ -764,8 +764,8 @@ html{
     margin-right: 20px;
 }
 footer{
-    background-color: #252A2E;
-    color: #fff;
+    background-color: #2c2c2c;
+    color: #d0d0d0;
     padding: 50px 0 30px 0;
     text-align: center;
     position: relative;
@@ -777,7 +777,7 @@ footer .redes{
     z-index: 2;
 }
 footer .redes a{
-    color: #fff;
+    color: #d0d0d0;
     display: inline-block;
     text-decoration: none;
     border: 1px solid #fff;
