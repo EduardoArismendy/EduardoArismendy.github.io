@@ -202,7 +202,7 @@ html{
     margin-bottom: 20px;
 }
 .sobremi .contenido-seccion p span{
-    color: #4e7779;
+    color: #a0a0a0;
     font-weight: bold;
 }
 .sobremi .fila{
@@ -225,11 +225,11 @@ html{
 }
 .sobremi .fila .col ul li strong{
     display: inline-block;
-    color: #4e7779;
+    color: #a0a0a0;
     width: 130px;
 }
 .sobremi .fila .col ul li span{
-    background-color: #1CB698;
+    background-color: #777777;
     padding: 3px;
     font-weight: bold;
     border-radius: 5px;
@@ -241,7 +241,7 @@ html{
 .sobremi .fila .col .contenedor-intereses .interes{
     width: 100px;
     height: 100px;
-    background-color: #252A2E;
+    background-color: #444444;
     border-radius: 10px;
     margin: 0 15px 15px 0;
     display: flex;
@@ -250,7 +250,7 @@ html{
     justify-content: center;
     transition: .3s;
 }.sobremi .fila .col .contenedor-intereses .interes:hover{
-    background-color: #4e7779;
+    background-color: #777777;
 }
 .sobremi .fila .col .contenedor-intereses .interes i{
     font-size: 30px;
@@ -275,7 +275,7 @@ html{
     left: 0;
     width: 0;
     height: 100%;
-    background-color: #4e7779;
+    background-color:  #777777;
     z-index: -1;
     transition: 1s;
 }
