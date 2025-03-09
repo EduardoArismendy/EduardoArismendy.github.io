@@ -582,10 +582,12 @@ window.addEventListener('resize', () => {
     }*/
 
 document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll(".descripcion-curso").forEach(function(parrafo) {
+    // Selecciona todas las descripciones y agrega el evento de clic
+    document.querySelectorAll(".overlay-curso p").forEach(function(parrafo) {
         parrafo.addEventListener("click", function() {
-            this.classList.toggle("expandido");
+            this.classList.toggle("expandido"); // Alterna la clase expandido
         });
     });
 });
+
 
