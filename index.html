@@ -1,0 +1,472 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="theme-toggle">
+            <span class="material-symbols-rounded">light_mode</span>
+        </div>
+        <nav>
+            <div class="logo-container">
+                <a href="#home" class="logoImage">
+                    <img src="/hero2.png" alt="Logo" style="height: 30px;">
+                </a>
+                <div class="logo">Portfolio<span>Web</span></div>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="active">Home</a>
+                <a href="#about">About me</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span class="material-symbols-rounded">menu</span>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="glowing-title">Mobile Application <span>Developer</span></h1>
+            <p>From idea to app — elegant, efficient, cross-platform.</p>
+            <div class="cta-buttons">
+                <a href="#projects" class="btn primary-btn">View Projects</a>
+                <a href="#contact" class="btn secondary-btn">Contact</a>
+            </div>
+            
+        </div>
+
+        
+
+        <div class="hero-image">
+            <div class="profile-frame">
+                <img src="/hero2.png" alt="Perfil profesional">
+            </div>
+
+            <div class="redes">
+                <a href="https://www.facebook.com/eduardoarismendyeddy/"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/__eddy_tk"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/eduardo-arismendy-75a597187/"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/channel/UCqz_xO1zr1QoJdejsZ2GKqg"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.tiktok.com/@_eddy_tk"><i class="fab fa-tiktok"></i></a>
+                <a href="https://github.com/EduardoArismendy"><i class="fab fa-github"></i></a>
+                <a href="https://www.udemy.com/user/dubier-eduardo-montoya-arismendy/"><img src="udemy_logo.png" alt="Udemy" style="width: 40px;"></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="section-header">
+            <h2>About <span>me</span></h2>
+            <div class="divider"></div>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I’m a Mobile Application Developer with experience building functional, user-centered solutions. I primarily work with Kotlin for Android and React Native, allowing me to develop cross-platform apps for Android and iOS.
+
+                    I specialize in clean UI design, efficient architecture, and seamless integration with services like Firebase. I'm currently expanding my skills with Swift to build fully native iOS experiences.</p>
+                <p>I bring together strong technical knowledge with a strategic mindset to create high-impact digital products.</p>
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Completed Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">Trusted by Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Years of Experience</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects">
+        <div class="section-header">
+            <h2>Mis <span>Proyects</span></h2>
+            <div class="divider"></div>
+        </div>
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Websites</button>
+            <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+            <button class="filter-btn" data-filter="app">Restaurant</button>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card" data-category="web">
+                <div class="project-img">
+                    <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="150" fill="#8a2be2" />
+                        <circle cx="100" cy="75" r="50" fill="#ff69b4" />
+                        <rect x="75" y="50" width="50" height="50" fill="#00bfff" />
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <h3>Sitio Web Corporativo</h3>
+                    <p>Diseño y desarrollo de sitio web responsivo para empresa de tecnología</p>
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <a href="#" class="view-project">Ver proyecto</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="ecommerce">
+                <div class="project-img">
+                    <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="150" fill="#ff6347" />
+                        <path d="M50,50 L150,50 L150,100 L50,100 Z" fill="#4682b4" />
+                        <circle cx="75" cy="75" r="20" fill="#32cd32" />
+                        <circle cx="125" cy="75" r="20" fill="#ffd700" />
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <h3>Tienda Online de Moda</h3>
+                    <p>E-commerce completo con carrito de compras y pasarela de pagos</p>
+                    <div class="project-tags">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+                    </div>
+                    <a href="#" class="view-project">Ver proyecto</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="app">
+                <div class="project-img">
+                    <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="150" fill="#20b2aa" />
+                        <rect x="40" y="30" width="120" height="90" rx="15" fill="#ffe4e1" />
+                        <circle cx="70" cy="60" r="15" fill="#ff69b4" />
+                        <circle cx="130" cy="60" r="15" fill="#ff69b4" />
+                        <path d="M70,100 Q100,130 130,100" stroke="#ff69b4" stroke-width="5" fill="none" />
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <h3>App de Gestión Personal</h3>
+                    <p>Aplicación web para gestión de tareas y organización personal</p>
+                    <div class="project-tags">
+                        <span>Vue.js</span>
+                        <span>Firebase</span>
+                        <span>Tailwind</span>
+                    </div>
+                    <a href="#" class="view-project">Ver proyecto</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="web">
+                <div class="project-img">
+                    <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="150" fill="#4169e1" />
+                        <polygon points="100,30 150,75 100,120 50,75" fill="#ff8c00" />
+                        <circle cx="100" cy="75" r="25" fill="#ffffff" />
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <h3>Portal Educativo</h3>
+                    <p>Plataforma de cursos online con sistema de gestión de aprendizaje</p>
+                    <div class="project-tags">
+                        <span>Django</span>
+                        <span>PostgreSQL</span>
+                        <span>Bootstrap</span>
+                    </div>
+                    <a href="#" class="view-project">Ver proyecto</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="ecommerce">
+                <div class="project-img">
+                    <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="150" fill="#9370db" />
+                        <rect x="50" y="50" width="100" height="50" fill="#7fffd4" />
+                        <circle cx="75" cy="75" r="15" fill="#ff4500" />
+                        <circle cx="125" cy="75" r="15" fill="#ff4500" />
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <h3>Marketplace de Productos Artesanales</h3>
+                    <p>Plataforma para conectar artesanos con compradores</p>
+                    <div class="project-tags">
+                        <span>Next.js</span>
+                        <span>Strapi</span>
+                        <span>Stripe</span>
+                    </div>
+                    <a href="#" class="view-project">Ver proyecto</a>
+                </div>
+            </div>
+
+            <div class="project-card" data-category="app">
+                <div class="project-img">
+                    <svg viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="200" height="150" fill="#ff6b6b" />
+                        <rect x="40" y="40" width="120" height="70" rx="10" fill="#4ecdc4" />
+                        <circle cx="80" cy="75" r="20" fill="#ffe66d" />
+                        <circle cx="120" cy="75" r="20" fill="#ffe66d" />
+                    </svg>
+                </div>
+                <div class="project-info">
+                    <h3>App de Finanzas Personales</h3>
+                    <p>Aplicación para seguimiento y gestión de gastos personales</p>
+                    <div class="project-tags">
+                        <span>React Native</span>
+                        <span>GraphQL</span>
+                        <span>AWS</span>
+                    </div>
+                    <a href="#" class="view-project">Ver proyecto</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <div class="section-header">
+            <h2>My <span>Skills</span></h2>
+            <div class="divider"></div>
+        </div>
+        <div class="skills-container">
+    
+            <!-- Habilidad 1 -->
+            <div class="skill-category">
+                <h3>Cross-platform mobile development (Kotlin & React Native)</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>Kotlin</h4>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-react"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>React Native</h4>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>   
+    
+            <!-- Habilidad 3 -->
+            <div class="skill-category">
+                <h3>Cloud integration with Firebase</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>Firebase</h4>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Habilidad 4 -->
+            <div class="skill-category">
+                <h3>REST API consumption and management</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>APIs REST</h4>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Habilidad 5 -->
+            <div class="skill-category">
+                <h3>Version control with Git and GitHub</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fab fa-git-alt"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>Git & GitHub</h4>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Habilidad 6 -->
+            <div class="skill-category">
+                <h3>Performance optimization and clean code practices</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>Código limpio y optimización</h4>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 87%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <!-- Habilidad 7 -->
+            <div class="skill-category">
+                <h3>Continuous learning and adaptation (Swift, AI, etc.)</h3>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <div class="skill-info">
+                            <h4>Aprendizaje continuo</h4>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+        </div>
+    </section>
+    
+
+    <section id="contact" class="contact">
+        <div class="section-header">
+            <h2>Get in <span>Touch</span></h2>
+            <div class="divider"></div>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-detail">
+                    <div class="icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="info">
+                        <h3>Email</h3>
+                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="ceada1a0baafadbaa18ea3a7bea1bcbaa8a1a2a7a1e0ada1a3">[email&#160;protected]</a></p>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="info">
+                        <h3>Teléfono</h3>
+                        <p>+34 123 456 789</p>
+                    </div>
+                </div>
+                <div class="contact-detail">
+                    <div class="icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="info">
+                        <h3>Ubicación</h3>
+                        <p>Madrid, España</p>
+                    </div>
+                </div>
+                <div class="redes">
+                    <a href="https://github.com/eduardoarismendy" class="social-icon"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/__eddy_tk" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/eduardo-arismendy-75a597187/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+            </div>
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder="Topic" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" placeholder="Message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="logo">Portfolio<span>Web</span></div>
+            <p>From idea to app — elegant, efficient, cross-platform.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#about">About me</a>
+                <a href="#projects">Proyects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Mi Portfolio Web. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+    <script>
+        // Función para enviar el mensaje
+        function enviarMensaje(event) {
+            // Prevenir el envío tradicional del formulario
+            event.preventDefault();
+    
+            // Obtener los valores de los campos del formulario
+            var nombre = document.getElementById("name").value;
+            var correo = document.getElementById("email").value;
+            var tema = document.getElementById("subject").value;
+            var mensaje = document.getElementById("message").value;
+    
+            // Construir el cuerpo del correo electrónico
+            var cuerpoCorreo = "Name: " + nombre + "\n";
+            cuerpoCorreo += "Email: " + correo + "\n";
+            cuerpoCorreo += "Subject: " + tema + "\n";
+            cuerpoCorreo += "Message: " + mensaje;
+    
+            // Redirigir al cliente de correo
+            window.location.href = "mailto:p73306275@gmail.com?subject=" + encodeURIComponent(tema) + "&body=" + encodeURIComponent(cuerpoCorreo);
+        }
+    
+        // Agregar el listener al botón del formulario una vez que se cargue la página
+        window.onload = function () {
+            var form = document.querySelector(".contact-form form");
+            form.addEventListener("submit", enviarMensaje);
+        };
+    </script>
+    
+</body>
+</html>
