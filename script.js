@@ -239,7 +239,14 @@ const projectData = {
     }
   };
   
-  
+  function convertToEmbedUrl(url) {
+    const regex = /(?:\?v=|\.be\/)([^&]+)/;
+    const match = url.match(regex);
+    if (match && match[1]) {
+      return `https://www.youtube.com/embed/${match[1]}`;
+    }
+    return url; // si ya es embed o no se reconoce, lo deja igual
+  }
 
   function createProjectCard(project) {
     const card = document.createElement("div");
@@ -266,20 +273,22 @@ const projectData = {
     modal.id = "dynamic-modal";
     modal.classList.add("modal-overlay");
   
-    modal.innerHTML = `
-      <div class="modal-content">
-        <span class="close-btn">&times;</span>
-        <h3>${data.title}</h3>
-        <p>${data.description}</p>
-        <div class="modal-video">
-          <iframe width="100%" height="315" src="${data.video}" frameborder="0" allowfullscreen></iframe>
-        </div>
-        <div class="project-tags">
-          ${data.techs.map(tech => `<span>${tech}</span>`).join("")}
-        </div>
-        <a class="modal-github-btn" href="${data.github}" target="_blank">Ver en GitHub</a>
+    const embedUrl = convertToEmbedUrl(data.video);
+
+   modal.innerHTML = `
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3>${data.title}</h3>
+      <p>${data.description}</p>
+      <div class="modal-video">
+        <iframe width="100%" height="315" src="${embedUrl}" frameborder="0" allowfullscreen></iframe>
       </div>
-    `;
+      <div class="project-tags">
+        ${data.techs.map(tech => `<span>${tech}</span>`).join("")}
+      </div>
+      <a class="modal-github-btn" href="${data.github}" target="_blank">Ver en GitHub</a>
+    </div>
+  `;
   
     document.body.appendChild(modal);
   
