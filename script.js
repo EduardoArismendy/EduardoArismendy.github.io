@@ -223,7 +223,7 @@ const projectData = {
       title: "Sitio Web Corporativo",
       description: "Diseño y desarrollo de sitio web responsivo para empresa de tecnología.",
       image: "/proyecto1.png",
-      video: "https://www.youtube.com/embed/VIDEO_ID1",
+      video: "https://www.youtube.com/watch?v=yvmkSxqpJiU&list=PLs7dIzjAtz5frEshl6yjP1PItw-JZxpZU",
       techs: ["HTML", "CSS", "JavaScript"],
       github: "https://github.com/usuario/proyecto1",
       category: "web"
@@ -232,7 +232,7 @@ const projectData = {
       title: "Tienda Online de Moda",
       description: "E-commerce completo con carrito de compras y pasarela de pagos.",
       image: "/proyecto2.png",
-      video: "https://www.youtube.com/embed/VIDEO_ID2",
+      video: "https://www.youtube.com/watch?v=yvmkSxqpJiU&list=PLs7dIzjAtz5frEshl6yjP1PItw-JZxpZU",
       techs: ["React", "Node.js", "MongoDB"],
       github: "https://github.com/usuario/proyecto2",
       category: "ecommerce"
