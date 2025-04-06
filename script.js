@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Project filters
+   /* // Project filters
     const filterBtns = document.querySelectorAll('.filter-btn');
     const projectCards = document.querySelectorAll('.project-card');
     
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
-    });
+    });*/
 
     // Smooth scrolling for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -214,3 +214,118 @@ document.addEventListener('DOMContentLoaded', function() {
     animateOnScroll();
 });
 
+//Cambios posteriores
+
+// Tarjetas emergentes de los proyectos con la data
+
+const projectData = {
+    "Sitio Web Corporativo": {
+      title: "Sitio Web Corporativo",
+      description: "Diseño y desarrollo de sitio web responsivo para empresa de tecnología.",
+      image: "/proyecto1.png",
+      video: "https://www.youtube.com/embed/VIDEO_ID1",
+      techs: ["HTML", "CSS", "JavaScript"],
+      github: "https://github.com/usuario/proyecto1",
+      category: "web"
+    },
+    "Tienda Online de Moda": {
+      title: "Tienda Online de Moda",
+      description: "E-commerce completo con carrito de compras y pasarela de pagos.",
+      image: "/proyecto2.png",
+      video: "https://www.youtube.com/embed/VIDEO_ID2",
+      techs: ["React", "Node.js", "MongoDB"],
+      github: "https://github.com/usuario/proyecto2",
+      category: "ecommerce"
+    }
+  };
+  
+  
+
+  function createProjectCard(project) {
+    const card = document.createElement("div");
+    card.className = `project-card ${project.category}`; // importante para filtro
+  
+    card.innerHTML = `
+      <div class="project-img">
+        <img src="${project.image}" alt="${project.title}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
+      </div>
+      <div class="project-info">
+        <h3>${project.title}</h3>
+        <p>${project.description}</p>
+        <div class="project-tags">
+          ${project.techs.map(tech => `<span>${tech}</span>`).join("")}
+        </div>
+        <a href="#" class="view-project" data-project="${project.title}">Ver proyecto</a>
+      </div>
+    `;
+    return card;
+  }
+  
+  function createModal(data) {
+    const modal = document.createElement("div");
+    modal.id = "dynamic-modal";
+    modal.classList.add("modal-overlay");
+  
+    modal.innerHTML = `
+      <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        <h3>${data.title}</h3>
+        <p>${data.description}</p>
+        <div class="modal-video">
+          <iframe width="100%" height="315" src="${data.video}" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="project-tags">
+          ${data.techs.map(tech => `<span>${tech}</span>`).join("")}
+        </div>
+        <a class="modal-github-btn" href="${data.github}" target="_blank">Ver en GitHub</a>
+      </div>
+    `;
+  
+    document.body.appendChild(modal);
+  
+    modal.querySelector(".close-btn").addEventListener("click", () => modal.remove());
+  
+    window.addEventListener("click", (e) => {
+      if (e.target === modal) modal.remove();
+    });
+  }
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.getElementById("projects-container");
+  
+    Object.values(projectData).forEach((project) => {
+      const card = createProjectCard(project);
+      container.appendChild(card);
+    });
+  
+    // Modal
+    container.addEventListener("click", (e) => {
+      if (e.target.classList.contains("view-project")) {
+        e.preventDefault();
+        const projectTitle = e.target.dataset.project;
+        const data = projectData[projectTitle];
+        if (data) createModal(data);
+      }
+    });
+  
+    // Filtro
+    const filterButtons = document.querySelectorAll(".filter-btn");
+  
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+  
+        const filterValue = button.dataset.filter;
+        const cards = document.querySelectorAll(".project-card");
+  
+        cards.forEach(card => {
+          if (filterValue === "all" || card.classList.contains(filterValue)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  });
