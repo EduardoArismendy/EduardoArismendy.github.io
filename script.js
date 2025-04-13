@@ -219,15 +219,16 @@ document.addEventListener('DOMContentLoaded', function() {
 // Tarjetas emergentes de los proyectos con la data
 
 const projectData = {
-    "Sitio Web Corporativo": {
-      title: "Sitio Web Corporativo",
-      description: "Diseño y desarrollo de sitio web responsivo para empresa de tecnología.",
-      image: "/proyecto1.png",
-      video: "https://www.youtube.com/watch?v=yvmkSxqpJiU&list=PLs7dIzjAtz5frEshl6yjP1PItw-JZxpZU",
-      techs: ["HTML", "CSS", "JavaScript"],
-      github: "https://github.com/usuario/proyecto1",
-      category: "web"
+    "BookNest": {
+     title: "BookNest",
+     description: "A simple web app to upload and view books for reading clubs, using Firebase Storage.",
+     image: "/booknest.png",
+     video: "https://www.youtube.com/watch?v=ndFA6WPvNA0",
+     techs: ["HTML", "CSS", "JavaScript", "Firebase"],
+     github: "https://github.com/usuario/booknest",
+     category: "web"
     },
+
     "Tienda Online de Moda": {
       title: "Tienda Online de Moda",
       description: "E-commerce completo con carrito de compras y pasarela de pagos.",
