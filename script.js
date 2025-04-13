@@ -225,7 +225,7 @@ const projectData = {
      image: "/booknest.png",
      video: "https://www.youtube.com/watch?v=ndFA6WPvNA0",
      techs: ["HTML", "CSS", "JavaScript", "Firebase"],
-     github: "https://github.com/usuario/booknest",
+     github: "https://github.com/EduardoArismendy",
      category: "web"
     },
 
