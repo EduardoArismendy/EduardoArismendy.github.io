@@ -263,7 +263,7 @@ const projectData = {
         <div class="project-tags">
           ${project.techs.map(tech => `<span>${tech}</span>`).join("")}
         </div>
-        <a href="#" class="view-project" data-project="${project.title}">Ver proyecto</a>
+        <a href="#" class="view-project" data-project="${project.title}">View project</a>
       </div>
     `;
     return card;
