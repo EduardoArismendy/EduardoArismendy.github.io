@@ -229,9 +229,9 @@ const projectData = {
      category: "web"
     },
 
-    "App compra y venta": {
-      title: "Tienda Online de Moda",
-      description: "E-commerce completo con servicios de google GPS y chat",
+    "Buy and Sell App": {
+      title: "Buy and Sell App",
+      description: "Full E-commerce with Google GPS services and chat",
       image: "/proyecto2.png",
       video: "https://www.youtube.com/watch?v=yvmkSxqpJiU&list=PLs7dIzjAtz5frEshl6yjP1PItw-JZxpZU",
       techs: ["Kotlin", "FireBase"],
