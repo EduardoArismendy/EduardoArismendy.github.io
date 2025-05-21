@@ -229,12 +229,12 @@ const projectData = {
      category: "web"
     },
 
-    "Tienda Online de Moda": {
+    "App compra y venta": {
       title: "Tienda Online de Moda",
-      description: "E-commerce completo con carrito de compras y pasarela de pagos.",
+      description: "E-commerce completo con servicios de google GPS y chat",
       image: "/proyecto2.png",
       video: "https://www.youtube.com/watch?v=yvmkSxqpJiU&list=PLs7dIzjAtz5frEshl6yjP1PItw-JZxpZU",
-      techs: ["React", "Node.js", "MongoDB"],
+      techs: ["Kotlin", "FireBase"],
       github: "https://github.com/usuario/proyecto2",
       category: "ecommerce"
     }
