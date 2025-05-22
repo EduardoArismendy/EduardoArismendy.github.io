@@ -233,7 +233,7 @@ const projectData = {
       title: "Buy and Sell App",
       description: "Full E-commerce with Google GPS services and chat",
       image: "/proyecto2.png",
-      video: "https://www.youtube.com/watch?v=yvmkSxqpJiU&list=PLs7dIzjAtz5frEshl6yjP1PItw-JZxpZU",
+      video: "https://www.youtube.com/watch?v=AYAyY_Z-gAM",
       techs: ["Kotlin", "FireBase"],
       github: "https://github.com/usuario/proyecto2",
       category: "ecommerce"
