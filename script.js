@@ -235,8 +235,8 @@ const projectData = {
   "Buy and Sell App": {
     title: { en: "Buy and Sell App", es: "App de Compra y Venta" },
     description: {
-      en: "Full E-commerce with Google GPS services and chat",
-      es: "E-commerce completo con servicios de GPS de Google y chat"
+      en: "Full E-commerce with Google GPS services and chat (in Development)",
+      es: "E-commerce completo con servicios de GPS de Google y chat (En desarrollo)"
     },
     image: "/proyecto2.png",
     video: "https://www.youtube.com/watch?v=AYAyY_Z-gAM",
