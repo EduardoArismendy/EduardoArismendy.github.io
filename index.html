@@ -2,6 +2,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio profesional de Eduardo Arismendy, desarrollador de apps móviles en Kotlin, React Native y Firebase.">
+    <meta name="keywords" content="Kotlin, React Native, Firebase, desarrollador móvil, portfolio, Eduardo Arismendy">
+    <meta name="author" content="Eduardo Arismendy">
     <title>Portafolio Web</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
@@ -9,9 +12,19 @@
 </head>
 <body>
     <header>
-        <div class="theme-toggle">
-            <span class="material-symbols-rounded">light_mode</span>
+
+       <div class="top-buttons">
+           <div class="language-toggle">
+              <button id="language-toggle" aria-label="Cambiar idioma">
+               🌐
+              </button>
+           </div>
+           <div class="theme-toggle" id="theme-toggle" aria-label="Cambiar tema">
+                 <span class="material-symbols-rounded">light_mode</span>
+           </div>
         </div>
+
+        
         <nav>
             <div class="logo-container">
                 <a href="#home" class="logoImage">
@@ -34,7 +47,7 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1 class="glowing-title">Mobile Application <span>Developer</span></h1>
+            <h1 class="glowing-title">Mobile <span>Developer</span></h1>
             <p>From idea to app — elegant, efficient, cross-platform.</p>
             <div class="cta-buttons">
                 <a href="#projects" class="btn primary-btn">View Projects</a>
@@ -47,7 +60,7 @@
 
         <div class="hero-image">
             <div class="profile-frame">
-                <img src="/hero2.png" alt="Perfil profesional">    
+                <img src="/hero2.png" alt="Perfil profesional" loading="lazy">    
             </div>
 
             <div class="redes">
@@ -69,7 +82,7 @@
         </div>
         <div class="about-content">
             <div class="about-text">
-                <p>I’m a Mobile Application Developer with experience building functional, user-centered solutions. I primarily work with Kotlin for Android and React Native, allowing me to develop cross-platform apps for Android and iOS.
+                <p>I’m a Mobile App Developer with experience building functional, user-centered solutions. I primarily work with Kotlin for Android and React Native, allowing me to develop cross-platform apps for Android and iOS.
 
                     I specialize in clean UI design, efficient architecture, and seamless integration with services like Firebase. I'm currently expanding my skills with Swift to build fully native iOS experiences.</p>
                 <p>I bring together strong technical knowledge with a strategic mindset to create high-impact digital products.</p>
@@ -93,7 +106,7 @@
 
     <section id="projects" class="projects">
         <div class="section-header">
-            <h2>My <span>Proyects</span></h2>
+            <h2>My <span>Projects</span></h2>
             <div class="divider"></div>
         </div>
         <div class="project-filters">
@@ -338,6 +351,7 @@
         </div>
     </footer>
 
+    <script src="idioma-toggle.js"></script>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
     <script>
         // Función para enviar el mensaje

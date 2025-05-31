@@ -219,27 +219,35 @@ document.addEventListener('DOMContentLoaded', function() {
 // Tarjetas emergentes de los proyectos con la data
 
 const projectData = {
-    "BookNest": {
-     title: "BookNest",
-     description: "A simple web app to upload and view books for reading clubs, using Firebase Storage.",
-     image: "/booknest.png",
-     video: "https://www.youtube.com/watch?v=ndFA6WPvNA0",
-     techs: ["HTML", "CSS", "JavaScript", "Firebase"],
-     github: "https://github.com/EduardoArismendy",
-     category: "web"
+  "BookNest": {
+    title: { en: "BookNest", es: "BookNest" },
+    description: {
+      en: "A simple web app to upload and view books for reading clubs, using Firebase Storage.",
+      es: "Una aplicación web sencilla para subir y ver libros para clubes de lectura, usando Firebase Storage."
     },
+    image: "/booknest.png",
+    video: "https://www.youtube.com/watch?v=ndFA6WPvNA0",
+    techs: ["HTML", "CSS", "JavaScript", "Firebase"],
+    github: "https://github.com/EduardoArismendy",
+    category: "web"
+  },
 
-    "Buy and Sell App": {
-      title: "Buy and Sell App",
-      description: "Full E-commerce with Google GPS services and chat",
-      image: "/proyecto2.png",
-      video: "https://www.youtube.com/watch?v=AYAyY_Z-gAM",
-      techs: ["Kotlin", "FireBase"],
-      github: "https://github.com/usuario/proyecto2",
-      category: "ecommerce"
-    }
-  };
-  
+  "Buy and Sell App": {
+    title: { en: "Buy and Sell App", es: "App de Compra y Venta" },
+    description: {
+      en: "Full E-commerce with Google GPS services and chat",
+      es: "E-commerce completo con servicios de GPS de Google y chat"
+    },
+    image: "/proyecto2.png",
+    video: "https://www.youtube.com/watch?v=AYAyY_Z-gAM",
+    techs: ["Kotlin", "Firebase"],
+    github: "https://github.com/usuario/proyecto2",
+    category: "ecommerce"
+  }
+};
+
+  let currentLang = 'en'; // idioma inicial
+
   function convertToEmbedUrl(url) {
     const regex = /(?:\?v=|\.be\/)([^&]+)/;
     const match = url.match(regex);
@@ -249,93 +257,106 @@ const projectData = {
     return url; // si ya es embed o no se reconoce, lo deja igual
   }
 
-  function createProjectCard(project) {
-    const card = document.createElement("div");
-    card.className = `project-card ${project.category}`; // importante para filtro
-  
-    card.innerHTML = `
-      <div class="project-img">
-        <img src="${project.image}" alt="${project.title}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
-      </div>
-      <div class="project-info">
-        <h3>${project.title}</h3>
-        <p>${project.description}</p>
-        <div class="project-tags">
-          ${project.techs.map(tech => `<span>${tech}</span>`).join("")}
-        </div>
-        <a href="#" class="view-project" data-project="${project.title}">View project</a>
-      </div>
-    `;
-    return card;
-  }
-  
-  function createModal(data) {
-    const modal = document.createElement("div");
-    modal.id = "dynamic-modal";
-    modal.classList.add("modal-overlay");
-  
-    const embedUrl = convertToEmbedUrl(data.video);
+ function createProjectCard(project, lang) {
+  const card = document.createElement("div");
+  card.className = `project-card ${project.category}`;
 
-   modal.innerHTML = `
+  card.innerHTML = `
+    <div class="project-img">
+      <img src="${project.image}" alt="${project.title[lang]}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
+    </div>
+    <div class="project-info">
+      <h3>${project.title[lang]}</h3>
+      <p>${project.description[lang]}</p>
+      <div class="project-tags">
+        ${project.techs.map(tech => `<span>${tech}</span>`).join("")}
+      </div>
+      <a href="#" class="view-project" data-project="${project.title[lang]}">${lang === 'es' ? 'Ver proyecto' : 'View project'}</a>
+    </div>
+  `;
+  return card;
+}
+
+function createModal(data, lang) {
+  const modal = document.createElement("div");
+  modal.id = "dynamic-modal";
+  modal.classList.add("modal-overlay");
+
+  const embedUrl = convertToEmbedUrl(data.video);
+
+  modal.innerHTML = `
     <div class="modal-content">
       <span class="close-btn">&times;</span>
-      <h3>${data.title}</h3>
-      <p>${data.description}</p>
+      <h3>${data.title[lang]}</h3>
+      <p>${data.description[lang]}</p>
       <div class="modal-video">
         <iframe width="100%" height="315" src="${embedUrl}" frameborder="0" allowfullscreen></iframe>
       </div>
       <div class="project-tags">
         ${data.techs.map(tech => `<span>${tech}</span>`).join("")}
       </div>
-      <a class="modal-github-btn" href="${data.github}" target="_blank">Ver en GitHub</a>
+      <a class="modal-github-btn" href="${data.github}" target="_blank">${lang === 'es' ? 'Ver en GitHub' : 'View on GitHub'}</a>
     </div>
   `;
-  
-    document.body.appendChild(modal);
-  
-    modal.querySelector(".close-btn").addEventListener("click", () => modal.remove());
-  
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) modal.remove();
-    });
-  }
-  
-  document.addEventListener("DOMContentLoaded", () => {
-    const container = document.getElementById("projects-container");
-  
-    Object.values(projectData).forEach((project) => {
-      const card = createProjectCard(project);
-      container.appendChild(card);
-    });
-  
-    // Modal
-    container.addEventListener("click", (e) => {
-      if (e.target.classList.contains("view-project")) {
-        e.preventDefault();
-        const projectTitle = e.target.dataset.project;
-        const data = projectData[projectTitle];
-        if (data) createModal(data);
-      }
-    });
-  
-    // Filtro
-    const filterButtons = document.querySelectorAll(".filter-btn");
-  
-    filterButtons.forEach(button => {
-      button.addEventListener("click", () => {
-        filterButtons.forEach(btn => btn.classList.remove("active"));
-        button.classList.add("active");
-  
-        const filterValue = button.dataset.filter;
-        const cards = document.querySelectorAll(".project-card");
-  
-        cards.forEach(card => {
-          if (filterValue === "all" || card.classList.contains(filterValue)) {
-            card.style.display = "block";
-          } else {
-            card.style.display = "none";
-          }
-        });
+
+  document.body.appendChild(modal);
+
+  modal.querySelector(".close-btn").addEventListener("click", () => modal.remove());
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) modal.remove();
+  });
+}
+
+function renderProjects(lang) {
+  const container = document.getElementById("projects-container");
+  container.innerHTML = ""; // limpiar para re-renderizar
+
+  // Map para buscar proyecto por título en el idioma actual
+  const projectMapByTitle = {};
+  Object.values(projectData).forEach(proj => {
+    projectMapByTitle[proj.title[lang]] = proj;
+  });
+
+  Object.values(projectData).forEach(project => {
+    const card = createProjectCard(project, lang);
+    container.appendChild(card);
+  });
+
+  // Listener para abrir modal
+  container.onclick = function(e) {
+    if (e.target.classList.contains("view-project")) {
+      e.preventDefault();
+      const projectTitle = e.target.dataset.project;
+      const data = projectMapByTitle[projectTitle];
+      if (data) createModal(data, lang);
+    }
+  };
+}
+
+// Inicialización cuando carga la página
+document.addEventListener("DOMContentLoaded", () => {
+  renderProjects(currentLang);
+
+  // Filtro (si usas filtro, mantén igual)
+  const filterButtons = document.querySelectorAll(".filter-btn");
+
+  filterButtons.forEach(button => {
+    button.addEventListener("click", () => {
+      filterButtons.forEach(btn => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const filterValue = button.dataset.filter;
+      const cards = document.querySelectorAll(".project-card");
+
+      cards.forEach(card => {
+        if (filterValue === "all" || card.classList.contains(filterValue)) {
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
       });
     });
   });
+});
+ 

@@ -112,6 +112,8 @@ nav {
 .nav-links {
   display: flex;
   gap: 30px;
+  flex-grow: 1; /* <-- Añadir este para que los links usen el espacio disponible */
+  justify-content: center; /* centra los links en el espacio disponible */
 }
 
 .nav-links a {
@@ -143,10 +145,19 @@ nav {
   cursor: pointer;
 }
 
+/* Contenedor de los botones (theme y language) */
+.top-buttons {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  gap: 10px; /* espacio entre botones */
+  z-index: 999;
+}
+
+/* Botón de tema */
 .theme-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
+  position: relative;
   cursor: pointer;
   width: 40px;
   height: 40px;
@@ -157,12 +168,46 @@ nav {
   background: var(--card-color);
   color: var(--text-color);
   transition: all 0.3s ease;
+  /* quitamos position absolute para que esté dentro de .top-buttons */
 }
 
 .theme-toggle:hover {
   transform: rotate(45deg);
   background: var(--accent-color);
 }
+
+/* Botón de idioma */
+.language-toggle button {
+  position: relative;
+  background-color: var(--card-color); /* Gris oscuro */
+  color: var(--text-color);
+  border: none;
+  padding: 9;
+  font-weight: bold;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.language-toggle button:hover {
+  background-color: var(--accent-color); /* un poco más claro */
+  transform: scale(1.05);
+}
+
+.language-toggle button:active {
+  transform: scale(0.95);
+}
+
+/* Tamaño adaptativo para móvil */
+@media (max-width: 640px) {
+  .language-toggle button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+
 
 /* Hero Section */
 .hero {
