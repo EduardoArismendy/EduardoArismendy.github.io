@@ -182,7 +182,7 @@ nav {
   background-color: var(--card-color); /* Gris oscuro */
   color: var(--text-color);
   border: none;
-  padding: 9;
+  padding: 12;
   font-weight: bold;
   border-radius: 50%;
   cursor: pointer;
