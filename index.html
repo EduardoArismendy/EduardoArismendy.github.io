@@ -329,6 +329,7 @@
                         <textarea id="message" placeholder="Message" required></textarea>
                     </div>
                     <button type="submit" class="submit-btn">Send message</button>
+                     <div id="estado-mensaje"></div>
                 </form>
             </div>
         </div>
@@ -353,34 +354,26 @@
 
     <script src="idioma-toggle.js"></script>
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="script.js"></script>
+    <!-- EmailJS SDK -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
-        // Función para enviar el mensaje
-        function enviarMensaje(event) {
-            // Prevenir el envío tradicional del formulario
-            event.preventDefault();
-    
-            // Obtener los valores de los campos del formulario
-            var nombre = document.getElementById("name").value;
-            var correo = document.getElementById("email").value;
-            var tema = document.getElementById("subject").value;
-            var mensaje = document.getElementById("message").value;
-    
-            // Construir el cuerpo del correo electrónico
-            var cuerpoCorreo = "Name: " + nombre + "\n";
-            cuerpoCorreo += "Email: " + correo + "\n";
-            cuerpoCorreo += "Subject: " + tema + "\n";
-            cuerpoCorreo += "Message: " + mensaje;
-    
-            // Redirigir al cliente de correo
-            window.location.href = "mailto:p73306275@gmail.com?subject=" + encodeURIComponent(tema) + "&body=" + encodeURIComponent(cuerpoCorreo);
-        }
-    
-        // Agregar el listener al botón del formulario una vez que se cargue la página
-        window.onload = function () {
-            var form = document.querySelector(".contact-form form");
-            form.addEventListener("submit", enviarMensaje);
-        };
+    emailjs.init("ZA0UXv9RnQ0HZYFlc"); 
     </script>
+
+
+    <script>
+        document.getElementById("contact-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        emailjs.sendForm("service_eh3uuev", "template_tx59o9q", this)
+           .then(() => {
+              document.getElementById("estado-mensaje").textContent = "¡Mensaje enviado correctamente!";
+           }, (error) => {
+            document.getElementById("estado-mensaje").textContent = "Error al enviar: " + error.text;
+        });
+  });
+   </script>
+
     
 </body>
 </html>
