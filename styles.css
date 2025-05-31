@@ -179,15 +179,20 @@ nav {
 /* Botón de idioma */
 .language-toggle button {
   position: relative;
-  background-color: var(--card-color); /* Gris oscuro */
+  background-color: var(--card-color);
   color: var(--text-color);
   border: none;
-  padding: 12;
+  width: 40px;
+  height: 40px;
   font-weight: bold;
   border-radius: 50%;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
 }
 
 .language-toggle button:hover {
@@ -864,6 +869,11 @@ footer {
     width: 280px;
     height: 280px;
   }
+  .language-toggle button {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 480px) {
@@ -892,6 +902,11 @@ footer {
   .profile-frame {
     width: 220px;
     height: 220px;
+  }
+  .language-toggle button {
+    width: 35px;
+    height: 35px;
+    font-size: 0.8rem;
   }
 }
 /*Cambios posteriores*/
