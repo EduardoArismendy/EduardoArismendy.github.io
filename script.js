@@ -243,7 +243,48 @@ const projectData = {
     techs: ["Kotlin", "Firebase"],
     github: "https://github.com/usuario/proyecto2",
     category: "ecommerce"
-  }
+  },
+
+  "Abogado webside": {
+    title: { en: "Lawyer ", es: "Abogado" },
+    description: {
+      en: "Professional lawyer website with contact form and WhatsApp integration.",
+      es: "Sitio web profesional para abogados, ideal para mostrar servicios y recibir contactos de clientes."
+    },
+    image: "/abogado.jpg",
+    video: "https://modeloabogado.netlify.app/",
+    techs: ["JS", "CSS", "HTML"],
+    github: "https://github.com/usuario/proyecto2",
+    category: "web"
+  },
+
+  "Tatuador webside": {
+    title: { en: "Tattoo artist", es: "Tatuadores" },
+    description: {
+      en: "Tattoo artist website with gallery and booking contact.",
+      es: "Sitio web para tatuadores con galería y contacto para reservas."
+    },
+    image: "/tatuador.png",
+    video: "https://tatuador01.netlify.app/",
+    techs: ["JS", "CSS", "HTML"],
+    github: "https://github.com/usuario/proyecto2",
+    category: "web"
+  },
+
+ "ModeloWebside": {
+  title: { en: "Model Portfolio", es: "Portafolio de Modelo" },
+  description: {
+    en: "Model portfolio website with photo gallery and professional contact.",
+    es: "Portafolio web para modelo con galería de fotos y contacto profesional."
+  },
+  image: "/modelo.png",
+  video: "https://galeriamodelo.netlify.app/",
+  techs: ["JS", "CSS", "HTML"],
+  github: "https://github.com/usuario/proyecto-modelo",
+  category: "web"
+}
+
+
 };
 
   let currentLang = 'en'; // idioma inicial
@@ -274,6 +315,22 @@ const projectData = {
       <a href="#" class="view-project" data-project="${project.title[lang]}">${lang === 'es' ? 'Ver proyecto' : 'View project'}</a>
     </div>
   `;
+
+   const viewBtn = card.querySelector(".view-project");
+  viewBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    // Verifica si es un enlace de YouTube
+    const isYouTube = project.video.includes("youtube.com") || project.video.includes("youtu.be");
+
+    if (isYouTube) {
+      createModal(project, lang);
+    } else {
+      // Redirige a la página si no es YouTube
+      window.open(project.video, "_blank");
+    }
+  });
+
   return card;
 }
 
