@@ -225,7 +225,7 @@ const projectData = {
       en: "A simple web app to upload and view books for reading clubs, using Firebase Storage.",
       es: "Una aplicación web sencilla para subir y ver libros para clubes de lectura, usando Firebase Storage."
     },
-    image: "/booknest.png",
+    image: "/booknest.webp",
     video: "https://nidodelibros.netlify.app/",
     techs: ["HTML", "CSS", "JavaScript", "Firebase"],
     github: "https://github.com/EduardoArismendy",
@@ -238,7 +238,7 @@ const projectData = {
       en: "Full E-commerce with Google GPS services and chat (in Development)",
       es: "E-commerce completo con servicios de GPS de Google y chat (En desarrollo)"
     },
-    image: "/proyecto2.png",
+    image: "/proyecto2.webp",
     video: "https://www.youtube.com/watch?v=AYAyY_Z-gAM",
     techs: ["Kotlin", "Firebase"],
     github: "https://github.com/usuario/proyecto2",
@@ -251,7 +251,7 @@ const projectData = {
     en: "Painter portfolio website with artwork gallery and contact for commissions.",
     es: "Portafolio web para pintor con galería de obras y contacto para comisiones."
   },
-  image: "/pintor.png",
+  image: "/pintor.webp",
   video: "https://pintor01.netlify.app/",
   techs: ["JS", "CSS", "HTML"],
   github: "https://github.com/usuario/proyecto-pintor",
@@ -265,7 +265,7 @@ const projectData = {
       en: "Professional lawyer website with contact form and WhatsApp integration.",
       es: "Sitio web profesional para abogados, ideal para mostrar servicios y recibir contactos de clientes."
     },
-    image: "/abogado.jpg",
+    image: "/abogado.webp",
     video: "https://modeloabogado.netlify.app/",
     techs: ["JS", "CSS", "HTML"],
     github: "https://github.com/usuario/proyecto2",
@@ -278,7 +278,7 @@ const projectData = {
       en: "Tattoo artist website with gallery and booking contact.",
       es: "Sitio web para tatuadores con galería y contacto para reservas."
     },
-    image: "/tatuador.png",
+    image: "/tatuador.webp",
     video: "https://tatuador01.netlify.app/",
     techs: ["JS", "CSS", "HTML"],
     github: "https://github.com/usuario/proyecto2",
@@ -291,7 +291,7 @@ const projectData = {
     en: "Model portfolio website with photo gallery and professional contact.",
     es: "Portafolio web para modelo con galería de fotos y contacto profesional."
   },
-  image: "/modelo.png",
+  image: "/modelo.webp",
   video: "https://galeriamodelo.netlify.app/",
   techs: ["JS", "CSS", "HTML"],
   github: "https://github.com/usuario/proyecto-modelo",
