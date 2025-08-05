@@ -245,6 +245,20 @@ const projectData = {
     category: "ecommerce"
   },
 
+  "PintorWebside": {
+  title: { en: "Painter Portfolio", es: "Portafolio de Pintor" },
+  description: {
+    en: "Painter portfolio website with artwork gallery and contact for commissions.",
+    es: "Portafolio web para pintor con galería de obras y contacto para comisiones."
+  },
+  image: "/pintor.png",
+  video: "https://pintor01.netlify.app/",
+  techs: ["JS", "CSS", "HTML"],
+  github: "https://github.com/usuario/proyecto-pintor",
+  category: "web"
+  },
+
+
   "Abogado webside": {
     title: { en: "Lawyer ", es: "Abogado" },
     description: {
@@ -282,7 +296,7 @@ const projectData = {
   techs: ["JS", "CSS", "HTML"],
   github: "https://github.com/usuario/proyecto-modelo",
   category: "web"
-}
+  },
 
 
 };
