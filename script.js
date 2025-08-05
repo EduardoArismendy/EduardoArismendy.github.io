@@ -226,7 +226,7 @@ const projectData = {
       es: "Una aplicación web sencilla para subir y ver libros para clubes de lectura, usando Firebase Storage."
     },
     image: "/booknest.png",
-    video: "https://www.youtube.com/watch?v=ndFA6WPvNA0",
+    video: "https://nidodelibros.netlify.app/",
     techs: ["HTML", "CSS", "JavaScript", "Firebase"],
     github: "https://github.com/EduardoArismendy",
     category: "web"
