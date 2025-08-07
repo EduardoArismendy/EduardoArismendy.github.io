@@ -149,38 +149,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 
-  // Form submission handling
-  const contactForm = document.querySelector('.contact-form form');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      // Simple form validation
-      const name = document.getElementById('name');
-      const email = document.getElementById('email');
-      const message = document.getElementById('message');
-
-      if (name.value.trim() === '' || email.value.trim() === '' || message.value.trim() === '') {
-        alert('Por favor, complete todos los campos obligatorios.');
-        return;
-      }
-
-      // Simulate form submission
-      const submitBtn = this.querySelector('.submit-btn');
-      const originalText = submitBtn.textContent;
-
-      submitBtn.textContent = 'Enviando...';
-      submitBtn.disabled = true;
-
-      // Simulating API call delay
-      setTimeout(() => {
-        alert('¡Mensaje enviado correctamente! Gracias por contactar.');
-        contactForm.reset();
-        submitBtn.textContent = originalText;
-        submitBtn.disabled = false;
-      }, 1500);
-    });
-  }
 
   // Animation on scroll
   const animateOnScroll = function () {
@@ -601,4 +569,56 @@ document.querySelectorAll('.book-card').forEach(card => {
 // Initialize slider
 document.addEventListener('DOMContentLoaded', () => {
   new BookSlider();
+});
+
+
+//Consultoría
+document.addEventListener('DOMContentLoaded', function () {
+  emailjs.init('ZA0UXv9RnQ0HZYFlc'); // Tu PUBLIC KEY
+
+  const form = document.getElementById('consultancyForm');
+  const successMessage = document.getElementById('successMessage');
+  const btnText = document.querySelector('.btn-text');
+  const btnLoader = document.querySelector('.btn-loader');
+
+  // Form submission
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Mostrar loader
+    btnText.style.display = 'none';
+    btnLoader.style.display = 'inline-block';
+
+    // Enviar con EmailJS
+    emailjs.sendForm('service_eh3uuev', 'template_tx59o9q', this)
+      .then(() => {
+        // Ocultar formulario y mostrar mensaje de éxito
+        form.style.display = 'none';
+        successMessage.style.display = 'block';
+
+        // Restaurar luego de unos segundos
+        setTimeout(() => {
+          form.reset();
+          form.style.display = 'block';
+          successMessage.style.display = 'none';
+          btnText.style.display = 'inline-block';
+          btnLoader.style.display = 'none';
+        }, 5000);
+      })
+      .catch((error) => {
+        alert('Ocurrió un error al enviar: ' + error.text);
+        btnText.style.display = 'inline-block';
+        btnLoader.style.display = 'none';
+      });
+  });
+
+  // Animación flotante de fondo (opcional)
+  setInterval(() => {
+    const gradient = document.querySelector('.background-gradient');
+    if (gradient) {
+      const randomX = Math.random() * 100 - 50;
+      const randomY = Math.random() * 100 - 50;
+      gradient.style.transform = `translate(${randomX}px, ${randomY}px)`;
+    }
+  }, 5000);
 });

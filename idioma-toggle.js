@@ -31,6 +31,13 @@ document.addEventListener('DOMContentLoaded', function () {
             ia: 'IA',
             mySkills: 'Mis <span>Habilidades</span>',
             getInTouch: 'Contáctame',
+            contactoTextContent: '<span class="accent">Consultoría Gratuita</span> <br>de 15 Minutos',
+            contactoTextContent2: 'Expertos en desarrollo de aplicaciones móviles listos para transformar tu idea en realidad',
+            contactoTextContent3: 'Reserva tu sesión gratuita',
+            contactoBtn: 'Agendar Consultoría Gratuita',
+            contactoTextContent4: '* Sin compromiso. Recibirás confirmación por email en menos de 24h',
+            contactoTextContent5: 'Hemos recibido tu solicitud. Nos pondremos en contacto contigo en menos de 24 horas para agendar tu consultoría gratuita.',
+                        
         },
         en: {
             home: 'Home',
@@ -58,6 +65,15 @@ document.addEventListener('DOMContentLoaded', function () {
             ia: 'AI',
             mySkills: 'My <span>Skills</span>',
             getInTouch: 'Get in <span>Touch</span>',
+            contactoTextContent: '<span class="accent">Free 15-Minute</span> <br>Consultation',
+            contactoTextContent2: 'Experts in mobile app development ready to turn your idea into reality',
+            contactoTextContent3: 'Book your free session',
+            contactoBtn: 'Schedule Free Consultation',
+            contactoTextContent4: '* No commitment. You’ll receive confirmation by email within 24h',
+            contactoTextContent5: 'We’ve received your request. We’ll contact you within 24 hours to schedule your free consultation.',
+
+                            
+                        
         }
     };
 
@@ -102,7 +118,13 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('#skills .section-header h2').innerHTML = t.mySkills;
 
         // Contact
-        document.querySelector('#contact .section-header h2').innerHTML = t.getInTouch;
+        document.querySelector('#consultancy .section-header h2').innerHTML = t.getInTouch;
+        document.querySelector('#consultancy .text-content h1').innerHTML = t.contactoTextContent;
+        document.querySelector('#consultancy .text-content p').innerHTML = t.contactoTextContent2;
+        document.querySelector('#consultancy .consultancy-form h3').innerHTML = t.contactoTextContent3;
+        document.querySelector('.btn-text').innerHTML = t.contactoBtn;
+        document.querySelector('.disclaimer').innerHTML = t.contactoTextContent4;
+        document.querySelector('#consultancy .success-message p').innerHTML = t.contactoTextContent5;
     }
 
     langBtn.addEventListener('click', function () {
