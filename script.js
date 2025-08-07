@@ -467,13 +467,15 @@ class BookSlider {
       this.updateSlider();
     });
 
+
     // Download buttons
     document.querySelectorAll('.download-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         e.stopPropagation();
-        this.handleDownload(e.target);
+        this.handleDownload(btn); // ← usa el botón directamente
       });
     });
+
   }
 
   slideNext() {
