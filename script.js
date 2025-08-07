@@ -443,6 +443,8 @@ class BookSlider {
     this.cardWidth = 300;
     this.gap = 32;
     this.cardsPerView = this.calculateCardsPerView();
+    this.autoSlideInterval = null;
+    this.autoSlideDelay = 5000; // en ms
 
     this.init();
   }
@@ -483,6 +485,7 @@ class BookSlider {
     if (this.currentIndex < maxIndex) {
       this.currentIndex++;
       this.updateSlider();
+      this.restartAutoSlide();
     }
   }
 
@@ -490,8 +493,16 @@ class BookSlider {
     if (this.currentIndex > 0) {
       this.currentIndex--;
       this.updateSlider();
+      this.restartAutoSlide();
     }
   }
+
+  restartAutoSlide() {
+    this.stopAutoSlide();
+    // Reinicia después de un tiempo de inactividad del usuario
+    setTimeout(() => this.autoSlide(), this.autoSlideDelay);
+  }
+
 
   updateSlider() {
     const offset = -this.currentIndex * (this.cardWidth + this.gap);
@@ -499,7 +510,8 @@ class BookSlider {
   }
 
   autoSlide() {
-    setInterval(() => {
+    this.stopAutoSlide(); // Evita múltiples intervalos
+    this.autoSlideInterval = setInterval(() => {
       const maxIndex = this.cards.length - this.cardsPerView;
       if (this.currentIndex >= maxIndex) {
         this.currentIndex = 0;
@@ -507,10 +519,18 @@ class BookSlider {
         this.currentIndex++;
       }
       this.updateSlider();
-    }, 5000);
+    }, this.autoSlideDelay);
   }
 
-    handleDownload(button) {
+  stopAutoSlide() {
+    if (this.autoSlideInterval) {
+      clearInterval(this.autoSlideInterval);
+      this.autoSlideInterval = null;
+    }
+  }
+
+
+  handleDownload(button) {
     const filename = button.dataset.file || button.parentElement.dataset.file;
 
     if (!filename) return;
