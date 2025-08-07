@@ -76,33 +76,45 @@
     </section>
 
     <section id="about" class="about">
-        <div class="section-header">
-            <h2>About <span>me</span></h2>
-            <div class="divider"></div>
-        </div>
-        <div class="about-content">
-            <div class="about-text">
-                <p>I’m a Mobile App Developer with experience building functional, user-centered solutions. I primarily work with Kotlin for Android and React Native, allowing me to develop cross-platform apps for Android and iOS.
-
-                    I specialize in clean UI design, efficient architecture, and seamless integration with services like Firebase. I'm currently expanding my skills with Swift to build fully native iOS experiences.</p>
-                <p>I bring together strong technical knowledge with a strategic mindset to create high-impact digital products.</p>
-                <div class="stats">
-                    <div class="stat-item">
-                        <span class="stat-number">25+</span>
-                        <span class="stat-label">Completed Projects</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">15+</span>
-                        <span class="stat-label">Trusted by Clients</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">3</span>
-                        <span class="stat-label">Years of Experience</span>
-                    </div>
+    <div class="section-header">
+        <h2>About <span>me</span></h2>
+        <div class="divider"></div>
+    </div>
+    <div class="about-content" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+        <!-- Texto a la izquierda -->
+        <div class="about-text" style="flex: 1; min-width: 300px;">
+            <p>I’m a Mobile App Developer with experience building functional, user-centered solutions. I primarily work with Kotlin for Android and React Native, allowing me to develop cross-platform apps for Android and iOS.</p>
+            <p>I specialize in clean UI design, efficient architecture, and seamless integration with services like Firebase. I'm currently expanding my skills with Swift to build fully native iOS experiences.</p>
+            <p>I bring together strong technical knowledge with a strategic mindset to create high-impact digital products.</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">25+</span>
+                    <span class="stat-label">Completed Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">15+</span>
+                    <span class="stat-label">Trusted by Clients</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">3</span>
+                    <span class="stat-label">Years of Experience</span>
                 </div>
             </div>
         </div>
-    </section>
+
+        <!-- Video a la derecha -->
+        <div class="about-video" style="flex: 1; min-width: 300px;">
+            <iframe width="100%" height="315" 
+                src="https://www.youtube.com/embed/gzGL_9oPUeY?start=118"
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</section>
+
 
     <section id="projects" class="projects">
         <div class="section-header">
@@ -118,6 +130,77 @@
         </div>
         <div class="projects-grid" id="projects-container"></div>
     </section>
+
+    <!--Blog-->  
+
+   <section id="blog">
+  <div class="section-header">
+            <h2> The <span>Blog</span></h2>
+            <div class="divider"></div>
+        </div>
+  <div class="blog-grid">
+
+    <article class="blog-card">
+      <img src="https://imgs.search.brave.com/z3gPHhJaBD040YgUEvGl0wsf2mxZUnq4w8ipIfKQmeQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/Zm90b3MtcHJlbWl1/bS9ncnVwby1uaW5v/cy1uaW5hcy1qb3Zl/bmVzLXNvc3Rlbmll/bmRvLXBvcnRhdGls/ZXMtdG91Y2hwYWQt/bWllbnRyYXMtbXVl/c3RyYW4tc3VzLXRy/YWJham9zLWZpbmFs/ZXMtYWwtZmluYWwt/YW5vLWVzY29sYXJf/Mjc0Njc5LTU2NTQu/anBnP3NlbXQ9YWlz/X2h5YnJpZCZ3PTc0/MA" alt="Imagen artículo 1">
+      <div class="blog-content">
+        <h3><a href="https://medium.com/@p73306275/por-qué-quieren-que-todos-los-jóvenes-aprendan-a-programar-98ceb04ac85b" target="_blank">¿Por qué quieren que todos los jóvenes aprendan a programar?</a></h3>
+        <small>Publicado el 28 de julio</small>
+        <p>Pero ¿por qué tanto interés en que los jóvenes aprendan a programar? ¿Es simplemente una preocupación pedagógica por el futuro de las nuevas generaciones o hay algo más detrás?
+
+Este artículo explora los intereses corporativos, económicos y políticos que impulsan esta tendencia global.</p>
+        <div class="blog-actions">
+          <a href="https://medium.com/@p73306275/por-qué-quieren-que-todos-los-jóvenes-aprendan-a-programar-98ceb04ac85b" target="_blank" class="btn-read">Continuar leyendo</a>
+          <span class="btn-comments">💬 12 comentarios</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <img src="https://imgs.search.brave.com/fcv3mA6j8t_O0nRPKJnBxD2myOSZ29gdB7Ine5yghR4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/em9vbG9naWMuY29t/LmFyL3psL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIyLzEyL2V4/cGFuZGlyLWVsLW5l/Z29jaW9zLWNvbi1h/cHAtbW92aWwuanBn" alt="Imagen artículo 2">
+      <div class="blog-content">
+        <h3><a href="https://medium.com/@tuusuario/articulo-2" target="_blank">🚀 ¿Por qué en 2025 tu negocio necesita una app móvil (sí, incluso si es pequeño)?</a></h3>
+        <small>Publicado el 12 de Julio</small>
+        <p>El desarrollo de aplicaciones móviles ya no es una tendencia: es parte esencial de cómo las marcas se conectan con sus clientes, cómo las organizaciones gestionan su operación y cómo los usuarios esperan interactuar con el mundo digital.</p>
+        <div class="blog-actions">
+          <a href="https://medium.com/@tuusuario/articulo-2" target="_blank" class="btn-read">Continuar leyendo</a>
+          <span class="btn-comments">💬 18 comentarios</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <img src="https://imgs.search.brave.com/O7z4DP_vcn9fjzjj6l10J83Alj962Gis9q97uWYcf_k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/aGVjdG9ycGluY2hl/aXJhLmNvbS93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyMy8wOS8y/LXNjYWxlZC5qcGc" alt="Imagen artículo 3">
+      <div class="blog-content">
+        <h3><a href="https://medium.com/@p73306275/protecting-children-from-digital-prostitution-social-media-as-bait-and-the-commodification-of-the-84e6b4a038a0" target="_blank">Protecting Children from Digital Prostitution: Social Media as Bait and the Commodification of the Body</a></h3>
+        <small>Publicado el 24 de Junio</small>
+        <p>Twitter, for example, has faced criticism for failing to control the spread of sexually explicit content, including cases of underage material. TikTok, despite safety policies, remains a platform where hypersexualized dances, poses, and trends go viral — routinely performed by children seeking likes, without knowing who their real audience is.</p>
+        <div class="blog-actions">
+          <a href="https://medium.com/@p73306275/protecting-children-from-digital-prostitution-social-media-as-bait-and-the-commodification-of-the-84e6b4a038a0" target="_blank" class="btn-read">Continuar leyendo</a>
+          <span class="btn-comments">💬 25 comentarios</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="blog-card">
+      <img src="https://imgs.search.brave.com/0qWu0vZy5YKg1M22aZQYhfn2-cm02QbNZFOgwcwOEko/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93YXBw/c3N0dWRpby5jb20v/cHVibGljL21lZGlh/L2VtcHJlc2EtZGVz/YXJyb2xsby1hcHBz/LkRCRy5wbmc" alt="Imagen artículo 4">
+      <div class="blog-content">
+        <h3><a href="https://medium.com/@p73306275/tu-propia-app-es-tu-negocio-el-futuro-está-en-tus-manos-029b7347880b" target="_blank">Tu Propia App es Tu Negocio: El Futuro Está en Tus Manos</a></h3>
+        <small>Publicado el 6 de abril</small>
+        <p>Tu app puede integrarse con marketplaces como Mercado Libre o Amazon, pero también puede ser tu canal directo, sin intermediarios, sin comisiones. Puedes conectarla con redes sociales, tiendas físicas, métodos de pago, proveedores logísticos y sistemas contables. Todo fluye. Todo se conecta. Todo se automatiza.</p>
+        <div class="blog-actions">
+          <a href="https://medium.com/@p73306275/tu-propia-app-es-tu-negocio-el-futuro-está-en-tus-manos-029b7347880b" target="_blank" class="btn-read">Continuar leyendo</a>
+          <span class="btn-comments">💬 33 comentarios</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+
+
+  <!--Skills-->
 
     <section id="skills" class="skills">
         <div class="section-header">
