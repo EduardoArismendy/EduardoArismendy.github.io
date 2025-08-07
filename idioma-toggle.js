@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const translations = {
         es: {
             home: 'Inicio',
+            books: 'Libros',
             about: 'Sobre mí',
             projects: 'Proyectos',
             skills: 'Habilidades',
@@ -14,13 +15,15 @@ document.addEventListener('DOMContentLoaded', function () {
             viewProjects: 'Ver Proyectos',
             contactBtn: 'Contacto',
             heroText: 'De la idea a la app — elegante, eficiente, multiplataforma.',
+            libraryText: 'Biblioteca Digital',
+            libraryText2: 'Descubre y descarga nuestros ebooks exclusivos',
             aboutTitle: 'Sobre <span>mí</span>',
             aboutText1: "Soy desarrollador de aplicaciones móviles con experiencia en la creación de soluciones funcionales y centradas en el usuario. Principalmente trabajo con Kotlin para Android y React Native, lo que me permite desarrollar aplicaciones multiplataforma para Android e iOS. Me especializo en diseño de interfaces limpias, arquitectura eficiente e integración fluida con servicios como Firebase. Actualmente, estoy ampliando mis habilidades con Swift para crear experiencias totalmente nativas en iOS.",
             aboutText2: 'Combino un fuerte conocimiento técnico con una mentalidad estratégica para crear productos digitales de alto impacto.',
             completedProjects: 'Proyectos Completados',
             clients: 'Clientes Satisfechos',
             experience: 'Años de Experiencia',
-            myProjects: 'Mis <span>Proyectos</span>',
+            myProjects: '-> <span>Proyectos</span>',
             all: 'Todos',
             websites: 'Sitios Web',
             ecommerce: 'E-commerce',
@@ -31,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
         },
         en: {
             home: 'Home',
+            books: 'Books',
             about: 'About me',
             projects: 'Projects',
             skills: 'Skills',
@@ -38,13 +42,15 @@ document.addEventListener('DOMContentLoaded', function () {
             viewProjects: 'View Projects',
             contactBtn: 'Contact',
             heroText: 'From idea to app — elegant, efficient, cross-platform.',
+            libraryText: 'Digital Library',
+            libraryText2: 'Discover and download our exclusive ebooks',
             aboutTitle: 'About <span>me</span>',
             aboutText1: "I’m a Mobile Application Developer with experience building functional, user-centered solutions. I primarily work with Kotlin for Android and React Native,  allowing me to develop cross-platform apps for Android and iOS. I specialize in clean UI design, efficient architecture, and seamless integration with services like Firebase. I'm currently expanding my skills with Swift to build fully native iOS experiences.",
             aboutText2: 'I bring together strong technical knowledge with a strategic mindset to create high-impact digital products.',
             completedProjects: 'Completed Projects',
             clients: 'Trusted by Clients',
             experience: 'Years of Experience',
-            myProjects: 'My <span>Proyects</span>',
+            myProjects: '-> <span>Proyects</span>',
             all: 'All',
             websites: 'Websites',
             ecommerce: 'E-commerce',
@@ -60,6 +66,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         // Nav
         document.querySelector('a[href="#home"]').textContent = t.home;
+        document.querySelector('a[href="#books"]').textContent = t.books;
         document.querySelector('a[href="#about"]').textContent = t.about;
         document.querySelector('a[href="#projects"]').textContent = t.projects;
         document.querySelector('a[href="#skills"]').textContent = t.skills;
@@ -69,6 +76,10 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelector('.hero-content p').textContent = t.heroText;
         document.querySelector('.primary-btn').textContent = t.viewProjects;
         document.querySelector('.secondary-btn').textContent = t.contactBtn;
+
+        // Library
+        document.querySelector('#books .library-header h1').textContent = t.libraryText;
+        document.querySelector('#books .library-header p').textContent = t.libraryText2;
 
         // About
         document.querySelector('#about .section-header h2').innerHTML = t.aboutTitle;
