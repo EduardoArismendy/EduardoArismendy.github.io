@@ -1,35 +1,35 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Theme toggle
-    const themeToggle = document.querySelector('.theme-toggle');
-    themeToggle.addEventListener('click', function() {
-        document.body.classList.toggle('light-mode');
-        
-        // Change icon based on theme
-        const icon = themeToggle.querySelector('.material-symbols-rounded');
-        if (document.body.classList.contains('light-mode')) {
-            icon.textContent = 'dark_mode';
-        } else {
-            icon.textContent = 'light_mode';
-        }
-    });
+document.addEventListener('DOMContentLoaded', function () {
+  // Theme toggle
+  const themeToggle = document.querySelector('.theme-toggle');
+  themeToggle.addEventListener('click', function () {
+    document.body.classList.toggle('light-mode');
 
-    // Mobile menu toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    hamburger.addEventListener('click', function() {
-        navLinks.classList.toggle('active');
-        
-        // Change hamburger icon to close icon
-        const icon = hamburger.querySelector('.material-symbols-rounded');
-        if (navLinks.classList.contains('active')) {
-            icon.textContent = 'close';
-            
-            // Add mobile nav styles dynamically
-            if (!document.getElementById('mobile-nav-styles')) {
-                const style = document.createElement('style');
-                style.id = 'mobile-nav-styles';
-                style.textContent = `
+    // Change icon based on theme
+    const icon = themeToggle.querySelector('.material-symbols-rounded');
+    if (document.body.classList.contains('light-mode')) {
+      icon.textContent = 'dark_mode';
+    } else {
+      icon.textContent = 'light_mode';
+    }
+  });
+
+  // Mobile menu toggle
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger.addEventListener('click', function () {
+    navLinks.classList.toggle('active');
+
+    // Change hamburger icon to close icon
+    const icon = hamburger.querySelector('.material-symbols-rounded');
+    if (navLinks.classList.contains('active')) {
+      icon.textContent = 'close';
+
+      // Add mobile nav styles dynamically
+      if (!document.getElementById('mobile-nav-styles')) {
+        const style = document.createElement('style');
+        style.id = 'mobile-nav-styles';
+        style.textContent = `
                     .nav-links.active {
                         display: flex;
                         flex-direction: column;
@@ -43,175 +43,175 @@ document.addEventListener('DOMContentLoaded', function() {
                         z-index: 1000;
                     }
                 `;
-                document.head.appendChild(style);
-            }
-        } else {
-            icon.textContent = 'menu';
-        }
-    });
-
-   /* // Project filters
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterBtns.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const filter = this.dataset.filter;
-            
-            projectCards.forEach(card => {
-                if (filter === 'all' || card.dataset.category === filter) {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, 100);
-                } else {
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-    });*/
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Close mobile menu if open
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                hamburger.querySelector('.material-symbols-rounded').textContent = 'menu';
-            }
-            
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
-            
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 100,
-                    behavior: 'smooth'
-                });
-                
-                // Update active link
-                document.querySelectorAll('.nav-links a').forEach(link => {
-                    link.classList.remove('active');
-                });
-                this.classList.add('active');
-            }
-        });
-    });
-
-    // Highlight active nav link on scroll
-    window.addEventListener('scroll', function() {
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('.nav-links a');
-        
-        let current = '';
-        
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            const sectionHeight = section.clientHeight;
-            
-            if (pageYOffset >= sectionTop - 200) {
-                current = section.getAttribute('id');
-            }
-        });
-        
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
-                link.classList.add('active');
-            }
-        });
-        
-        // Add background to header on scroll
-        const header = document.querySelector('header');
-        if (window.scrollY > 100) {
-            header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-            header.style.background = document.body.classList.contains('light-mode') 
-                ? 'rgba(255, 255, 255, 0.9)' 
-                : 'rgba(18, 18, 18, 0.9)';
-        } else {
-            header.style.boxShadow = 'none';
-            header.style.background = document.body.classList.contains('light-mode') 
-                ? 'rgba(255, 255, 255, 0.8)' 
-                : 'rgba(18, 18, 18, 0.8)';
-        }
-    });
-
-    // Form submission handling
-    const contactForm = document.querySelector('.contact-form form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simple form validation
-            const name = document.getElementById('name');
-            const email = document.getElementById('email');
-            const message = document.getElementById('message');
-            
-            if (name.value.trim() === '' || email.value.trim() === '' || message.value.trim() === '') {
-                alert('Por favor, complete todos los campos obligatorios.');
-                return;
-            }
-            
-            // Simulate form submission
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = 'Enviando...';
-            submitBtn.disabled = true;
-            
-            // Simulating API call delay
-            setTimeout(() => {
-                alert('¡Mensaje enviado correctamente! Gracias por contactar.');
-                contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-            }, 1500);
-        });
+        document.head.appendChild(style);
+      }
+    } else {
+      icon.textContent = 'menu';
     }
+  });
 
-    // Animation on scroll
-    const animateOnScroll = function() {
-        const elements = document.querySelectorAll('.project-card, .skill-item, .contact-detail');
-        
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
-            
-            if (elementPosition < screenPosition) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
+  /* // Project filters
+   const filterBtns = document.querySelectorAll('.filter-btn');
+   const projectCards = document.querySelectorAll('.project-card');
+   
+   filterBtns.forEach(btn => {
+       btn.addEventListener('click', function() {
+           // Remove active class from all buttons
+           filterBtns.forEach(btn => btn.classList.remove('active'));
+           
+           // Add active class to clicked button
+           this.classList.add('active');
+           
+           const filter = this.dataset.filter;
+           
+           projectCards.forEach(card => {
+               if (filter === 'all' || card.dataset.category === filter) {
+                   card.style.display = 'block';
+                   setTimeout(() => {
+                       card.style.opacity = '1';
+                       card.style.transform = 'translateY(0)';
+                   }, 100);
+               } else {
+                   card.style.opacity = '0';
+                   card.style.transform = 'translateY(20px)';
+                   setTimeout(() => {
+                       card.style.display = 'none';
+                   }, 300);
+               }
+           });
+       });
+   });*/
+
+  // Smooth scrolling for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+
+      // Close mobile menu if open
+      if (navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        hamburger.querySelector('.material-symbols-rounded').textContent = 'menu';
+      }
+
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 100,
+          behavior: 'smooth'
         });
-    };
 
-    // Add initial styles for animation
-    const style = document.createElement('style');
-    style.textContent = `
+        // Update active link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+          link.classList.remove('active');
+        });
+        this.classList.add('active');
+      }
+    });
+  });
+
+  // Highlight active nav link on scroll
+  window.addEventListener('scroll', function () {
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    let current = '';
+
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+
+      if (pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+
+    // Add background to header on scroll
+    const header = document.querySelector('header');
+    if (window.scrollY > 100) {
+      header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
+      header.style.background = document.body.classList.contains('light-mode')
+        ? 'rgba(255, 255, 255, 0.9)'
+        : 'rgba(18, 18, 18, 0.9)';
+    } else {
+      header.style.boxShadow = 'none';
+      header.style.background = document.body.classList.contains('light-mode')
+        ? 'rgba(255, 255, 255, 0.8)'
+        : 'rgba(18, 18, 18, 0.8)';
+    }
+  });
+
+  // Form submission handling
+  const contactForm = document.querySelector('.contact-form form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Simple form validation
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const message = document.getElementById('message');
+
+      if (name.value.trim() === '' || email.value.trim() === '' || message.value.trim() === '') {
+        alert('Por favor, complete todos los campos obligatorios.');
+        return;
+      }
+
+      // Simulate form submission
+      const submitBtn = this.querySelector('.submit-btn');
+      const originalText = submitBtn.textContent;
+
+      submitBtn.textContent = 'Enviando...';
+      submitBtn.disabled = true;
+
+      // Simulating API call delay
+      setTimeout(() => {
+        alert('¡Mensaje enviado correctamente! Gracias por contactar.');
+        contactForm.reset();
+        submitBtn.textContent = originalText;
+        submitBtn.disabled = false;
+      }, 1500);
+    });
+  }
+
+  // Animation on scroll
+  const animateOnScroll = function () {
+    const elements = document.querySelectorAll('.project-card, .skill-item, .contact-detail');
+
+    elements.forEach(element => {
+      const elementPosition = element.getBoundingClientRect().top;
+      const screenPosition = window.innerHeight / 1.3;
+
+      if (elementPosition < screenPosition) {
+        element.style.opacity = '1';
+        element.style.transform = 'translateY(0)';
+      }
+    });
+  };
+
+  // Add initial styles for animation
+  const style = document.createElement('style');
+  style.textContent = `
         .project-card, .skill-item, .contact-detail {
             opacity: 0;
             transform: translateY(20px);
             transition: all 0.6s ease;
         }
     `;
-    document.head.appendChild(style);
+  document.head.appendChild(style);
 
-    window.addEventListener('scroll', animateOnScroll);
-    
-    // Trigger once on load
-    animateOnScroll();
+  window.addEventListener('scroll', animateOnScroll);
+
+  // Trigger once on load
+  animateOnScroll();
 });
 
 //Cambios posteriores
@@ -246,16 +246,16 @@ const projectData = {
   },
 
   "PintorWebside": {
-  title: { en: "Painter Portfolio", es: "Portafolio de Pintor" },
-  description: {
-    en: "Painter portfolio website with artwork gallery and contact for commissions.",
-    es: "Portafolio web para pintor con galería de obras y contacto para comisiones."
-  },
-  image: "/pintor.webp",
-  video: "https://pintor01.netlify.app/",
-  techs: ["JS", "CSS", "HTML"],
-  github: "https://github.com/usuario/proyecto-pintor",
-  category: "web"
+    title: { en: "Painter Portfolio", es: "Portafolio de Pintor" },
+    description: {
+      en: "Painter portfolio website with artwork gallery and contact for commissions.",
+      es: "Portafolio web para pintor con galería de obras y contacto para comisiones."
+    },
+    image: "/pintor.webp",
+    video: "https://pintor01.netlify.app/",
+    techs: ["JS", "CSS", "HTML"],
+    github: "https://github.com/usuario/proyecto-pintor",
+    category: "web"
   },
 
 
@@ -285,34 +285,34 @@ const projectData = {
     category: "web"
   },
 
- "ModeloWebside": {
-  title: { en: "Model Portfolio", es: "Portafolio de Modelo" },
-  description: {
-    en: "Model portfolio website with photo gallery and professional contact.",
-    es: "Portafolio web para modelo con galería de fotos y contacto profesional."
-  },
-  image: "/modelo.webp",
-  video: "https://galeriamodelo.netlify.app/",
-  techs: ["JS", "CSS", "HTML"],
-  github: "https://github.com/usuario/proyecto-modelo",
-  category: "web"
+  "ModeloWebside": {
+    title: { en: "Model Portfolio", es: "Portafolio de Modelo" },
+    description: {
+      en: "Model portfolio website with photo gallery and professional contact.",
+      es: "Portafolio web para modelo con galería de fotos y contacto profesional."
+    },
+    image: "/modelo.webp",
+    video: "https://galeriamodelo.netlify.app/",
+    techs: ["JS", "CSS", "HTML"],
+    github: "https://github.com/usuario/proyecto-modelo",
+    category: "web"
   },
 
 
 };
 
-  let currentLang = 'en'; // idioma inicial
+let currentLang = 'en'; // idioma inicial
 
-  function convertToEmbedUrl(url) {
-    const regex = /(?:\?v=|\.be\/)([^&]+)/;
-    const match = url.match(regex);
-    if (match && match[1]) {
-      return `https://www.youtube.com/embed/${match[1]}`;
-    }
-    return url; // si ya es embed o no se reconoce, lo deja igual
+function convertToEmbedUrl(url) {
+  const regex = /(?:\?v=|\.be\/)([^&]+)/;
+  const match = url.match(regex);
+  if (match && match[1]) {
+    return `https://www.youtube.com/embed/${match[1]}`;
   }
+  return url; // si ya es embed o no se reconoce, lo deja igual
+}
 
- function createProjectCard(project, lang) {
+function createProjectCard(project, lang) {
   const card = document.createElement("div");
   card.className = `project-card ${project.category}`;
 
@@ -330,7 +330,7 @@ const projectData = {
     </div>
   `;
 
-   const viewBtn = card.querySelector(".view-project");
+  const viewBtn = card.querySelector(".view-project");
   viewBtn.addEventListener("click", (e) => {
     e.preventDefault();
 
@@ -395,7 +395,7 @@ function renderProjects(lang) {
   });
 
   // Listener para abrir modal
-  container.onclick = function(e) {
+  container.onclick = function (e) {
     if (e.target.classList.contains("view-project")) {
       e.preventDefault();
       const projectTitle = e.target.dataset.project;
@@ -430,4 +430,145 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
- 
+
+//Biblioteca
+class BookSlider {
+  constructor() {
+    this.track = document.querySelector('.books-track');
+    this.cards = document.querySelectorAll('.book-card');
+    this.prevBtn = document.querySelector('.prev-btn');
+    this.nextBtn = document.querySelector('.next-btn');
+
+    this.currentIndex = 0;
+    this.cardWidth = 300;
+    this.gap = 32;
+    this.cardsPerView = this.calculateCardsPerView();
+
+    this.init();
+  }
+
+  init() {
+    this.bindEvents();
+    this.updateSlider();
+    this.autoSlide();
+  }
+
+  calculateCardsPerView() {
+    const containerWidth = this.track.parentElement.offsetWidth;
+    return Math.floor(containerWidth / (this.cardWidth + this.gap));
+  }
+
+  bindEvents() {
+    this.prevBtn.addEventListener('click', () => this.slidePrev());
+    this.nextBtn.addEventListener('click', () => this.slideNext());
+
+    window.addEventListener('resize', () => {
+      this.cardsPerView = this.calculateCardsPerView();
+      this.updateSlider();
+    });
+
+    // Download buttons
+    document.querySelectorAll('.download-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        this.handleDownload(e.target);
+      });
+    });
+  }
+
+  slideNext() {
+    const maxIndex = this.cards.length - this.cardsPerView;
+    if (this.currentIndex < maxIndex) {
+      this.currentIndex++;
+      this.updateSlider();
+    }
+  }
+
+  slidePrev() {
+    if (this.currentIndex > 0) {
+      this.currentIndex--;
+      this.updateSlider();
+    }
+  }
+
+  updateSlider() {
+    const offset = -this.currentIndex * (this.cardWidth + this.gap);
+    this.track.style.transform = `translateX(${offset}px)`;
+  }
+
+  autoSlide() {
+    setInterval(() => {
+      const maxIndex = this.cards.length - this.cardsPerView;
+      if (this.currentIndex >= maxIndex) {
+        this.currentIndex = 0;
+      } else {
+        this.currentIndex++;
+      }
+      this.updateSlider();
+    }, 5000);
+  }
+
+  handleDownload(button) {
+    const filename = button.dataset.file || button.parentElement.dataset.file;
+
+    if (filename) {
+      // Simular descarga
+      const link = document.createElement('a');
+      link.href = `#${filename}`;
+      link.download = filename;
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+
+      // Feedback visual - preserve button type styling
+      const isEpub = filename.endsWith('.epub');
+      const gradient = isEpub
+        ? 'linear-gradient(135deg, #8be9fd 0%, #bd93f9 100%)'
+        : 'linear-gradient(135deg, #50fa7b 0%, #6272a4 100%)';
+
+      // Aplica fondo al botón y asegúrate de que el texto sea visible
+      button.style.background = gradient;
+      button.style.color = '#fff'; // Contraste
+      button.style.transition = 'background 0.3s ease'; // Suavidad
+
+      // No uses <span> que puede aislar el fondo
+      button.innerHTML = '¡Descargado!';
+
+      // Restaurar contenido después de 2s
+      setTimeout(() => {
+        const type = isEpub ? 'EPUB' : 'PDF';
+        button.innerHTML = `${type}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
+        button.style.background = ''; // Opcional: restaurar fondo si quieres
+        button.style.color = '';      // Restaurar color si era diferente antes
+      }, 2000);
+
+    }
+  }
+}
+
+// Parallax effect on hover
+document.querySelectorAll('.book-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+
+    const rotateX = (y - centerY) / 10;
+    const rotateY = (centerX - x) / 10;
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+  });
+
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = '';
+  });
+});
+
+// Initialize slider
+document.addEventListener('DOMContentLoaded', () => {
+  new BookSlider();
+});

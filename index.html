@@ -34,8 +34,10 @@
             </div>
             <div class="nav-links">
                 <a href="#home" class="active">Home</a>
+                <a href="#books">Books</a>
                 <a href="#about">About me</a>
                 <a href="#projects">Projects</a>
+                <a href="#blog" >Blog</a>
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -74,6 +76,149 @@
             </div>
         </div>
     </section>
+
+    <!--Biblioteca-->
+    <section id="books" class="library-section">
+        <div class="library-header">
+            <h1 class="library-title">Biblioteca Digital</h1>
+            <p class="library-subtitle">Descubre y descarga nuestros ebooks exclusivos</p>
+            <div class="divider"></div>
+        </div>
+
+        <div class="library-controls">
+            <button class="nav-btn prev-btn" aria-label="Libros anteriores">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <polyline points="15 18 9 12 15 6"/>
+                </svg>
+            </button>
+            <button class="nav-btn next-btn" aria-label="Siguientes libros">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <polyline points="9 18 15 12 9 6"/>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="books-container">
+            <div class="books-track">
+                <div class="book-card" data-book="1">
+                    <div class="book-cover">
+                        <img src="book-cover-1.png" alt="El Arte de la Programación" class="book-cover-image">
+                    </div>
+                    <div class="book-info">
+                        <h4>Tu App, Tu negocio</h4>
+                        <p>Los primeros pasos para empezar tu propia aplicación móvil</p>
+                        <div class="download-buttons">
+                            <button class="download-btn pdf" data-file="Manual-Tu-app-tu-negocio.pdf">
+                                <span>PDF</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </button>
+                            <button class="download-btn epub" data-file="Manual-Tu-app-tu-negocio.epub">
+                                <span>EPUB</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+<!--
+                <div class="book-card" data-book="2">
+                    <div class="book-cover">
+                        <img src="book-cover-2.png" alt="Diseño Web" class="book-cover-image">
+                    </div>
+                    <div class="book-info">
+                        <h4>Diseño Web Responsivo</h4>
+                        <p>Crea interfaces adaptativas y modernas para todos los dispositivos</p>
+                        <div class="download-buttons">
+                            <button class="download-btn pdf" data-file="responsive-design.pdf">
+                                <span>PDF</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </button>
+                            <button class="download-btn epub" data-file="responsive-design.epub">
+                                <span>EPUB</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card" data-book="3">
+                    <div class="book-cover">
+                        <img src="book-cover-3.png" alt="CSS Avanzado" class="book-cover-image">
+                    </div>
+                    <div class="book-info">
+                        <h4>CSS Avanzado</h4>
+                        <p>Masteriza animaciones complejas y efectos visuales impactantes</p>
+                        <div class="download-buttons">
+                            <button class="download-btn pdf" data-file="css-avanzado.pdf">
+                                <span>PDF</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </button>
+                            <button class="download-btn epub" data-file="css-avanzado.epub">
+                                <span>EPUB</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="book-card" data-book="4">
+                    <div class="book-cover">
+                        <img src="book-cover-4.png" alt="React" class="book-cover-image">
+                    </div>
+                    <div class="book-info">
+                        <h4>React Desde Cero</h4>
+                        <p>Aprende a construir aplicaciones modernas con React</p>
+                        <div class="download-buttons">
+                            <button class="download-btn pdf" data-file="react-cero.pdf">
+                                <span>PDF</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </button>
+                            <button class="download-btn epub" data-file="react-cero.epub">
+                                <span>EPUB</span>
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                          -->
+            </div>
+        </div>
+                                     
+        
+    </section>
+
+    <!--About-->
 
     <section id="about" class="about">
     <div class="section-header">
