@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
             restaurant: 'Restaurantes',
             ia: 'IA',
             mySkills: 'Mis <span>Habilidades</span>',
-            getInTouch: 'Contáctame',
+            getInTouch: 'Contáctanos',
             contactoTextContent: '<span class="accent">Consultoría Gratuita</span> <br>de 15 Minutos',
             contactoTextContent2: 'Expertos en desarrollo de aplicaciones móviles listos para transformar tu idea en realidad',
             contactoTextContent3: 'Reserva tu sesión gratuita',

@@ -1432,14 +1432,4 @@ footer {
         padding: 1.5rem;
     }
     
-    .theme-toggle {
-        top: 1rem;
-        right: 1rem;
-    }
-    
-    .theme-btn {
-        width: 40px;
-        height: 40px;
-        font-size: 1.2rem;
-    }
 }
