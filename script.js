@@ -510,42 +510,50 @@ class BookSlider {
     }, 5000);
   }
 
-  handleDownload(button) {
+    handleDownload(button) {
     const filename = button.dataset.file || button.parentElement.dataset.file;
 
-    if (filename) {
-      // Simular descarga
-      const link = document.createElement('a');
-      link.href = `#${filename}`;
-      link.download = filename;
-      link.style.display = 'none';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+    if (!filename) return;
 
-      // Feedback visual - preserve button type styling
-      const isEpub = filename.endsWith('.epub');
-      const gradient = isEpub
-        ? 'linear-gradient(135deg, #8be9fd 0%, #bd93f9 100%)'
-        : 'linear-gradient(135deg, #50fa7b 0%, #6272a4 100%)';
+    // Verifica que el archivo exista haciendo una petición HEAD
+    fetch(filename, { method: 'HEAD' })
+      .then(response => {
+        if (!response.ok) {
+          alert('Archivo no encontrado.');
+          return;
+        }
 
-      // Aplica fondo al botón y asegúrate de que el texto sea visible
-      button.style.background = gradient;
-      button.style.color = '#fff'; // Contraste
-      button.style.transition = 'background 0.3s ease'; // Suavidad
+        // Crear link de descarga
+        const link = document.createElement('a');
+        link.href = filename;
+        link.download = filename.split('/').pop();
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
 
-      // No uses <span> que puede aislar el fondo
-      button.innerHTML = '¡Descargado!';
+        // Feedback visual
+        const isEpub = filename.endsWith('.epub');
+        const gradient = isEpub
+          ? 'linear-gradient(135deg, #8be9fd 0%, #bd93f9 100%)'
+          : 'linear-gradient(135deg, #50fa7b 0%, #6272a4 100%)';
 
-      // Restaurar contenido después de 2s
-      setTimeout(() => {
-        const type = isEpub ? 'EPUB' : 'PDF';
-        button.innerHTML = `${type}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
-        button.style.background = ''; // Opcional: restaurar fondo si quieres
-        button.style.color = '';      // Restaurar color si era diferente antes
-      }, 2000);
+        button.style.background = gradient;
+        button.style.color = '#fff';
+        button.style.transition = 'background 0.3s ease';
+        button.innerHTML = '¡Descargado!';
 
-    }
+        setTimeout(() => {
+          const type = isEpub ? 'EPUB' : 'PDF';
+          button.innerHTML = `${type}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
+          button.style.background = '';
+          button.style.color = '';
+        }, 2000);
+      })
+      .catch(error => {
+        console.error('Error al verificar el archivo:', error);
+        alert('Ocurrió un error al intentar descargar el archivo.');
+      });
   }
 }
 
