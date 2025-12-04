@@ -53,7 +53,6 @@ document.addEventListener('DOMContentLoaded', function () {
             libraryText2: 'Discover and download our exclusive ebooks',
             aboutTitle: 'About <span>me</span>',
             aboutText1: "I’m a Mobile Application Developer with experience building functional, user-centered solutions. I primarily work with Kotlin for Android and React Native,  allowing me to develop cross-platform apps for Android and iOS. I specialize in clean UI design, efficient architecture, and seamless integration with services like Firebase. I'm currently expanding my skills with Swift to build fully native iOS experiences.",
-            aboutText2: 'I bring together strong technical knowledge with a strategic mindset to create high-impact digital products.',
             completedProjects: 'Completed Projects',
             clients: 'Trusted by Clients',
             experience: 'Years of Experience',
@@ -100,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
         // About
         document.querySelector('#about .section-header h2').innerHTML = t.aboutTitle;
         document.querySelectorAll('.about-text p')[0].textContent = t.aboutText1;
-        document.querySelectorAll('.about-text p')[1].textContent = t.aboutText2;
         document.querySelectorAll('.stat-label')[0].textContent = t.completedProjects;
         document.querySelectorAll('.stat-label')[1].textContent = t.clients;
         document.querySelectorAll('.stat-label')[2].textContent = t.experience;
