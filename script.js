@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const catalogGrid = document.querySelector("#catalog-grid");
   const catalogResults = document.querySelector("#catalog-results");
   const catalogEmpty = document.querySelector("#catalog-empty");
+  const languageToggle = document.querySelector("#language-toggle");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (!(menuToggle instanceof HTMLButtonElement) ||
@@ -38,7 +39,8 @@ document.addEventListener("DOMContentLoaded", () => {
       !(catalogFilters instanceof HTMLElement) ||
       !(catalogGrid instanceof HTMLElement) ||
       !(catalogResults instanceof HTMLElement) ||
-      !(catalogEmpty instanceof HTMLElement)) {
+      !(catalogEmpty instanceof HTMLElement) ||
+      !(languageToggle instanceof HTMLButtonElement)) {
     throw new Error("No se pudieron inicializar los elementos principales de Gardenia.");
   }
 
@@ -62,6 +64,174 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "Jazmín", color: "#FFFFFF" },
     { name: "Lirio", color: "#FF9F7A" }
   ];
+
+  const translations = {
+    es: {
+      skipLink: "Saltar al contenido", brandTagline: "Automatización inteligente", openMenu: "Abrir menú",
+      closeMenu: "Cerrar menú", mainNavigation: "Navegación principal", brandHome: "Gardenia, inicio",
+      footerBrandHome: "Gardenia, volver al inicio", navSolutions: "Qué automatizamos", navIntegrations: "Integraciones",
+      navAgents: "Agentes", navHowItWorks: "Cómo funciona", navDemo: "Ver demostración",
+      heroEyebrow: "Automatización útil, hecha para personas", heroTitleFirst: "Menos tareas repetidas.",
+      heroTitleSecond: "Más espacio para crecer.", heroIntro: "Gardenia ayuda a empresas y negocios de cualquier índole a automatizar procesos cotidianos para que su equipo pueda enfocarse en lo que realmente importa.",
+      heroPrimaryCta: "Explora una demostración", heroSecondaryCta: "Descubre cómo funciona", heroProofLead: "Un proceso a la vez.",
+      heroProofText: "Automatizaciones adaptadas al ritmo de tu negocio.", heroArt: "Loto, agente de automatización de Gardenia",
+      heroArtLabel: "Tareas en movimiento", orbitLabel: "Herramientas que Loto puede conectar",
+      lotoImageTitle: "Loto saludando: flor de loto rosa, rostro sonriente y hojas verdes", lotoGreeting: "Hola, soy Loto",
+      heroBottomLead: "Un sistema de automatizaciones para", businessSmallTeams: "Equipos pequeños",
+      businessCompanies: "Empresas", businessAllTypes: "Negocios de cualquier índole", businessTypes: "Distintos tipos de negocios",
+      agentsEyebrow: "Un jardín de posibilidades", agentsTitle: "Elige un agente",
+      agentsIntro: "es el automatizador disponible. Los demás están floreciendo.",
+      previousAgents: "Ver agentes anteriores", selectAgent: "Selecciona un agente", moreAgents: "Ver más agentes",
+      agentSelected: "es el automatizador disponible. Puedes explorar su demostración conceptual.",
+      meetLoto: "Conocer a Loto", solutionsEyebrow: "El trabajo que se repite, puede fluir mejor",
+      solutionsTitle: "Tu equipo merece dedicar su tiempo<br class=\"desktop-break\"> a tareas más importantes.",
+      solutionsIntro: "Gardenia conecta pasos y organiza actividades repetitivas, con automatizaciones pensadas alrededor de cómo trabaja cada negocio.",
+      featureSupportTitle: "Atención y seguimiento", featureSupportText: "Organiza consultas frecuentes, recordatorios y próximos pasos para que nada se quede en el aire.",
+      featureDocsTitle: "Documentos y tareas", featureDocsText: "Reduce el trabajo manual de organizar información, preparar borradores y mantener procesos al día.",
+      featureFlowsTitle: "Flujos entre herramientas", featureFlowsText: "Conecta actividades de tu operación para evitar pasos duplicados y traspasos innecesarios.",
+      sectionNote: "Cada flujo se define contigo. La automatización apoya a las personas; no reemplaza su criterio.",
+      integrationsEyebrow: "Conexiones de Loto", integrationsTitle: "Tus herramientas, trabajando en equipo.",
+      integrationsIntro: "Estas son algunas herramientas que Loto puede conectar en flujos a medida. Cada conexión depende del servicio, los permisos y la configuración.",
+      previousConnections: "Ver conexiones destacadas anteriores", featuredConnections: "Conexiones destacadas de Loto",
+      moreConnections: "Ver más conexiones destacadas", also: "También:", builtInTools: "conexiones por API y webhooks, horarios, almacenamiento, tablas, PDF y CSV, imágenes, SMTP, QR, subflujos y aprobaciones.",
+      showAllTools: "Ver todas las herramientas", closeCatalog: "Cerrar catálogo", searchTools: "Busca una herramienta",
+      searchPlaceholder: "Ej. Gmail, ventas, IA…", filterCategory: "Filtrar por categoría",
+      connectableTools: "Herramientas conectables con Loto",
+      catalogEmpty: "No encontramos herramientas con esa búsqueda. Prueba otro nombre o categoría.",
+      catalogNote: "La presencia en este catálogo no significa que la conexión esté activa. Loto se configura según las herramientas, accesos y necesidades de cada negocio.",
+      workflowEyebrow: "Simple desde el primer paso", workflowTitle: "Una forma más clara de trabajar, empieza escuchando.",
+      workflowIntro: "Primero entendemos cómo funciona tu negocio. Después proponemos una automatización concreta, que puedas revisar y ajustar con tu equipo.",
+      workflowCta: "Mira a Loto en acción", stepOneTitle: "Conversamos",
+      stepOneText: "Identificamos tareas repetitivas y lo que más tiempo consume.",
+      stepTwoTitle: "Diseñamos el flujo", stepTwoText: "Definimos qué automatizar, qué información hace falta y dónde revisar.",
+      stepThreeTitle: "Probamos y mejoramos", stepThreeText: "Tu equipo valida el proceso antes de incorporarlo a su rutina.",
+      demoEyebrow: "Una demostración conceptual", demoTitle: "Conoce a Loto.",
+      demoIntro: "Loto es la agente de Gardenia que ayuda a convertir tareas repetitivas en procesos más ordenados. Elige un ejemplo ficticio para ver cómo podría empezar una conversación.",
+      demoDisclaimer: "Esta muestra no está conectada a sistemas ni utiliza datos reales.",
+      demoCta: "Conoce el enfoque de Gardenia", chatLabel: "Demostración interactiva de Loto",
+      chatRole: "Agente de automatización", chatDemo: "Demostración",
+      chatWelcome: "¡Hola! Puedo enseñarte algunos ejemplos de tareas que se pueden automatizar. ¿Cuál te interesa?",
+      chooseExample: "Elige un ejemplo", suggestionQueries: "Organizar consultas frecuentes",
+      suggestionReminders: "Preparar recordatorios", suggestionDocuments: "Ordenar tareas y documentos",
+      chatFootnote: "Ejemplos ilustrativos, sin información de clientes.",
+      lotusEyebrow: "Una flor, un propósito", lotusTitle: "Loto crece contigo.",
+      lotusText: "Gardenia es un sistema de automatizaciones para empresas y negocios de cualquier índole. Hoy, Loto es la flor disponible: una guía cercana para explorar cómo hacer que el trabajo repetitivo fluya mejor.",
+      tagClear: "Clara", tagCollaborative: "Colaborativa", tagPractical: "Práctica",
+      faqEyebrow: "Preguntas frecuentes", faqTitle: "Automatizar con intención.",
+      faqIntro: "La tecnología debe adaptarse a las personas y procesos de tu negocio.",
+      faqOneQuestion: "¿Qué es Gardenia?",
+      faqOneAnswer: "Un sistema de automatizaciones que ayuda a empresas y negocios de cualquier índole a reducir trabajo repetitivo y ordenar sus procesos.",
+      faqTwoQuestion: "¿Qué tareas se pueden automatizar?",
+      faqTwoAnswer: "Depende de cada operación. Algunos ejemplos son organizar consultas frecuentes, preparar recordatorios o coordinar pasos entre tareas y documentos.",
+      faqThreeQuestion: "¿Loto toma decisiones por mi equipo?",
+      faqThreeAnswer: "No. La automatización puede ayudar con tareas y flujos, pero las personas mantienen el criterio y la supervisión de su trabajo.",
+      faqFourQuestion: "¿La demostración usa información real?",
+      faqFourAnswer: "No. La conversación es una muestra local con escenarios ficticios; no solicita ni envía información personal o empresarial.",
+      footerPitch: "Automatiza lo repetitivo. Haz espacio para lo importante.", backToTop: "Volver arriba",
+      footerNote: "Una demostración conceptual, creada para explorar ideas.",
+      allCategories: "Todas", allCategoriesCount: (shown, total) => `Mostrando ${shown} de ${total} herramientas`,
+      noResults: "No encontramos herramientas", available: "Disponible", blooming: "Floreciendo",
+      availableAgentLabel: "disponible como automatizador", bloomingAgentLabel: "floreciendo, bloqueado",
+      bloomingMessage: (name) => `está floreciendo. Por ahora, Loto es el único agente disponible como automatizador.`,
+      userName: "Tú"
+    },
+    en: {
+      skipLink: "Skip to content", brandTagline: "Intelligent automation", openMenu: "Open menu",
+      closeMenu: "Close menu", mainNavigation: "Main navigation", brandHome: "Gardenia, home",
+      footerBrandHome: "Gardenia, back to home", navSolutions: "What we automate", navIntegrations: "Integrations",
+      navAgents: "Agents", navHowItWorks: "How it works", navDemo: "See a demo",
+      heroEyebrow: "Useful automation, made for people", heroTitleFirst: "Fewer repetitive tasks.",
+      heroTitleSecond: "More room to grow.", heroIntro: "Gardenia helps businesses of every kind automate everyday processes so their teams can focus on what matters most.",
+      heroPrimaryCta: "Explore a demo", heroSecondaryCta: "See how it works", heroProofLead: "One process at a time.",
+      heroProofText: "Automations tailored to the pace of your business.", heroArt: "Loto, Gardenia's automation agent",
+      heroArtLabel: "Tasks in motion", orbitLabel: "Tools Loto can connect",
+      lotoImageTitle: "Loto waving: a pink lotus flower with a smiling face and green leaves", lotoGreeting: "Hi, I'm Loto",
+      heroBottomLead: "An automation system for", businessSmallTeams: "Small teams",
+      businessCompanies: "Companies", businessAllTypes: "Businesses of every kind", businessTypes: "Different types of businesses",
+      agentsEyebrow: "A garden of possibilities", agentsTitle: "Choose an agent",
+      agentsIntro: "is the available automation agent. The others are still blooming.",
+      previousAgents: "View previous agents", selectAgent: "Choose an agent", moreAgents: "View more agents",
+      agentSelected: "is the available automation agent. Explore its conceptual demo.",
+      meetLoto: "Meet Loto", solutionsEyebrow: "Repetitive work can flow better",
+      solutionsTitle: "Your team deserves to spend its time<br class=\"desktop-break\"> on more important work.",
+      solutionsIntro: "Gardenia connects steps and organizes repetitive activities with automations designed around how each business works.",
+      featureSupportTitle: "Customer care and follow-up", featureSupportText: "Organize common inquiries, reminders, and next steps so nothing falls through the cracks.",
+      featureDocsTitle: "Documents and tasks", featureDocsText: "Reduce manual work organizing information, preparing drafts, and keeping processes up to date.",
+      featureFlowsTitle: "Workflows across tools", featureFlowsText: "Connect activities across your operations to avoid duplicate steps and unnecessary handoffs.",
+      sectionNote: "Every workflow is defined with you. Automation supports people; it doesn't replace their judgment.",
+      integrationsEyebrow: "Loto's connections", integrationsTitle: "Your tools, working together.",
+      integrationsIntro: "Here are some tools Loto can connect in custom workflows. Each connection depends on the service, permissions, and configuration.",
+      previousConnections: "View previous featured connections", featuredConnections: "Featured connections for Loto",
+      moreConnections: "View more featured connections", also: "Also:", builtInTools: "API and webhook connections, schedules, storage, tables, PDF and CSV, images, SMTP, QR codes, subflows, and approvals.",
+      showAllTools: "See all tools", closeCatalog: "Close catalog", searchTools: "Search for a tool",
+      searchPlaceholder: "E.g. Gmail, sales, AI…", filterCategory: "Filter by category",
+      connectableTools: "Tools that can connect with Loto",
+      catalogEmpty: "No tools found. Try another name or category.",
+      catalogNote: "A listing here does not mean a connection is active. Loto is configured for each business's tools, access, and needs.",
+      workflowEyebrow: "Simple from the very first step", workflowTitle: "A clearer way to work starts with listening.",
+      workflowIntro: "First, we learn how your business works. Then we suggest a specific automation your team can review and adjust.",
+      workflowCta: "See Loto in action", stepOneTitle: "We talk",
+      stepOneText: "We identify repetitive tasks and what takes the most time.",
+      stepTwoTitle: "We design the workflow", stepTwoText: "We define what to automate, what information is needed, and where to review it.",
+      stepThreeTitle: "We test and improve", stepThreeText: "Your team validates the process before adding it to its routine.",
+      demoEyebrow: "A conceptual demo", demoTitle: "Meet Loto.",
+      demoIntro: "Loto is Gardenia's agent that helps turn repetitive tasks into more organized processes. Choose a fictional example to see how a conversation might begin.",
+      demoDisclaimer: "This demo is not connected to systems and does not use real data.",
+      demoCta: "Discover Gardenia's approach", chatLabel: "Interactive demo of Loto",
+      chatRole: "Automation agent", chatDemo: "Demo",
+      chatWelcome: "Hi! I can show you some examples of tasks that can be automated. Which one interests you?",
+      chooseExample: "Choose an example", suggestionQueries: "Organize common inquiries",
+      suggestionReminders: "Prepare reminders", suggestionDocuments: "Organize tasks and documents",
+      chatFootnote: "Illustrative examples, with no customer information.",
+      lotusEyebrow: "One flower, one purpose", lotusTitle: "Loto grows with you.",
+      lotusText: "Gardenia is an automation system for businesses of every kind. For now, Loto is the available flower: a friendly guide to exploring how repetitive work can flow better.",
+      tagClear: "Clear", tagCollaborative: "Collaborative", tagPractical: "Practical",
+      faqEyebrow: "Frequently asked questions", faqTitle: "Automation with intention.",
+      faqIntro: "Technology should adapt to the people and processes in your business.",
+      faqOneQuestion: "What is Gardenia?",
+      faqOneAnswer: "An automation system that helps businesses of every kind reduce repetitive work and organize their processes.",
+      faqTwoQuestion: "What tasks can be automated?",
+      faqTwoAnswer: "It depends on each operation. Examples include organizing common inquiries, preparing reminders, or coordinating steps across tasks and documents.",
+      faqThreeQuestion: "Does Loto make decisions for my team?",
+      faqThreeAnswer: "No. Automation can help with tasks and workflows, but people retain judgment and oversight of their work.",
+      faqFourQuestion: "Does the demo use real information?",
+      faqFourAnswer: "No. The conversation is a local sample with fictional scenarios; it does not request or send personal or business information.",
+      footerPitch: "Automate repetitive work. Make room for what matters.", backToTop: "Back to top",
+      footerNote: "A conceptual demo, created to explore ideas.",
+      allCategories: "All", allCategoriesCount: (shown, total) => `Showing ${shown} of ${total} tools`,
+      noResults: "No tools found", available: "Available", blooming: "Blooming",
+      availableAgentLabel: "available as an automation agent", bloomingAgentLabel: "blooming, locked",
+      bloomingMessage: (name) => `is still blooming. For now, Loto is the only available automation agent.`,
+      userName: "You"
+    }
+  };
+  const categoryLabels = {
+    "IA": "AI", "IA / protocolo": "AI / protocol", "Productividad": "Productivity",
+    "Archivos": "Files", "Documentos": "Documents", "Formularios": "Forms",
+    "Microsoft 365": "Microsoft 365", "Comunicación": "Communication",
+    "CRM y ventas": "CRM and sales", "Marketing": "Marketing", "Desarrollo": "Developer tools",
+    "Datos": "Data", "Comercio": "E-commerce", "Contabilidad": "Accounting",
+    "Soporte": "Customer support", "Recursos humanos": "Human resources", "Google": "Google"
+  };
+  const categoryLabelsEs = Object.fromEntries(Object.keys(categoryLabels).map((category) => [category, category]));
+  const categoryOptions = ["IA", "IA / protocolo", "Google", "Productividad", "Archivos", "Documentos", "Formularios", "Microsoft 365", "Comunicación", "CRM y ventas", "Marketing", "Desarrollo", "Datos", "Comercio", "Contabilidad", "Soporte", "Recursos humanos"];
+  const localeCategories = (language) => language === "en" ? categoryLabels : categoryLabelsEs;
+  const examples = {
+    consultas: {
+      es: { prompt: "Quiero organizar las consultas frecuentes.", reply: "Podemos agrupar las preguntas habituales, preparar respuestas para revisar y dejar los casos especiales en manos de tu equipo. Primero definiríamos juntos qué consultas incluir." },
+      en: { prompt: "I'd like to organize common inquiries.", reply: "We can group common questions, prepare responses for review, and leave special cases to your team. First, we'd define together which inquiries to include." }
+    },
+    recordatorios: {
+      es: { prompt: "Me gustaría preparar recordatorios.", reply: "Podemos identificar qué eventos necesitan un recordatorio, cuándo enviarlo y quién debe revisarlo. El flujo se ajusta a la forma de trabajar de tu negocio." },
+      en: { prompt: "I'd like to prepare reminders.", reply: "We can identify which events need a reminder, when to send it, and who should review it. The workflow can fit the way your business works." }
+    },
+    documentos: {
+      es: { prompt: "Quiero ordenar tareas y documentos.", reply: "Podemos diseñar pasos para clasificar solicitudes, organizar documentos y avisar al equipo cuando algo necesite atención. Las personas mantienen el control del proceso." },
+      en: { prompt: "I'd like to organize tasks and documents.", reply: "We can design steps to classify requests, organize documents, and notify the team when something needs attention. People stay in control of the process." }
+    }
+  };
+  let language = document.documentElement.lang === "en" ? "en" : "es";
+  let selectedAgentName = "Loto";
 
   const integrations = [
     { name: "OpenAI", slug: "openai", category: "IA" },
@@ -126,22 +296,95 @@ document.addEventListener("DOMContentLoaded", () => {
     "GitHub",
     "Stripe"
   ]);
-  let selectedIntegrationCategory = "Todas";
+  let selectedIntegrationCategory = "__all__";
 
-  const examples = {
-    consultas: {
-      prompt: "Quiero organizar las consultas frecuentes.",
-      reply: "Podemos agrupar las preguntas habituales, preparar respuestas para revisar y dejar los casos especiales en manos de tu equipo. Primero definiríamos juntos qué consultas incluir."
-    },
-    recordatorios: {
-      prompt: "Me gustaría preparar recordatorios.",
-      reply: "Podemos identificar qué eventos necesitan un recordatorio, cuándo enviarlo y quién debe revisarlo. El flujo se ajusta a la forma de trabajar de tu negocio."
-    },
-    documentos: {
-      prompt: "Quiero ordenar tareas y documentos.",
-      reply: "Podemos diseñar pasos para clasificar solicitudes, organizar documentos y avisar al equipo cuando algo necesite atención. Las personas mantienen el control del proceso."
+  try {
+    const savedLanguage = window.localStorage.getItem("gardenia-language");
+    if (savedLanguage === "es" || savedLanguage === "en") {
+      language = savedLanguage;
     }
-  };
+  } catch (error) {
+    console.warn("No se pudo leer la preferencia de idioma guardada.", error);
+  }
+
+  function applyLanguage() {
+    const strings = translations[language];
+    document.documentElement.lang = language;
+    document.title = language === "es"
+      ? "Gardenia | Automatización inteligente para tu negocio"
+      : "Gardenia | Intelligent automation for your business";
+
+    const description = document.querySelector("#page-description");
+    if (description instanceof HTMLMetaElement) {
+      description.content = language === "es"
+        ? "Gardenia automatiza tareas repetitivas para empresas y negocios. Conoce a Loto, tu agente de automatización."
+        : "Gardenia automates repetitive tasks for businesses. Meet Loto, your automation agent.";
+    }
+
+    document.querySelectorAll("[data-i18n]").forEach((element) => {
+      const key = element.getAttribute("data-i18n");
+      if (key && strings[key]) {
+        element.textContent = strings[key];
+      }
+    });
+    document.querySelectorAll("[data-i18n-html]").forEach((element) => {
+      const key = element.getAttribute("data-i18n-html");
+      if (key && strings[key]) {
+        element.innerHTML = strings[key];
+      }
+    });
+    document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+      const key = element.getAttribute("data-i18n-aria");
+      if (key && strings[key]) {
+        element.setAttribute("aria-label", strings[key]);
+      }
+    });
+    document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+      const key = element.getAttribute("data-i18n-placeholder");
+      if (key && strings[key] && element instanceof HTMLInputElement) {
+        element.placeholder = strings[key];
+      }
+    });
+
+    languageToggle.textContent = language === "es" ? "EN" : "ES";
+    languageToggle.lang = language === "es" ? "en" : "es";
+    languageToggle.setAttribute("aria-label", language === "es" ? "Switch to English" : "Cambiar a español");
+    menuToggle.querySelector(".sr-only").textContent =
+      menuToggle.getAttribute("aria-expanded") === "true" ? strings.closeMenu : strings.openMenu;
+    catalogToggle.querySelector(".catalog-toggle-label").textContent =
+      catalogToggle.getAttribute("aria-expanded") === "true" ? strings.closeCatalog : strings.showAllTools;
+
+    renderAgents();
+    renderAgentSelection();
+    renderIntegrations();
+    updateCatalog();
+    chatMessages.innerHTML = `<div class="chat-message message-agent"><span class="message-name">Loto</span><span>${strings.chatWelcome}</span></div>`;
+    chatSuggestions.querySelectorAll("button").forEach((suggestion) => {
+      suggestion.disabled = false;
+    });
+
+    try {
+      window.localStorage.setItem("gardenia-language", language);
+    } catch (error) {
+      console.warn("No se pudo guardar la preferencia de idioma.", error);
+    }
+  }
+
+  function renderAgentSelection() {
+    const strings = translations[language];
+    if (selectedAgentName === "Loto") {
+      agentSelection.classList.remove("is-flowering");
+      agentSelection.innerHTML = `<p><strong>Loto</strong> ${strings.agentSelected}</p><a class="text-link" href="#demo">${strings.meetLoto} <span aria-hidden="true">→</span></a>`;
+      return;
+    }
+    agentSelection.classList.add("is-flowering");
+    const selectedAgent = agents.find((agent) => agent.name === selectedAgentName);
+    const message = document.createElement("p");
+    const name = document.createElement("strong");
+    name.textContent = selectedAgent?.name ?? "Loto";
+    message.append(name, document.createTextNode(` ${strings.bloomingMessage(selectedAgent?.name ?? "Loto")}`));
+    agentSelection.replaceChildren(message);
+  }
 
   function flowerArt(agent) {
   const stem = '<path d="M42 45Q41 62 42 82" fill="none" stroke="#10172A" stroke-width="2.4" stroke-linecap="round"/><path d="M42 68Q30 65 26 71Q33 78 42 74ZM42 73Q53 66 59 71Q53 80 42 78Z" fill="#9BF0E8" stroke="#10172A" stroke-width="1.2"/>';
@@ -166,12 +409,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderAgents() {
+  const strings = translations[language];
   agentsRail.innerHTML = agents.map((agent) => `
-    <button class="agent-card${agent.available ? " is-available" : " is-flowering"}" type="button" data-agent="${agent.name}" aria-pressed="${agent.available ? "true" : "false"}" aria-label="${agent.name}, ${agent.available ? "disponible como automatizador" : "floreciendo, bloqueado"}">
+    <button class="agent-card${agent.available ? " is-available" : " is-flowering"}" type="button" data-agent="${agent.name}" aria-pressed="${agent.name === selectedAgentName}" aria-label="${agent.name}, ${agent.available ? strings.availableAgentLabel : strings.bloomingAgentLabel}">
       ${agent.available ? "" : lockIcon()}
       ${flowerArt(agent)}
       <strong>${agent.name}</strong>
-      <span class="agent-state">${agent.available ? "Disponible" : "Floreciendo"}</span>
+      <span class="agent-state">${agent.available ? strings.available : strings.blooming}</span>
     </button>
   `).join("");
   }
@@ -183,9 +427,10 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function integrationCard(integration) {
+    const category = localeCategories(language)[integration.category] ?? integration.category;
     return `
-      <div class="integration-card" role="listitem" aria-label="${integration.name}, ${integration.category}">
-        <span class="integration-category">${integration.category}</span>
+      <div class="integration-card" role="listitem" aria-label="${integration.name}, ${category}">
+        <span class="integration-category">${category}</span>
         ${integration.slug
           ? `<img src="assets/integrations/${integration.slug}.png" alt="" width="38" height="38" loading="lazy" decoding="async">`
           : '<span class="integration-mark" aria-hidden="true">MCP</span>'}
@@ -206,10 +451,11 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderCatalogFilters() {
-    const categories = ["Todas", ...new Set(integrations.map((integration) => integration.category))];
+    const strings = translations[language];
+    const categories = ["__all__", ...categoryOptions];
     catalogFilters.innerHTML = categories.map((category) => `
       <button class="catalog-filter${category === selectedIntegrationCategory ? " is-selected" : ""}" type="button" data-category="${category}" aria-pressed="${category === selectedIntegrationCategory}">
-        ${category === "Todas" ? "Todas" : category}
+        ${category === "__all__" ? strings.allCategories : localeCategories(language)[category]}
       </button>
     `).join("");
   }
@@ -217,13 +463,14 @@ document.addEventListener("DOMContentLoaded", () => {
   function renderCatalog() {
     const query = normalizeSearch(integrationSearch.value);
     const filteredIntegrations = integrations.filter((integration) => {
-      const matchesCategory = selectedIntegrationCategory === "Todas" || integration.category === selectedIntegrationCategory;
-      const searchableText = normalizeSearch(`${integration.name} ${integration.category}`);
+      const matchesCategory = selectedIntegrationCategory === "__all__" || integration.category === selectedIntegrationCategory;
+      const localizedCategory = localeCategories(language)[integration.category] ?? integration.category;
+      const searchableText = normalizeSearch(`${integration.name} ${integration.category} ${localizedCategory}`);
       return matchesCategory && searchableText.includes(query);
     });
 
     catalogGrid.innerHTML = filteredIntegrations.map(integrationCard).join("");
-    catalogResults.textContent = `Mostrando ${filteredIntegrations.length} de ${integrations.length} herramientas`;
+    catalogResults.textContent = translations[language].allCategoriesCount(filteredIntegrations.length, integrations.length);
     catalogEmpty.hidden = filteredIntegrations.length > 0;
   }
 
@@ -241,7 +488,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function closeMenu() {
     menuToggle.setAttribute("aria-expanded", "false");
     siteNav.classList.remove("is-open");
-    menuToggle.querySelector(".sr-only").textContent = "Abrir menú";
+    menuToggle.querySelector(".sr-only").textContent = translations[language].openMenu;
   }
 
   function appendMessage(label, message, sender) {
@@ -264,14 +511,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
     menuToggle.setAttribute("aria-expanded", String(!isOpen));
     siteNav.classList.toggle("is-open", !isOpen);
-    menuToggle.querySelector(".sr-only").textContent = isOpen ? "Abrir menú" : "Cerrar menú";
+    menuToggle.querySelector(".sr-only").textContent = isOpen
+      ? translations[language].openMenu
+      : translations[language].closeMenu;
   });
 
-  renderAgents();
-  updateAgentArrows();
-  renderIntegrations();
+  languageToggle.addEventListener("click", () => {
+    language = language === "es" ? "en" : "es";
+    applyLanguage();
+  });
+
+  applyLanguage();
   updateIntegrationArrows();
-  updateCatalog();
+  updateAgentArrows();
 
   agentsPrevious.addEventListener("click", () => {
     agentsRail.scrollBy({ left: -agentsRail.clientWidth * 0.8, behavior: "instant" });
@@ -300,8 +552,8 @@ document.addEventListener("DOMContentLoaded", () => {
     catalogToggle.setAttribute("aria-expanded", String(!isOpen));
     integrationCatalog.hidden = isOpen;
     catalogToggle.querySelector(".catalog-toggle-label").textContent = isOpen
-      ? "Ver todas las herramientas"
-      : "Cerrar catálogo";
+      ? translations[language].showAllTools
+      : translations[language].closeCatalog;
     catalogToggle.querySelector("[aria-hidden='true']").textContent = isOpen ? "＋" : "−";
     if (!isOpen) {
       integrationSearch.focus();
@@ -319,7 +571,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    selectedIntegrationCategory = filter.dataset.category ?? "Todas";
+    selectedIntegrationCategory = filter.dataset.category ?? "__all__";
     updateCatalog();
   });
 
@@ -342,14 +594,8 @@ document.addEventListener("DOMContentLoaded", () => {
       agentCard.setAttribute("aria-pressed", String(agentCard === card));
     });
 
-    if (selectedAgent.available) {
-      agentSelection.classList.remove("is-flowering");
-      agentSelection.innerHTML = '<p><strong>Loto</strong> es el automatizador disponible. Puedes explorar su demostración conceptual.</p><a class="text-link" href="#demo">Conocer a Loto <span aria-hidden="true">→</span></a>';
-      return;
-    }
-
-    agentSelection.classList.add("is-flowering");
-    agentSelection.innerHTML = `<p><strong>${selectedAgent.name}</strong> está floreciendo. Por ahora, Loto es el único agente disponible como automatizador.</p>`;
+    selectedAgentName = selectedAgent.name;
+    renderAgentSelection();
   });
 
   siteNav.addEventListener("click", (event) => {
@@ -375,7 +621,7 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const example = examples[button.dataset.example];
+    const example = examples[button.dataset.example]?.[language];
     if (!example) {
       return;
     }
@@ -383,9 +629,13 @@ document.addEventListener("DOMContentLoaded", () => {
     chatSuggestions.querySelectorAll("button").forEach((suggestion) => {
       suggestion.disabled = true;
     });
-    appendMessage("Tú", example.prompt, "user");
+    const responseLanguage = language;
+    appendMessage(translations[language].userName, example.prompt, "user");
 
     window.setTimeout(() => {
+      if (language !== responseLanguage) {
+        return;
+      }
       appendMessage("Loto", example.reply, "agent");
       chatSuggestions.querySelectorAll("button").forEach((suggestion) => {
         suggestion.disabled = false;

@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#10172A">
-  <meta name="description" content="Gardenia automatiza tareas repetitivas para empresas y negocios. Conoce a Loto, tu agente de automatización.">
+  <meta id="page-description" name="description" content="Gardenia automatiza tareas repetitivas para empresas y negocios. Conoce a Loto, tu agente de automatización.">
   <title>Gardenia — Automatiza lo repetitivo con Loto</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <a class="skip-link" href="#contenido" data-i18n="skipLink">Saltar al contenido</a>
   <header class="site-header">
     <div class="container nav-wrap">
-      <a class="brand" href="#inicio" aria-label="Gardenia, inicio">
+      <a class="brand" href="#inicio" aria-label="Gardenia, inicio" data-i18n-aria="brandHome">
         <svg class="brand-logo" viewBox="4 6 92 90" aria-hidden="true">
           <g stroke="#10172A" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4">
             <path d="M8 90Q50 84 92 90" fill="none"/>
@@ -29,18 +29,21 @@
             <g transform="translate(63 52) scale(.4)" stroke-width="3.16"><path d="M0 0L0-12M0 0L10.4-6M0 0L10.4 6M0 0L0 12M0 0L-10.4 6M0 0L-10.4-6" fill="none"/><circle cy="-12" r="4.6" fill="#DFFBFA"/><circle cx="10.4" cy="-6" r="4.6" fill="#DFFBFA"/><circle cx="10.4" cy="6" r="4.6" fill="#DFFBFA"/><circle cy="12" r="4.6" fill="#DFFBFA"/><circle cx="-10.4" cy="6" r="4.6" fill="#DFFBFA"/><circle cx="-10.4" cy="-6" r="4.6" fill="#DFFBFA"/><circle r="5" fill="#00D4C7"/></g>
           </g>
         </svg>
-        <span class="brand-lockup"><strong>Gardenia</strong><small>Automatización inteligente</small></span>
+        <span class="brand-lockup"><strong>Gardenia</strong><small data-i18n="brandTagline">Automatización inteligente</small></span>
       </a>
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span class="menu-icon" aria-hidden="true"></span>
-        <span class="sr-only">Abrir menú</span>
-      </button>
-      <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
-        <a href="#soluciones">Qué automatizamos</a>
-        <a href="#integraciones">Integraciones</a>
-        <a href="#agentes">Agentes</a>
-        <a href="#como-funciona">Cómo funciona</a>
-        <a class="nav-cta" href="#demo">Ver demostración <span aria-hidden="true">↗</span></a>
+      <div class="nav-controls">
+        <button class="language-toggle" id="language-toggle" type="button" lang="en" aria-label="Switch to English">EN</button>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="menu-icon" aria-hidden="true"></span>
+          <span class="sr-only" data-i18n="openMenu">Abrir menú</span>
+        </button>
+      </div>
+      <nav class="site-nav" id="site-nav" aria-label="Navegación principal" data-i18n-aria="mainNavigation">
+        <a href="#soluciones" data-i18n="navSolutions">Qué automatizamos</a>
+        <a href="#integraciones" data-i18n="navIntegrations">Integraciones</a>
+        <a href="#agentes" data-i18n="navAgents">Agentes</a>
+        <a href="#como-funciona" data-i18n="navHowItWorks">Cómo funciona</a>
+        <a class="nav-cta" href="#demo"><span data-i18n="navDemo">Ver demostración</span> <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
@@ -49,24 +52,24 @@
     <section class="hero section-shell" id="inicio">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-dot"></span> Automatización útil, hecha para personas</p>
-          <h1>Menos tareas repetidas.<br><em>Más espacio para crecer.</em></h1>
-          <p class="hero-intro">Gardenia ayuda a empresas y negocios de cualquier índole a automatizar procesos cotidianos para que su equipo pueda enfocarse en lo que realmente importa.</p>
+          <p class="eyebrow"><span class="eyebrow-dot"></span> <span data-i18n="heroEyebrow">Automatización útil, hecha para personas</span></p>
+          <h1><span data-i18n="heroTitleFirst">Menos tareas repetidas.</span><br><em data-i18n="heroTitleSecond">Más espacio para crecer.</em></h1>
+          <p class="hero-intro" data-i18n="heroIntro">Gardenia ayuda a empresas y negocios de cualquier índole a automatizar procesos cotidianos para que su equipo pueda enfocarse en lo que realmente importa.</p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#demo">Explora una demostración <span aria-hidden="true">→</span></a>
-            <a class="text-link" href="#como-funciona">Descubre cómo funciona <span aria-hidden="true">↓</span></a>
+            <a class="button button-primary" href="#demo"><span data-i18n="heroPrimaryCta">Explora una demostración</span> <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="#como-funciona"><span data-i18n="heroSecondaryCta">Descubre cómo funciona</span> <span aria-hidden="true">↓</span></a>
           </div>
           <div class="hero-proof">
             <span class="proof-icon" aria-hidden="true">✦</span>
-            <p><strong>Un proceso a la vez.</strong> Automatizaciones adaptadas al ritmo de tu negocio.</p>
+            <p><strong data-i18n="heroProofLead">Un proceso a la vez.</strong> <span data-i18n="heroProofText">Automatizaciones adaptadas al ritmo de tu negocio.</span></p>
           </div>
         </div>
 
-        <div class="hero-art" aria-label="Loto, agente de automatización de Gardenia">
+        <div class="hero-art" aria-label="Loto, agente de automatización de Gardenia" data-i18n-aria="heroArt">
           <div class="art-orbit orbit-one"></div>
           <div class="art-orbit orbit-two"></div>
-          <div class="art-label label-top"><span class="status-dot"></span> Tareas en movimiento</div>
-          <div class="connector-orbit" role="group" aria-label="Herramientas que Loto puede conectar">
+          <div class="art-label label-top"><span class="status-dot"></span> <span data-i18n="heroArtLabel">Tareas en movimiento</span></div>
+          <div class="connector-orbit" role="group" aria-label="Herramientas que Loto puede conectar" data-i18n-aria="orbitLabel">
             <div class="connector-orbit-anchor connector-calendar">
               <div class="connector-float" role="img" aria-label="Google Calendar">
                 <img src="assets/integrations/google-calendar.png" alt="" width="32" height="32">
@@ -93,7 +96,7 @@
             </div>
           </div>
           <svg class="loto-hero" viewBox="0 0 160 215" role="img" aria-labelledby="loto-title">
-            <title id="loto-title">Loto saludando: flor de loto rosa, rostro sonriente y hojas verdes</title>
+            <title id="loto-title" data-i18n="lotoImageTitle">Loto saludando: flor de loto rosa, rostro sonriente y hojas verdes</title>
             <g stroke="#10172a" stroke-linecap="round" stroke-linejoin="round">
               <ellipse cx="80" cy="207" rx="42" ry="6" fill="#dffbfa" stroke="none"/>
               <path d="M80 80c-2 50 4 90 0 126" fill="none" stroke-width="3.4"/>
@@ -126,15 +129,15 @@
               </g>
             </g>
           </svg>
-          <div class="art-label label-bottom"><span class="sparkle" aria-hidden="true">✳</span> Hola, soy Loto</div>
+          <div class="art-label label-bottom"><span class="sparkle" aria-hidden="true">✳</span> <span data-i18n="lotoGreeting">Hola, soy Loto</span></div>
           <span class="art-sparkle sparkle-one" aria-hidden="true">✳</span>
           <span class="art-sparkle sparkle-two" aria-hidden="true">✦</span>
         </div>
       </div>
       <div class="container hero-bottom">
-        <span>Un sistema de automatizaciones para</span>
-        <div class="business-types" aria-label="Distintos tipos de negocios">
-          <span>Equipos pequeños</span><i></i><span>Empresas</span><i></i><span>Negocios de cualquier índole</span>
+        <span data-i18n="heroBottomLead">Un sistema de automatizaciones para</span>
+        <div class="business-types" aria-label="Distintos tipos de negocios" data-i18n-aria="businessTypes">
+          <span data-i18n="businessSmallTeams">Equipos pequeños</span><i></i><span data-i18n="businessCompanies">Empresas</span><i></i><span data-i18n="businessAllTypes">Negocios de cualquier índole</span>
         </div>
       </div>
     </section>
@@ -143,19 +146,19 @@
       <div class="container">
         <div class="agents-heading">
           <div>
-            <p class="eyebrow">Un jardín de posibilidades</p>
-            <h2 id="agents-title">Elige un agente</h2>
+            <p class="eyebrow" data-i18n="agentsEyebrow">Un jardín de posibilidades</p>
+            <h2 id="agents-title" data-i18n="agentsTitle">Elige un agente</h2>
           </div>
-          <p><strong>Loto</strong> es el automatizador disponible. Los demás están floreciendo.</p>
+          <p><strong>Loto</strong> <span data-i18n="agentsIntro">es el automatizador disponible. Los demás están floreciendo.</span></p>
         </div>
         <div class="agents-carousel">
-          <button class="agents-arrow" id="agents-previous" type="button" aria-label="Ver agentes anteriores" disabled>‹</button>
-          <div class="agents-rail" id="agents-rail" role="group" aria-label="Selecciona un agente"></div>
-          <button class="agents-arrow" id="agents-next" type="button" aria-label="Ver más agentes">›</button>
+          <button class="agents-arrow" id="agents-previous" type="button" aria-label="Ver agentes anteriores" data-i18n-aria="previousAgents" disabled>‹</button>
+          <div class="agents-rail" id="agents-rail" role="group" aria-label="Selecciona un agente" data-i18n-aria="selectAgent"></div>
+          <button class="agents-arrow" id="agents-next" type="button" aria-label="Ver más agentes" data-i18n-aria="moreAgents">›</button>
         </div>
         <div class="agent-selection" id="agent-selection" aria-live="polite">
-          <p><strong>Loto</strong> es el automatizador disponible. Puedes explorar su demostración conceptual.</p>
-          <a class="text-link" href="#demo">Conocer a Loto <span aria-hidden="true">→</span></a>
+          <p><strong>Loto</strong> <span data-i18n="agentSelected">es el automatizador disponible. Puedes explorar su demostración conceptual.</span></p>
+          <a class="text-link" href="#demo"><span data-i18n="meetLoto">Conocer a Loto</span> <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </section>
@@ -163,31 +166,31 @@
     <section class="section-shell section-light" id="soluciones">
       <div class="container">
         <div class="section-heading">
-          <p class="eyebrow">El trabajo que se repite, puede fluir mejor</p>
-          <h2>Tu equipo merece dedicar su tiempo<br class="desktop-break"> a tareas más importantes.</h2>
-          <p>Gardenia conecta pasos y organiza actividades repetitivas, con automatizaciones pensadas alrededor de cómo trabaja cada negocio.</p>
+          <p class="eyebrow" data-i18n="solutionsEyebrow">El trabajo que se repite, puede fluir mejor</p>
+          <h2 data-i18n-html="solutionsTitle">Tu equipo merece dedicar su tiempo<br class="desktop-break"> a tareas más importantes.</h2>
+          <p data-i18n="solutionsIntro">Gardenia conecta pasos y organiza actividades repetitivas, con automatizaciones pensadas alrededor de cómo trabaja cada negocio.</p>
         </div>
         <div class="feature-grid">
           <article class="feature-card">
             <span class="feature-icon icon-peach" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 5h14v11H8l-3 3V5Z"/><path d="M8 9h8M8 12h5"/></svg></span>
-            <h3>Atención y seguimiento</h3>
-            <p>Organiza consultas frecuentes, recordatorios y próximos pasos para que nada se quede en el aire.</p>
+            <h3 data-i18n="featureSupportTitle">Atención y seguimiento</h3>
+            <p data-i18n="featureSupportText">Organiza consultas frecuentes, recordatorios y próximos pasos para que nada se quede en el aire.</p>
             <span class="card-number">01</span>
           </article>
           <article class="feature-card">
             <span class="feature-icon icon-green" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 3h8l4 4v14H7z"/><path d="M15 3v5h4M10 13h6M10 17h6"/></svg></span>
-            <h3>Documentos y tareas</h3>
-            <p>Reduce el trabajo manual de organizar información, preparar borradores y mantener procesos al día.</p>
+            <h3 data-i18n="featureDocsTitle">Documentos y tareas</h3>
+            <p data-i18n="featureDocsText">Reduce el trabajo manual de organizar información, preparar borradores y mantener procesos al día.</p>
             <span class="card-number">02</span>
           </article>
           <article class="feature-card">
             <span class="feature-icon icon-blue" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M8 7l3 9m5-9-3 9M8 6h8"/></svg></span>
-            <h3>Flujos entre herramientas</h3>
-            <p>Conecta actividades de tu operación para evitar pasos duplicados y traspasos innecesarios.</p>
+            <h3 data-i18n="featureFlowsTitle">Flujos entre herramientas</h3>
+            <p data-i18n="featureFlowsText">Conecta actividades de tu operación para evitar pasos duplicados y traspasos innecesarios.</p>
             <span class="card-number">03</span>
           </article>
         </div>
-        <p class="section-note"><span aria-hidden="true">✳</span> Cada flujo se define contigo. La automatización apoya a las personas; no reemplaza su criterio.</p>
+        <p class="section-note"><span aria-hidden="true">✳</span> <span data-i18n="sectionNote">Cada flujo se define contigo. La automatización apoya a las personas; no reemplaza su criterio.</span></p>
       </div>
     </section>
 
@@ -195,32 +198,32 @@
       <div class="container">
         <div class="integrations-heading">
           <div>
-            <p class="eyebrow">Conexiones de Loto</p>
-            <h2 id="integrations-title">Tus herramientas, trabajando en equipo.</h2>
+            <p class="eyebrow" data-i18n="integrationsEyebrow">Conexiones de Loto</p>
+            <h2 id="integrations-title" data-i18n="integrationsTitle">Tus herramientas, trabajando en equipo.</h2>
           </div>
-          <p>Estas son algunas herramientas que Loto puede conectar en flujos a medida. Cada conexión depende del servicio, los permisos y la configuración.</p>
+          <p data-i18n="integrationsIntro">Estas son algunas herramientas que Loto puede conectar en flujos a medida. Cada conexión depende del servicio, los permisos y la configuración.</p>
         </div>
         <div class="integrations-carousel">
-          <button class="integrations-arrow" id="integrations-previous" type="button" aria-label="Ver conexiones destacadas anteriores" disabled>‹</button>
-          <div class="integrations-rail" id="integrations-rail" role="list" aria-label="Conexiones destacadas de Loto" tabindex="0"></div>
-          <button class="integrations-arrow" id="integrations-next" type="button" aria-label="Ver más conexiones destacadas">›</button>
+          <button class="integrations-arrow" id="integrations-previous" type="button" aria-label="Ver conexiones destacadas anteriores" data-i18n-aria="previousConnections" disabled>‹</button>
+          <div class="integrations-rail" id="integrations-rail" role="list" aria-label="Conexiones destacadas de Loto" data-i18n-aria="featuredConnections" tabindex="0"></div>
+          <button class="integrations-arrow" id="integrations-next" type="button" aria-label="Ver más conexiones destacadas" data-i18n-aria="moreConnections">›</button>
         </div>
         <div class="integrations-footer">
-          <p><strong>También:</strong> conexiones por API y webhooks, horarios, almacenamiento, tablas, PDF y CSV, imágenes, SMTP, QR, subflujos y aprobaciones.</p>
-          <button class="catalog-toggle" id="catalog-toggle" type="button" aria-expanded="false" aria-controls="integration-catalog"><span class="catalog-toggle-label">Ver todas las herramientas</span><span aria-hidden="true">＋</span></button>
+          <p><strong data-i18n="also">También:</strong> <span data-i18n="builtInTools">conexiones por API y webhooks, horarios, almacenamiento, tablas, PDF y CSV, imágenes, SMTP, QR, subflujos y aprobaciones.</span></p>
+          <button class="catalog-toggle" id="catalog-toggle" type="button" aria-expanded="false" aria-controls="integration-catalog"><span class="catalog-toggle-label" data-i18n="showAllTools">Ver todas las herramientas</span><span aria-hidden="true">＋</span></button>
         </div>
         <div class="integration-catalog" id="integration-catalog" hidden>
           <div class="catalog-toolbar">
             <div class="catalog-search">
-              <label for="integration-search">Busca una herramienta</label>
-              <input id="integration-search" type="search" placeholder="Ej. Gmail, ventas, IA…" autocomplete="off">
+              <label for="integration-search" data-i18n="searchTools">Busca una herramienta</label>
+              <input id="integration-search" type="search" placeholder="Ej. Gmail, ventas, IA…" data-i18n-placeholder="searchPlaceholder" autocomplete="off">
             </div>
             <p class="catalog-results" id="catalog-results" role="status" aria-live="polite"></p>
           </div>
-          <div class="catalog-filters" id="catalog-filters" role="group" aria-label="Filtrar por categoría"></div>
-          <div class="catalog-grid" id="catalog-grid" role="list" aria-label="Herramientas conectables con Loto"></div>
-          <p class="catalog-empty" id="catalog-empty" hidden>No encontramos herramientas con esa búsqueda. Prueba otro nombre o categoría.</p>
-          <p class="catalog-note">La presencia en este catálogo no significa que la conexión esté activa. Loto se configura según las herramientas, accesos y necesidades de cada negocio.</p>
+          <div class="catalog-filters" id="catalog-filters" role="group" aria-label="Filtrar por categoría" data-i18n-aria="filterCategory"></div>
+          <div class="catalog-grid" id="catalog-grid" role="list" aria-label="Herramientas conectables con Loto" data-i18n-aria="connectableTools"></div>
+          <p class="catalog-empty" id="catalog-empty" hidden data-i18n="catalogEmpty">No encontramos herramientas con esa búsqueda. Prueba otro nombre o categoría.</p>
+          <p class="catalog-note" data-i18n="catalogNote">La presencia en este catálogo no significa que la conexión esté activa. Loto se configura según las herramientas, accesos y necesidades de cada negocio.</p>
         </div>
       </div>
     </section>
@@ -228,15 +231,15 @@
     <section class="section-shell workflow-section" id="como-funciona">
       <div class="container workflow-grid">
         <div class="workflow-copy">
-          <p class="eyebrow">Simple desde el primer paso</p>
-          <h2>Una forma más clara de trabajar, empieza escuchando.</h2>
-          <p>Primero entendemos cómo funciona tu negocio. Después proponemos una automatización concreta, que puedas revisar y ajustar con tu equipo.</p>
-          <a class="text-link" href="#demo">Mira a Loto en acción <span aria-hidden="true">→</span></a>
+          <p class="eyebrow" data-i18n="workflowEyebrow">Simple desde el primer paso</p>
+          <h2 data-i18n="workflowTitle">Una forma más clara de trabajar, empieza escuchando.</h2>
+          <p data-i18n="workflowIntro">Primero entendemos cómo funciona tu negocio. Después proponemos una automatización concreta, que puedas revisar y ajustar con tu equipo.</p>
+          <a class="text-link" href="#demo"><span data-i18n="workflowCta">Mira a Loto en acción</span> <span aria-hidden="true">→</span></a>
         </div>
         <ol class="steps-list">
-          <li><span class="step-index">01</span><div><h3>Conversamos</h3><p>Identificamos tareas repetitivas y lo que más tiempo consume.</p></div></li>
-          <li><span class="step-index">02</span><div><h3>Diseñamos el flujo</h3><p>Definimos qué automatizar, qué información hace falta y dónde revisar.</p></div></li>
-          <li><span class="step-index">03</span><div><h3>Probamos y mejoramos</h3><p>Tu equipo valida el proceso antes de incorporarlo a su rutina.</p></div></li>
+          <li><span class="step-index">01</span><div><h3 data-i18n="stepOneTitle">Conversamos</h3><p data-i18n="stepOneText">Identificamos tareas repetitivas y lo que más tiempo consume.</p></div></li>
+          <li><span class="step-index">02</span><div><h3 data-i18n="stepTwoTitle">Diseñamos el flujo</h3><p data-i18n="stepTwoText">Definimos qué automatizar, qué información hace falta y dónde revisar.</p></div></li>
+          <li><span class="step-index">03</span><div><h3 data-i18n="stepThreeTitle">Probamos y mejoramos</h3><p data-i18n="stepThreeText">Tu equipo valida el proceso antes de incorporarlo a su rutina.</p></div></li>
         </ol>
       </div>
     </section>
@@ -244,27 +247,27 @@
     <section class="section-shell demo-section" id="demo">
       <div class="container demo-grid">
         <div class="demo-intro">
-          <p class="eyebrow">Una demostración conceptual</p>
-          <h2>Conoce a Loto.</h2>
-          <p>Loto es la agente de Gardenia que ayuda a convertir tareas repetitivas en procesos más ordenados. Elige un ejemplo ficticio para ver cómo podría empezar una conversación.</p>
-          <div class="demo-disclaimer"><span aria-hidden="true">ⓘ</span><p>Esta muestra no está conectada a sistemas ni utiliza datos reales.</p></div>
-          <a class="text-link" href="#loto">Conoce el enfoque de Gardenia <span aria-hidden="true">↓</span></a>
+          <p class="eyebrow" data-i18n="demoEyebrow">Una demostración conceptual</p>
+          <h2 data-i18n="demoTitle">Conoce a Loto.</h2>
+          <p data-i18n="demoIntro">Loto es la agente de Gardenia que ayuda a convertir tareas repetitivas en procesos más ordenados. Elige un ejemplo ficticio para ver cómo podría empezar una conversación.</p>
+          <div class="demo-disclaimer"><span aria-hidden="true">ⓘ</span><p data-i18n="demoDisclaimer">Esta muestra no está conectada a sistemas ni utiliza datos reales.</p></div>
+          <a class="text-link" href="#loto"><span data-i18n="demoCta">Conoce el enfoque de Gardenia</span> <span aria-hidden="true">↓</span></a>
         </div>
-        <div class="chat-card" aria-label="Demostración interactiva de Loto">
+        <div class="chat-card" aria-label="Demostración interactiva de Loto" data-i18n-aria="chatLabel">
           <div class="chat-header">
             <div class="chat-avatar" aria-hidden="true">✿</div>
-            <div><strong>Loto</strong><span>Agente de automatización</span></div>
-            <span class="chat-status"><i></i> Demostración</span>
+            <div><strong>Loto</strong><span data-i18n="chatRole">Agente de automatización</span></div>
+            <span class="chat-status"><i></i> <span data-i18n="chatDemo">Demostración</span></span>
           </div>
           <div class="chat-messages" id="chat-messages" aria-live="polite" aria-relevant="additions text">
-            <div class="chat-message message-agent"><span class="message-name">Loto</span>¡Hola! Puedo enseñarte algunos ejemplos de tareas que se pueden automatizar. ¿Cuál te interesa?</div>
+            <div class="chat-message message-agent"><span class="message-name">Loto</span><span data-i18n="chatWelcome">¡Hola! Puedo enseñarte algunos ejemplos de tareas que se pueden automatizar. ¿Cuál te interesa?</span></div>
           </div>
-          <div class="chat-suggestions" id="chat-suggestions" aria-label="Elige un ejemplo">
-            <button type="button" data-example="consultas">Organizar consultas frecuentes</button>
-            <button type="button" data-example="recordatorios">Preparar recordatorios</button>
-            <button type="button" data-example="documentos">Ordenar tareas y documentos</button>
+          <div class="chat-suggestions" id="chat-suggestions" aria-label="Elige un ejemplo" data-i18n-aria="chooseExample">
+            <button type="button" data-example="consultas" data-i18n="suggestionQueries">Organizar consultas frecuentes</button>
+            <button type="button" data-example="recordatorios" data-i18n="suggestionReminders">Preparar recordatorios</button>
+            <button type="button" data-example="documentos" data-i18n="suggestionDocuments">Ordenar tareas y documentos</button>
           </div>
-          <p class="chat-footnote">Ejemplos ilustrativos, sin información de clientes.</p>
+          <p class="chat-footnote" data-i18n="chatFootnote">Ejemplos ilustrativos, sin información de clientes.</p>
         </div>
       </div>
     </section>
@@ -293,10 +296,10 @@
           </svg>
         </div>
         <div class="lotus-copy">
-          <p class="eyebrow">Una flor, un propósito</p>
-          <h2>Loto crece contigo.</h2>
-          <p>Gardenia es un sistema de automatizaciones para empresas y negocios de cualquier índole. Hoy, Loto es la flor disponible: una guía cercana para explorar cómo hacer que el trabajo repetitivo fluya mejor.</p>
-          <div class="lotus-tags"><span>Clara</span><span>Colaborativa</span><span>Práctica</span></div>
+          <p class="eyebrow" data-i18n="lotusEyebrow">Una flor, un propósito</p>
+          <h2 data-i18n="lotusTitle">Loto crece contigo.</h2>
+          <p data-i18n="lotusText">Gardenia es un sistema de automatizaciones para empresas y negocios de cualquier índole. Hoy, Loto es la flor disponible: una guía cercana para explorar cómo hacer que el trabajo repetitivo fluya mejor.</p>
+          <div class="lotus-tags"><span data-i18n="tagClear">Clara</span><span data-i18n="tagCollaborative">Colaborativa</span><span data-i18n="tagPractical">Práctica</span></div>
         </div>
       </div>
     </section>
@@ -304,26 +307,26 @@
     <section class="section-shell faq-section" id="preguntas">
       <div class="container faq-grid">
         <div class="section-heading faq-heading">
-          <p class="eyebrow">Preguntas frecuentes</p>
-          <h2>Automatizar con intención.</h2>
-          <p>La tecnología debe adaptarse a las personas y procesos de tu negocio.</p>
+          <p class="eyebrow" data-i18n="faqEyebrow">Preguntas frecuentes</p>
+          <h2 data-i18n="faqTitle">Automatizar con intención.</h2>
+          <p data-i18n="faqIntro">La tecnología debe adaptarse a las personas y procesos de tu negocio.</p>
         </div>
         <div class="faq-list">
           <details>
-            <summary>¿Qué es Gardenia?</summary>
-            <p>Un sistema de automatizaciones que ayuda a empresas y negocios de cualquier índole a reducir trabajo repetitivo y ordenar sus procesos.</p>
+            <summary data-i18n="faqOneQuestion">¿Qué es Gardenia?</summary>
+            <p data-i18n="faqOneAnswer">Un sistema de automatizaciones que ayuda a empresas y negocios de cualquier índole a reducir trabajo repetitivo y ordenar sus procesos.</p>
           </details>
           <details>
-            <summary>¿Qué tareas se pueden automatizar?</summary>
-            <p>Depende de cada operación. Algunos ejemplos son organizar consultas frecuentes, preparar recordatorios o coordinar pasos entre tareas y documentos.</p>
+            <summary data-i18n="faqTwoQuestion">¿Qué tareas se pueden automatizar?</summary>
+            <p data-i18n="faqTwoAnswer">Depende de cada operación. Algunos ejemplos son organizar consultas frecuentes, preparar recordatorios o coordinar pasos entre tareas y documentos.</p>
           </details>
           <details>
-            <summary>¿Loto toma decisiones por mi equipo?</summary>
-            <p>No. La automatización puede ayudar con tareas y flujos, pero las personas mantienen el criterio y la supervisión de su trabajo.</p>
+            <summary data-i18n="faqThreeQuestion">¿Loto toma decisiones por mi equipo?</summary>
+            <p data-i18n="faqThreeAnswer">No. La automatización puede ayudar con tareas y flujos, pero las personas mantienen el criterio y la supervisión de su trabajo.</p>
           </details>
           <details>
-            <summary>¿La demostración usa información real?</summary>
-            <p>No. La conversación es una muestra local con escenarios ficticios; no solicita ni envía información personal o empresarial.</p>
+            <summary data-i18n="faqFourQuestion">¿La demostración usa información real?</summary>
+            <p data-i18n="faqFourAnswer">No. La conversación es una muestra local con escenarios ficticios; no solicita ni envía información personal o empresarial.</p>
           </details>
         </div>
       </div>
@@ -332,7 +335,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <a class="brand footer-brand" href="#inicio" aria-label="Gardenia, volver al inicio">
+      <a class="brand footer-brand" href="#inicio" aria-label="Gardenia, volver al inicio" data-i18n-aria="footerBrandHome">
         <svg class="brand-logo" viewBox="4 6 92 90" aria-hidden="true">
           <g stroke="#DFFBFA" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.4">
             <path d="M8 90Q50 84 92 90" fill="none"/>
@@ -349,12 +352,12 @@
             <g transform="translate(63 52) scale(.4)" stroke-width="3.16"><path d="M0 0L0-12M0 0L10.4-6M0 0L10.4 6M0 0L0 12M0 0L-10.4 6M0 0L-10.4-6" fill="none"/><circle cy="-12" r="4.6" fill="#18284B"/><circle cx="10.4" cy="-6" r="4.6" fill="#18284B"/><circle cx="10.4" cy="6" r="4.6" fill="#18284B"/><circle cy="12" r="4.6" fill="#18284B"/><circle cx="-10.4" cy="6" r="4.6" fill="#18284B"/><circle cx="-10.4" cy="-6" r="4.6" fill="#18284B"/><circle r="5" fill="#00D4C7"/></g>
           </g>
         </svg>
-        <span class="brand-lockup"><strong>Gardenia</strong><small>Automatización inteligente</small></span>
+        <span class="brand-lockup"><strong>Gardenia</strong><small data-i18n="brandTagline">Automatización inteligente</small></span>
       </a>
-      <p>Automatiza lo repetitivo. Haz espacio para lo importante.</p>
-      <a class="footer-top" href="#inicio">Volver arriba <span aria-hidden="true">↑</span></a>
+      <p data-i18n="footerPitch">Automatiza lo repetitivo. Haz espacio para lo importante.</p>
+      <a class="footer-top" href="#inicio"><span data-i18n="backToTop">Volver arriba</span> <span aria-hidden="true">↑</span></a>
     </div>
-    <div class="container footer-note"><span>© <span id="current-year"></span> Gardenia</span><span>Una demostración conceptual, creada para explorar ideas.</span></div>
+    <div class="container footer-note"><span>© <span id="current-year"></span> Gardenia</span><span data-i18n="footerNote">Una demostración conceptual, creada para explorar ideas.</span></div>
   </footer>
   <script src="script.js"></script>
 </body>
