@@ -37,6 +37,7 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Navegación principal">
         <a href="#soluciones">Qué automatizamos</a>
+        <a href="#integraciones">Integraciones</a>
         <a href="#agentes">Agentes</a>
         <a href="#como-funciona">Cómo funciona</a>
         <a class="nav-cta" href="#demo">Ver demostración <span aria-hidden="true">↗</span></a>
@@ -65,6 +66,32 @@
           <div class="art-orbit orbit-one"></div>
           <div class="art-orbit orbit-two"></div>
           <div class="art-label label-top"><span class="status-dot"></span> Tareas en movimiento</div>
+          <div class="connector-orbit" role="group" aria-label="Herramientas que Loto puede conectar">
+            <div class="connector-orbit-anchor connector-calendar">
+              <div class="connector-float" role="img" aria-label="Google Calendar">
+                <img src="assets/integrations/google-calendar.png" alt="" width="32" height="32">
+                <span>Calendar</span>
+              </div>
+            </div>
+            <div class="connector-orbit-anchor connector-shopify">
+              <div class="connector-float" role="img" aria-label="Shopify">
+                <img src="assets/integrations/shopify.png" alt="" width="32" height="32">
+                <span>Shopify</span>
+              </div>
+            </div>
+            <div class="connector-orbit-anchor connector-sheets">
+              <div class="connector-float" role="img" aria-label="Google Sheets">
+                <img src="assets/integrations/google-sheets.png" alt="" width="32" height="32">
+                <span>Sheets</span>
+              </div>
+            </div>
+            <div class="connector-orbit-anchor connector-gmail">
+              <div class="connector-float" role="img" aria-label="Gmail">
+                <img src="assets/integrations/gmail.png" alt="" width="32" height="32">
+                <span>Gmail</span>
+              </div>
+            </div>
+          </div>
           <svg class="loto-hero" viewBox="0 0 160 215" role="img" aria-labelledby="loto-title">
             <title id="loto-title">Loto saludando: flor de loto rosa, rostro sonriente y hojas verdes</title>
             <g stroke="#10172a" stroke-linecap="round" stroke-linejoin="round">
@@ -161,6 +188,40 @@
           </article>
         </div>
         <p class="section-note"><span aria-hidden="true">✳</span> Cada flujo se define contigo. La automatización apoya a las personas; no reemplaza su criterio.</p>
+      </div>
+    </section>
+
+    <section class="integrations-section" id="integraciones" aria-labelledby="integrations-title">
+      <div class="container">
+        <div class="integrations-heading">
+          <div>
+            <p class="eyebrow">Conexiones de Loto</p>
+            <h2 id="integrations-title">Tus herramientas, trabajando en equipo.</h2>
+          </div>
+          <p>Estas son algunas herramientas que Loto puede conectar en flujos a medida. Cada conexión depende del servicio, los permisos y la configuración.</p>
+        </div>
+        <div class="integrations-carousel">
+          <button class="integrations-arrow" id="integrations-previous" type="button" aria-label="Ver conexiones destacadas anteriores" disabled>‹</button>
+          <div class="integrations-rail" id="integrations-rail" role="list" aria-label="Conexiones destacadas de Loto" tabindex="0"></div>
+          <button class="integrations-arrow" id="integrations-next" type="button" aria-label="Ver más conexiones destacadas">›</button>
+        </div>
+        <div class="integrations-footer">
+          <p><strong>También:</strong> conexiones por API y webhooks, horarios, almacenamiento, tablas, PDF y CSV, imágenes, SMTP, QR, subflujos y aprobaciones.</p>
+          <button class="catalog-toggle" id="catalog-toggle" type="button" aria-expanded="false" aria-controls="integration-catalog"><span class="catalog-toggle-label">Ver todas las herramientas</span><span aria-hidden="true">＋</span></button>
+        </div>
+        <div class="integration-catalog" id="integration-catalog" hidden>
+          <div class="catalog-toolbar">
+            <div class="catalog-search">
+              <label for="integration-search">Busca una herramienta</label>
+              <input id="integration-search" type="search" placeholder="Ej. Gmail, ventas, IA…" autocomplete="off">
+            </div>
+            <p class="catalog-results" id="catalog-results" role="status" aria-live="polite"></p>
+          </div>
+          <div class="catalog-filters" id="catalog-filters" role="group" aria-label="Filtrar por categoría"></div>
+          <div class="catalog-grid" id="catalog-grid" role="list" aria-label="Herramientas conectables con Loto"></div>
+          <p class="catalog-empty" id="catalog-empty" hidden>No encontramos herramientas con esa búsqueda. Prueba otro nombre o categoría.</p>
+          <p class="catalog-note">La presencia en este catálogo no significa que la conexión esté activa. Loto se configura según las herramientas, accesos y necesidades de cada negocio.</p>
+        </div>
       </div>
     </section>
 
