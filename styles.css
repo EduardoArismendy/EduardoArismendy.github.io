@@ -74,13 +74,13 @@ h1 em { color: var(--blue); font: 500 1em/1.04 var(--serif); }
 .orbit-one { width: 310px; height: 310px; }
 .orbit-two { width: 390px; height: 390px; border-color: rgba(65, 105, 255, .13); }
 .loto-hero { position: relative; z-index: 1; width: min(260px, 67%); height: auto; filter: drop-shadow(0 16px 12px rgba(30, 75, 58, .08)); animation: loto-float 4s ease-in-out infinite; }
-.connector-orbit { position: absolute; top: 50%; left: 50%; z-index: 2; width: 100%; height: 88%; pointer-events: none; transform: translate(-50%, -50%); animation: connector-orbit 36s linear infinite; }
+.connector-orbit { position: absolute; top: 50%; left: 50%; z-index: 2; width: 100%; height: 88%; pointer-events: none; transform: translate(-50%, -50%); animation: connector-orbit 18s linear infinite; }
 .connector-orbit-anchor { position: absolute; width: 65px; height: 66px; }
 .connector-calendar { top: 0; left: 50%; }
 .connector-sheets { top: 50%; right: 10%; }
 .connector-gmail { top: 50%; left: 10%; }
 .connector-shopify { top: 100%; left: 50%; }
-.connector-float { display: grid; width: 65px; min-height: 66px; justify-items: center; align-content: center; gap: 3px; border: 1px solid rgba(220, 229, 242, .95); border-radius: 17px; background: rgba(255, 255, 255, .94); box-shadow: 0 10px 24px rgba(16, 23, 42, .1); pointer-events: auto; rotate: 0deg; animation: connector-counter-orbit 36s linear infinite; }
+.connector-float { display: grid; width: 65px; min-height: 66px; justify-items: center; align-content: center; gap: 3px; border: 1px solid rgba(220, 229, 242, .95); border-radius: 17px; background: rgba(255, 255, 255, .94); box-shadow: 0 10px 24px rgba(16, 23, 42, .1); pointer-events: auto; rotate: 0deg; animation: connector-counter-orbit 18s linear infinite; }
 .connector-float img { width: 32px; height: 32px; object-fit: contain; }
 .connector-float span { color: var(--ink-soft); font-size: .59rem; font-weight: 700; line-height: 1; }
 .connector-orbit-anchor > .connector-float { translate: -50% -50%; }
