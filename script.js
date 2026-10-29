@@ -8,6 +8,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const agentSelection = document.querySelector("#agent-selection");
   const agentsPrevious = document.querySelector("#agents-previous");
   const agentsNext = document.querySelector("#agents-next");
+  const integrationsRail = document.querySelector("#integrations-rail");
+  const integrationsPrevious = document.querySelector("#integrations-previous");
+  const integrationsNext = document.querySelector("#integrations-next");
+  const catalogToggle = document.querySelector("#catalog-toggle");
+  const integrationCatalog = document.querySelector("#integration-catalog");
+  const integrationSearch = document.querySelector("#integration-search");
+  const catalogFilters = document.querySelector("#catalog-filters");
+  const catalogGrid = document.querySelector("#catalog-grid");
+  const catalogResults = document.querySelector("#catalog-results");
+  const catalogEmpty = document.querySelector("#catalog-empty");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   if (!(menuToggle instanceof HTMLButtonElement) ||
@@ -18,7 +28,17 @@ document.addEventListener("DOMContentLoaded", () => {
       !(agentsRail instanceof HTMLElement) ||
       !(agentSelection instanceof HTMLElement) ||
       !(agentsPrevious instanceof HTMLButtonElement) ||
-      !(agentsNext instanceof HTMLButtonElement)) {
+      !(agentsNext instanceof HTMLButtonElement) ||
+      !(integrationsRail instanceof HTMLElement) ||
+      !(integrationsPrevious instanceof HTMLButtonElement) ||
+      !(integrationsNext instanceof HTMLButtonElement) ||
+      !(catalogToggle instanceof HTMLButtonElement) ||
+      !(integrationCatalog instanceof HTMLElement) ||
+      !(integrationSearch instanceof HTMLInputElement) ||
+      !(catalogFilters instanceof HTMLElement) ||
+      !(catalogGrid instanceof HTMLElement) ||
+      !(catalogResults instanceof HTMLElement) ||
+      !(catalogEmpty instanceof HTMLElement)) {
     throw new Error("No se pudieron inicializar los elementos principales de Gardenia.");
   }
 
@@ -42,6 +62,71 @@ document.addEventListener("DOMContentLoaded", () => {
     { name: "Jazmín", color: "#FFFFFF" },
     { name: "Lirio", color: "#FF9F7A" }
   ];
+
+  const integrations = [
+    { name: "OpenAI", slug: "openai", category: "IA" },
+    { name: "Google Gemini", slug: "google-gemini", category: "IA" },
+    { name: "Claude", slug: "claude", category: "IA" },
+    { name: "Groq", slug: "groq", category: "IA" },
+    { name: "Perplexity", slug: "perplexity-ai", category: "IA" },
+    { name: "MCP", category: "IA / protocolo" },
+    { name: "Gmail", slug: "gmail", category: "Google" },
+    { name: "Google Sheets", slug: "google-sheets", category: "Productividad" },
+    { name: "Google Drive", slug: "google-drive", category: "Archivos" },
+    { name: "Google Docs", slug: "google-docs", category: "Documentos" },
+    { name: "Google Calendar", slug: "google-calendar", category: "Productividad" },
+    { name: "Google Forms", slug: "google-forms", category: "Formularios" },
+    { name: "Notion", slug: "notion", category: "Productividad" },
+    { name: "Airtable", slug: "airtable", category: "Productividad" },
+    { name: "Trello", slug: "trello", category: "Productividad" },
+    { name: "Asana", slug: "asana", category: "Productividad" },
+    { name: "ClickUp", slug: "clickup", category: "Productividad" },
+    { name: "Monday.com", slug: "monday", category: "Productividad" },
+    { name: "Microsoft Outlook", slug: "microsoft-outlook", category: "Microsoft 365" },
+    { name: "Microsoft Teams", slug: "microsoft-teams", category: "Microsoft 365" },
+    { name: "Slack", slug: "slack", category: "Comunicación" },
+    { name: "Discord", slug: "discord", category: "Comunicación" },
+    { name: "Telegram", slug: "telegram-bot", category: "Comunicación" },
+    { name: "WhatsApp", slug: "whatsapp", category: "Comunicación" },
+    { name: "X", slug: "twitter", category: "Comunicación" },
+    { name: "LinkedIn", slug: "linkedin", category: "Comunicación" },
+    { name: "HubSpot", slug: "hubspot", category: "CRM y ventas" },
+    { name: "Pipedrive", slug: "pipedrive", category: "CRM y ventas" },
+    { name: "Salesforce", slug: "salesforce", category: "CRM y ventas" },
+    { name: "Zoho CRM", slug: "zoho-crm", category: "CRM y ventas" },
+    { name: "Mailchimp", slug: "mailchimp", category: "Marketing" },
+    { name: "ActiveCampaign", slug: "activecampaign", category: "Marketing" },
+    { name: "Google Ads", slug: "google-ads", category: "Marketing" },
+    { name: "GitHub", slug: "github", category: "Desarrollo" },
+    { name: "GitLab", slug: "gitlab", category: "Desarrollo" },
+    { name: "Jira", slug: "jira", category: "Desarrollo" },
+    { name: "Dropbox", slug: "dropbox", category: "Archivos" },
+    { name: "Google Cloud Storage", slug: "google-cloud-storage", category: "Archivos" },
+    { name: "BigQuery", slug: "google-bigquery", category: "Datos" },
+    { name: "Metabase", slug: "metabase", category: "Datos" },
+    { name: "Stripe", slug: "stripe", category: "Comercio" },
+    { name: "Shopify", slug: "shopify", category: "Comercio" },
+    { name: "WooCommerce", slug: "woocommerce", category: "Comercio" },
+    { name: "Typeform", slug: "typeform", category: "Formularios" },
+    { name: "QuickBooks", slug: "quickbooks", category: "Contabilidad" },
+    { name: "Xero", slug: "xero", category: "Contabilidad" },
+    { name: "Intercom", slug: "intercom", category: "Soporte" },
+    { name: "Freshdesk", slug: "freshdesk", category: "Soporte" },
+    { name: "BambooHR", slug: "bamboohr", category: "Recursos humanos" }
+  ];
+  const featuredIntegrationNames = new Set([
+    "OpenAI",
+    "Google Gemini",
+    "Gmail",
+    "Google Sheets",
+    "Slack",
+    "WhatsApp",
+    "HubSpot",
+    "Notion",
+    "GitHub",
+    "Stripe"
+  ]);
+  let selectedIntegrationCategory = "Todas";
 
   const examples = {
     consultas: {
@@ -97,6 +182,62 @@ document.addEventListener("DOMContentLoaded", () => {
     agentsNext.disabled = maxScroll <= 2 || agentsRail.scrollLeft >= maxScroll - 2;
   }
 
+  function integrationCard(integration) {
+    return `
+      <div class="integration-card" role="listitem" aria-label="${integration.name}, ${integration.category}">
+        <span class="integration-category">${integration.category}</span>
+        ${integration.slug
+          ? `<img src="assets/integrations/${integration.slug}.png" alt="" width="38" height="38" loading="lazy" decoding="async">`
+          : '<span class="integration-mark" aria-hidden="true">MCP</span>'}
+        <strong>${integration.name}</strong>
+      </div>
+    `;
+  }
+
+  function renderIntegrations() {
+    integrationsRail.innerHTML = integrations
+      .filter((integration) => featuredIntegrationNames.has(integration.name))
+      .map(integrationCard)
+      .join("");
+  }
+
+  function normalizeSearch(value) {
+    return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("es").trim();
+  }
+
+  function renderCatalogFilters() {
+    const categories = ["Todas", ...new Set(integrations.map((integration) => integration.category))];
+    catalogFilters.innerHTML = categories.map((category) => `
+      <button class="catalog-filter${category === selectedIntegrationCategory ? " is-selected" : ""}" type="button" data-category="${category}" aria-pressed="${category === selectedIntegrationCategory}">
+        ${category === "Todas" ? "Todas" : category}
+      </button>
+    `).join("");
+  }
+
+  function renderCatalog() {
+    const query = normalizeSearch(integrationSearch.value);
+    const filteredIntegrations = integrations.filter((integration) => {
+      const matchesCategory = selectedIntegrationCategory === "Todas" || integration.category === selectedIntegrationCategory;
+      const searchableText = normalizeSearch(`${integration.name} ${integration.category}`);
+      return matchesCategory && searchableText.includes(query);
+    });
+
+    catalogGrid.innerHTML = filteredIntegrations.map(integrationCard).join("");
+    catalogResults.textContent = `Mostrando ${filteredIntegrations.length} de ${integrations.length} herramientas`;
+    catalogEmpty.hidden = filteredIntegrations.length > 0;
+  }
+
+  function updateCatalog() {
+    renderCatalogFilters();
+    renderCatalog();
+  }
+
+  function updateIntegrationArrows() {
+    const maxScroll = integrationsRail.scrollWidth - integrationsRail.clientWidth;
+    integrationsPrevious.disabled = integrationsRail.scrollLeft <= 5;
+    integrationsNext.disabled = maxScroll <= 2 || integrationsRail.scrollLeft >= maxScroll - 2;
+  }
+
   function closeMenu() {
     menuToggle.setAttribute("aria-expanded", "false");
     siteNav.classList.remove("is-open");
@@ -128,6 +269,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   renderAgents();
   updateAgentArrows();
+  renderIntegrations();
+  updateIntegrationArrows();
+  updateCatalog();
 
   agentsPrevious.addEventListener("click", () => {
     agentsRail.scrollBy({ left: -agentsRail.clientWidth * 0.8, behavior: "instant" });
@@ -139,6 +283,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
   agentsRail.addEventListener("scroll", updateAgentArrows, { passive: true });
   window.addEventListener("resize", updateAgentArrows);
+
+  integrationsPrevious.addEventListener("click", () => {
+    integrationsRail.scrollBy({ left: -integrationsRail.clientWidth * 0.8, behavior: reducedMotion ? "instant" : "smooth" });
+  });
+
+  integrationsNext.addEventListener("click", () => {
+    integrationsRail.scrollBy({ left: integrationsRail.clientWidth * 0.8, behavior: reducedMotion ? "instant" : "smooth" });
+  });
+
+  integrationsRail.addEventListener("scroll", updateIntegrationArrows, { passive: true });
+  window.addEventListener("resize", updateIntegrationArrows);
+
+  catalogToggle.addEventListener("click", () => {
+    const isOpen = catalogToggle.getAttribute("aria-expanded") === "true";
+    catalogToggle.setAttribute("aria-expanded", String(!isOpen));
+    integrationCatalog.hidden = isOpen;
+    catalogToggle.querySelector(".catalog-toggle-label").textContent = isOpen
+      ? "Ver todas las herramientas"
+      : "Cerrar catálogo";
+    catalogToggle.querySelector("[aria-hidden='true']").textContent = isOpen ? "＋" : "−";
+    if (!isOpen) {
+      integrationSearch.focus();
+    }
+  });
+
+  integrationSearch.addEventListener("input", renderCatalog);
+  catalogFilters.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
+
+    const filter = event.target.closest("button[data-category]");
+    if (!(filter instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    selectedIntegrationCategory = filter.dataset.category ?? "Todas";
+    updateCatalog();
+  });
 
   agentsRail.addEventListener("click", (event) => {
     if (!(event.target instanceof Element)) {
