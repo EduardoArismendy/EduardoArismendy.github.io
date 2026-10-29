@@ -1,624 +1,214 @@
-document.addEventListener('DOMContentLoaded', function () {
-  // Theme toggle
-  const themeToggle = document.querySelector('.theme-toggle');
-  themeToggle.addEventListener('click', function () {
-    document.body.classList.toggle('light-mode');
-
-    // Change icon based on theme
-    const icon = themeToggle.querySelector('.material-symbols-rounded');
-    if (document.body.classList.contains('light-mode')) {
-      icon.textContent = 'dark_mode';
-    } else {
-      icon.textContent = 'light_mode';
-    }
-  });
-
-  // Mobile menu toggle
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
-
-  hamburger.addEventListener('click', function () {
-    navLinks.classList.toggle('active');
-
-    // Change hamburger icon to close icon
-    const icon = hamburger.querySelector('.material-symbols-rounded');
-    if (navLinks.classList.contains('active')) {
-      icon.textContent = 'close';
-
-      // Add mobile nav styles dynamically
-      if (!document.getElementById('mobile-nav-styles')) {
-        const style = document.createElement('style');
-        style.id = 'mobile-nav-styles';
-        style.textContent = `
-                    .nav-links.active {
-                        display: flex;
-                        flex-direction: column;
-                        position: absolute;
-                        top: 80px;
-                        left: 0;
-                        width: 100%;
-                        background: var(--primary-color);
-                        padding: 20px;
-                        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-                        z-index: 1000;
-                    }
-                `;
-        document.head.appendChild(style);
-      }
-    } else {
-      icon.textContent = 'menu';
-    }
-  });
-
-  /* // Project filters
-   const filterBtns = document.querySelectorAll('.filter-btn');
-   const projectCards = document.querySelectorAll('.project-card');
-   
-   filterBtns.forEach(btn => {
-       btn.addEventListener('click', function() {
-           // Remove active class from all buttons
-           filterBtns.forEach(btn => btn.classList.remove('active'));
-           
-           // Add active class to clicked button
-           this.classList.add('active');
-           
-           const filter = this.dataset.filter;
-           
-           projectCards.forEach(card => {
-               if (filter === 'all' || card.dataset.category === filter) {
-                   card.style.display = 'block';
-                   setTimeout(() => {
-                       card.style.opacity = '1';
-                       card.style.transform = 'translateY(0)';
-                   }, 100);
-               } else {
-                   card.style.opacity = '0';
-                   card.style.transform = 'translateY(20px)';
-                   setTimeout(() => {
-                       card.style.display = 'none';
-                   }, 300);
-               }
-           });
-       });
-   });*/
-
-  // Smooth scrolling for navigation links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
-
-      // Close mobile menu if open
-      if (navLinks.classList.contains('active')) {
-        navLinks.classList.remove('active');
-        hamburger.querySelector('.material-symbols-rounded').textContent = 'menu';
-      }
-
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-
-      if (targetElement) {
-        window.scrollTo({
-          top: targetElement.offsetTop - 100,
-          behavior: 'smooth'
-        });
-
-        // Update active link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-          link.classList.remove('active');
-        });
-        this.classList.add('active');
-      }
-    });
-  });
-
-  // Highlight active nav link on scroll
-  window.addEventListener('scroll', function () {
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    let current = '';
-
-    sections.forEach(section => {
-      const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
-
-      if (pageYOffset >= sectionTop - 200) {
-        current = section.getAttribute('id');
-      }
-    });
-
-    navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
-      }
-    });
-
-    // Add background to header on scroll
-    const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-      header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.1)';
-      header.style.background = document.body.classList.contains('light-mode')
-        ? 'rgba(255, 255, 255, 0.9)'
-        : 'rgba(18, 18, 18, 0.9)';
-    } else {
-      header.style.boxShadow = 'none';
-      header.style.background = document.body.classList.contains('light-mode')
-        ? 'rgba(255, 255, 255, 0.8)'
-        : 'rgba(18, 18, 18, 0.8)';
-    }
-  });
-
-
-  // Animation on scroll
-  const animateOnScroll = function () {
-    const elements = document.querySelectorAll('.project-card, .skill-item, .contact-detail');
-
-    elements.forEach(element => {
-      const elementPosition = element.getBoundingClientRect().top;
-      const screenPosition = window.innerHeight / 1.3;
-
-      if (elementPosition < screenPosition) {
-        element.style.opacity = '1';
-        element.style.transform = 'translateY(0)';
-      }
-    });
-  };
-
-  // Add initial styles for animation
-  const style = document.createElement('style');
-  style.textContent = `
-        .project-card, .skill-item, .contact-detail {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
-        }
-    `;
-  document.head.appendChild(style);
-
-  window.addEventListener('scroll', animateOnScroll);
-
-  // Trigger once on load
-  animateOnScroll();
-});
-
-//Cambios posteriores
-
-// Tarjetas emergentes de los proyectos con la data
-
-const projectData = {
-  "BookNest": {
-    title: { en: "BookNest", es: "BookNest" },
-    description: {
-      en: "A simple web app to upload and view books for reading clubs, using Firebase Storage.",
-      es: "Una aplicación web sencilla para subir y ver libros para clubes de lectura, usando Firebase Storage."
-    },
-    image: "/booknest.webp",
-    video: "https://nidodelibros.netlify.app/",
-    techs: ["HTML", "CSS", "JavaScript", "Firebase"],
-    github: "https://github.com/EduardoArismendy",
-    category: "web"
-  },
-
-  "Buy and Sell App": {
-    title: { en: "Buy and Sell App", es: "App de Compra y Venta" },
-    description: {
-      en: "Full E-commerce with Google GPS services and chat (in Development)",
-      es: "E-commerce completo con servicios de GPS de Google y chat (En desarrollo)"
-    },
-    image: "/proyecto2.webp",
-    video: "https://www.youtube.com/watch?v=AYAyY_Z-gAM",
-    techs: ["Kotlin", "Firebase"],
-    github: "https://github.com/usuario/proyecto2",
-    category: "ecommerce"
-  },
-
-  "PintorWebside": {
-    title: { en: "Painter Portfolio", es: "Portafolio de Pintor" },
-    description: {
-      en: "Painter portfolio website with artwork gallery and contact for commissions.",
-      es: "Portafolio web para pintor con galería de obras y contacto para comisiones."
-    },
-    image: "/pintor.webp",
-    video: "https://pintor01.netlify.app/",
-    techs: ["JS", "CSS", "HTML"],
-    github: "https://github.com/usuario/proyecto-pintor",
-    category: "web"
-  },
-
-
-  "Abogado webside": {
-    title: { en: "Lawyer ", es: "Abogado" },
-    description: {
-      en: "Professional lawyer website with contact form and WhatsApp integration.",
-      es: "Sitio web profesional para abogados, ideal para mostrar servicios y recibir contactos de clientes."
-    },
-    image: "/abogado.webp",
-    video: "https://modeloabogado.netlify.app/",
-    techs: ["JS", "CSS", "HTML"],
-    github: "https://github.com/usuario/proyecto2",
-    category: "web"
-  },
-
-  "Tatuador webside": {
-    title: { en: "Tattoo artist", es: "Tatuadores" },
-    description: {
-      en: "Tattoo artist website with gallery and booking contact.",
-      es: "Sitio web para tatuadores con galería y contacto para reservas."
-    },
-    image: "/tatuador.webp",
-    video: "https://tatuador01.netlify.app/",
-    techs: ["JS", "CSS", "HTML"],
-    github: "https://github.com/usuario/proyecto2",
-    category: "web"
-  },
-
-  "ModeloWebside": {
-    title: { en: "Model Portfolio", es: "Portafolio de Modelo" },
-    description: {
-      en: "Model portfolio website with photo gallery and professional contact.",
-      es: "Portafolio web para modelo con galería de fotos y contacto profesional."
-    },
-    image: "/modelo.webp",
-    video: "https://galeriamodelo.netlify.app/",
-    techs: ["JS", "CSS", "HTML"],
-    github: "https://github.com/usuario/proyecto-modelo",
-    category: "web"
-  },
-
-
-};
-
-let currentLang = 'en'; // idioma inicial
-
-function convertToEmbedUrl(url) {
-  const regex = /(?:\?v=|\.be\/)([^&]+)/;
-  const match = url.match(regex);
-  if (match && match[1]) {
-    return `https://www.youtube.com/embed/${match[1]}`;
-  }
-  return url; // si ya es embed o no se reconoce, lo deja igual
-}
-
-function createProjectCard(project, lang) {
-  const card = document.createElement("div");
-  card.className = `project-card ${project.category}`;
-
-  card.innerHTML = `
-    <div class="project-img">
-      <img src="${project.image}" alt="${project.title[lang]}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;" />
-    </div>
-    <div class="project-info">
-      <h3>${project.title[lang]}</h3>
-      <p>${project.description[lang]}</p>
-      <div class="project-tags">
-        ${project.techs.map(tech => `<span>${tech}</span>`).join("")}
-      </div>
-      <a href="#" class="view-project" data-project="${project.title[lang]}">${lang === 'es' ? 'Ver proyecto' : 'View project'}</a>
-    </div>
-  `;
-
-  const viewBtn = card.querySelector(".view-project");
-  viewBtn.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    // Verifica si es un enlace de YouTube
-    const isYouTube = project.video.includes("youtube.com") || project.video.includes("youtu.be");
-
-    if (isYouTube) {
-      createModal(project, lang);
-    } else {
-      // Redirige a la página si no es YouTube
-      window.open(project.video, "_blank");
-    }
-  });
-
-  return card;
-}
-
-function createModal(data, lang) {
-  const modal = document.createElement("div");
-  modal.id = "dynamic-modal";
-  modal.classList.add("modal-overlay");
-
-  const embedUrl = convertToEmbedUrl(data.video);
-
-  modal.innerHTML = `
-    <div class="modal-content">
-      <span class="close-btn">&times;</span>
-      <h3>${data.title[lang]}</h3>
-      <p>${data.description[lang]}</p>
-      <div class="modal-video">
-        <iframe width="100%" height="315" src="${embedUrl}" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="project-tags">
-        ${data.techs.map(tech => `<span>${tech}</span>`).join("")}
-      </div>
-      <a class="modal-github-btn" href="${data.github}" target="_blank">${lang === 'es' ? 'Ver en GitHub' : 'View on GitHub'}</a>
-    </div>
-  `;
-
-  document.body.appendChild(modal);
-
-  modal.querySelector(".close-btn").addEventListener("click", () => modal.remove());
-
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) modal.remove();
-  });
-}
-
-function renderProjects(lang) {
-  const container = document.getElementById("projects-container");
-  container.innerHTML = ""; // limpiar para re-renderizar
-
-  // Map para buscar proyecto por título en el idioma actual
-  const projectMapByTitle = {};
-  Object.values(projectData).forEach(proj => {
-    projectMapByTitle[proj.title[lang]] = proj;
-  });
-
-  Object.values(projectData).forEach(project => {
-    const card = createProjectCard(project, lang);
-    container.appendChild(card);
-  });
-
-  // Listener para abrir modal
-  container.onclick = function (e) {
-    if (e.target.classList.contains("view-project")) {
-      e.preventDefault();
-      const projectTitle = e.target.dataset.project;
-      const data = projectMapByTitle[projectTitle];
-      if (data) createModal(data, lang);
-    }
-  };
-}
-
-// Inicialización cuando carga la página
 document.addEventListener("DOMContentLoaded", () => {
-  renderProjects(currentLang);
+  const menuToggle = document.querySelector(".menu-toggle");
+  const siteNav = document.querySelector("#site-nav");
+  const chatMessages = document.querySelector("#chat-messages");
+  const chatSuggestions = document.querySelector("#chat-suggestions");
+  const currentYear = document.querySelector("#current-year");
+  const agentsRail = document.querySelector("#agents-rail");
+  const agentSelection = document.querySelector("#agent-selection");
+  const agentsPrevious = document.querySelector("#agents-previous");
+  const agentsNext = document.querySelector("#agents-next");
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // Filtro (si usas filtro, mantén igual)
-  const filterButtons = document.querySelectorAll(".filter-btn");
+  if (!(menuToggle instanceof HTMLButtonElement) ||
+      !(siteNav instanceof HTMLElement) ||
+      !(chatMessages instanceof HTMLElement) ||
+      !(chatSuggestions instanceof HTMLElement) ||
+      !(currentYear instanceof HTMLElement) ||
+      !(agentsRail instanceof HTMLElement) ||
+      !(agentSelection instanceof HTMLElement) ||
+      !(agentsPrevious instanceof HTMLButtonElement) ||
+      !(agentsNext instanceof HTMLButtonElement)) {
+    throw new Error("No se pudieron inicializar los elementos principales de Gardenia.");
+  }
 
-  filterButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      filterButtons.forEach(btn => btn.classList.remove("active"));
-      button.classList.add("active");
+  const agents = [
+    { name: "Loto", color: "#FFB3D9", available: true },
+    { name: "Margarita", color: "#FFFFFF" },
+    { name: "Girasol", color: "#FFC93C" },
+    { name: "Rosa", color: "#FF8FA3" },
+    { name: "Gardenia", color: "#FFFEFA" },
+    { name: "Amapola", color: "#FF6B5E" },
+    { name: "Violeta", color: "#A7B3FF" },
+    { name: "Flor de cerezo", color: "#FFC4D6" },
+    { name: "Tulipán", color: "#FF7F96" },
+    { name: "Hortensia", color: "#A7B3FF" },
+    { name: "Dalia", color: "#FF9F43" },
+    { name: "Nomeolvides", color: "#7CC8FF" },
+    { name: "Cosmos", color: "#FF8AD0" },
+    { name: "Clavel", color: "#E8556D" },
+    { name: "Pensamiento", color: "#8E7CFF" },
+    { name: "Peonía", color: "#FFA5AF" },
+    { name: "Jazmín", color: "#FFFFFF" },
+    { name: "Lirio", color: "#FF9F7A" }
+  ];
 
-      const filterValue = button.dataset.filter;
-      const cards = document.querySelectorAll(".project-card");
+  const examples = {
+    consultas: {
+      prompt: "Quiero organizar las consultas frecuentes.",
+      reply: "Podemos agrupar las preguntas habituales, preparar respuestas para revisar y dejar los casos especiales en manos de tu equipo. Primero definiríamos juntos qué consultas incluir."
+    },
+    recordatorios: {
+      prompt: "Me gustaría preparar recordatorios.",
+      reply: "Podemos identificar qué eventos necesitan un recordatorio, cuándo enviarlo y quién debe revisarlo. El flujo se ajusta a la forma de trabajar de tu negocio."
+    },
+    documentos: {
+      prompt: "Quiero ordenar tareas y documentos.",
+      reply: "Podemos diseñar pasos para clasificar solicitudes, organizar documentos y avisar al equipo cuando algo necesite atención. Las personas mantienen el control del proceso."
+    }
+  };
 
-      cards.forEach(card => {
-        if (filterValue === "all" || card.classList.contains(filterValue)) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
+  function flowerArt(agent) {
+  const stem = '<path d="M42 45Q41 62 42 82" fill="none" stroke="#10172A" stroke-width="2.4" stroke-linecap="round"/><path d="M42 68Q30 65 26 71Q33 78 42 74ZM42 73Q53 66 59 71Q53 80 42 78Z" fill="#9BF0E8" stroke="#10172A" stroke-width="1.2"/>';
+  const face = '<g transform="translate(0 0)" stroke="#10172A" stroke-width="1.5" fill="none"><path d="M35 37q3 3 6 0M43 37q3 3 6 0"/><path d="M39 46q3 2 6 0"/></g>';
+
+  if (!agent.available) {
+    const paleColor = agent.color === "#FFFFFF" || agent.color === "#FFFEFA" ? "#FFF3D6" : agent.color;
+    return `<svg viewBox="0 0 84 94" aria-hidden="true">${stem}<ellipse cx="42" cy="35" rx="14" ry="20" fill="${paleColor}" fill-opacity=".72" stroke="#10172A" stroke-width="1.6"/>${face}</svg>`;
+  }
+
+  const petals = Array.from({ length: 7 }, (_, index) => {
+    const angle = (index - 3) * 20;
+    return `<path d="M0 0C10-8 10-24 0-34C-10-24-10-8 0 0Z" transform="rotate(${angle})" fill="${agent.color}"/>`;
+  }).join("");
+  const hands = '<path d="M36 72Q24 62 18 51M48 72Q62 60 66 44" fill="none" stroke="#10172A" stroke-width="2.2" stroke-linecap="round"/><circle cx="17" cy="50" r="4" fill="#FFF3D6" stroke="#10172A"/><circle cx="67" cy="43" r="4" fill="#FFF3D6" stroke="#10172A"/>';
+
+  return `<svg viewBox="0 0 84 94" aria-hidden="true">${stem}${hands}<g transform="translate(42 35)" stroke="#10172A" stroke-width="1.2" stroke-linejoin="round">${petals}<circle cy="-4" r="13" fill="#FFFFFF"/><g transform="translate(0 -4) scale(.929)"><circle cx="-5.5" cy="-2" r="1.9" fill="#10172A" stroke="none"/><circle cx="5.5" cy="-2" r="1.9" fill="#10172A" stroke="none"/><path d="M-4.5 3.5Q0 8.5 4.5 3.5" fill="none"/><circle cx="-9.5" cy="3" r="2.4" fill="#FF8FA3" stroke="none"/><circle cx="9.5" cy="3" r="2.4" fill="#FF8FA3" stroke="none"/></g></g></svg>`;
+  }
+
+  function lockIcon() {
+  return '<svg class="agent-lock" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2" fill="#FFFFFF" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>';
+  }
+
+  function renderAgents() {
+  agentsRail.innerHTML = agents.map((agent) => `
+    <button class="agent-card${agent.available ? " is-available" : " is-flowering"}" type="button" data-agent="${agent.name}" aria-pressed="${agent.available ? "true" : "false"}" aria-label="${agent.name}, ${agent.available ? "disponible como automatizador" : "floreciendo, bloqueado"}">
+      ${agent.available ? "" : lockIcon()}
+      ${flowerArt(agent)}
+      <strong>${agent.name}</strong>
+      <span class="agent-state">${agent.available ? "Disponible" : "Floreciendo"}</span>
+    </button>
+  `).join("");
+  }
+
+  function updateAgentArrows() {
+    const maxScroll = agentsRail.scrollWidth - agentsRail.clientWidth;
+    agentsPrevious.disabled = agentsRail.scrollLeft <= 2;
+    agentsNext.disabled = maxScroll <= 2 || agentsRail.scrollLeft >= maxScroll - 2;
+  }
+
+  function closeMenu() {
+    menuToggle.setAttribute("aria-expanded", "false");
+    siteNav.classList.remove("is-open");
+    menuToggle.querySelector(".sr-only").textContent = "Abrir menú";
+  }
+
+  function appendMessage(label, message, sender) {
+    const bubble = document.createElement("div");
+    bubble.className = `chat-message ${sender === "user" ? "message-user" : "message-agent"}`;
+
+    const name = document.createElement("span");
+    name.className = "message-name";
+    name.textContent = label;
+
+    bubble.append(name, document.createTextNode(message));
+    chatMessages.append(bubble);
+    chatMessages.scrollTo({
+      top: chatMessages.scrollHeight,
+      behavior: reducedMotion ? "auto" : "smooth"
     });
+  }
+
+  menuToggle.addEventListener("click", () => {
+    const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
+    menuToggle.setAttribute("aria-expanded", String(!isOpen));
+    siteNav.classList.toggle("is-open", !isOpen);
+    menuToggle.querySelector(".sr-only").textContent = isOpen ? "Abrir menú" : "Cerrar menú";
   });
-});
 
-//Biblioteca
-class BookSlider {
-  constructor() {
-    this.track = document.querySelector('.books-track');
-    this.cards = document.querySelectorAll('.book-card');
-    this.prevBtn = document.querySelector('.prev-btn');
-    this.nextBtn = document.querySelector('.next-btn');
+  renderAgents();
+  updateAgentArrows();
 
-    this.currentIndex = 0;
-    this.cardWidth = 300;
-    this.gap = 32;
-    this.cardsPerView = this.calculateCardsPerView();
-    this.autoSlideInterval = null;
-    this.autoSlideDelay = 5000; // en ms
+  agentsPrevious.addEventListener("click", () => {
+    agentsRail.scrollBy({ left: -agentsRail.clientWidth * 0.8, behavior: "instant" });
+  });
 
-    this.init();
-  }
+  agentsNext.addEventListener("click", () => {
+    agentsRail.scrollBy({ left: agentsRail.clientWidth * 0.8, behavior: "instant" });
+  });
 
-  init() {
-    this.bindEvents();
-    this.updateSlider();
-    this.autoSlide();
-  }
+  agentsRail.addEventListener("scroll", updateAgentArrows, { passive: true });
+  window.addEventListener("resize", updateAgentArrows);
 
-  calculateCardsPerView() {
-    const containerWidth = this.track.parentElement.offsetWidth;
-    return Math.floor(containerWidth / (this.cardWidth + this.gap));
-  }
+  agentsRail.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
 
-  bindEvents() {
-    this.prevBtn.addEventListener('click', () => this.slidePrev());
-    this.nextBtn.addEventListener('click', () => this.slideNext());
+    const card = event.target.closest("button[data-agent]");
+    if (!(card instanceof HTMLButtonElement)) {
+      return;
+    }
 
-    window.addEventListener('resize', () => {
-      this.cardsPerView = this.calculateCardsPerView();
-      this.updateSlider();
+    const selectedAgent = agents.find((agent) => agent.name === card.dataset.agent);
+    if (!selectedAgent) {
+      return;
+    }
+
+    agentsRail.querySelectorAll(".agent-card").forEach((agentCard) => {
+      agentCard.setAttribute("aria-pressed", String(agentCard === card));
     });
 
+    if (selectedAgent.available) {
+      agentSelection.classList.remove("is-flowering");
+      agentSelection.innerHTML = '<p><strong>Loto</strong> es el automatizador disponible. Puedes explorar su demostración conceptual.</p><a class="text-link" href="#demo">Conocer a Loto <span aria-hidden="true">→</span></a>';
+      return;
+    }
 
-    // Download buttons
-    document.querySelectorAll('.download-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        this.handleDownload(btn); // ← usa el botón directamente
-      });
+    agentSelection.classList.add("is-flowering");
+    agentSelection.innerHTML = `<p><strong>${selectedAgent.name}</strong> está floreciendo. Por ahora, Loto es el único agente disponible como automatizador.</p>`;
+  });
+
+  siteNav.addEventListener("click", (event) => {
+    if (event.target instanceof Element && event.target.closest("a")) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+      closeMenu();
+      menuToggle.focus();
+    }
+  });
+
+  chatSuggestions.addEventListener("click", (event) => {
+    if (!(event.target instanceof Element)) {
+      return;
+    }
+
+    const button = event.target.closest("button[data-example]");
+    if (!(button instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    const example = examples[button.dataset.example];
+    if (!example) {
+      return;
+    }
+
+    chatSuggestions.querySelectorAll("button").forEach((suggestion) => {
+      suggestion.disabled = true;
     });
+    appendMessage("Tú", example.prompt, "user");
 
-  }
-
-  slideNext() {
-    const maxIndex = this.cards.length - this.cardsPerView;
-    if (this.currentIndex < maxIndex) {
-      this.currentIndex++;
-      this.updateSlider();
-      this.restartAutoSlide();
-    }
-  }
-
-  slidePrev() {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-      this.updateSlider();
-      this.restartAutoSlide();
-    }
-  }
-
-  restartAutoSlide() {
-    this.stopAutoSlide();
-    // Reinicia después de un tiempo de inactividad del usuario
-    setTimeout(() => this.autoSlide(), this.autoSlideDelay);
-  }
-
-
-  updateSlider() {
-    const offset = -this.currentIndex * (this.cardWidth + this.gap);
-    this.track.style.transform = `translateX(${offset}px)`;
-  }
-
-  autoSlide() {
-    this.stopAutoSlide(); // Evita múltiples intervalos
-    this.autoSlideInterval = setInterval(() => {
-      const maxIndex = this.cards.length - this.cardsPerView;
-      if (this.currentIndex >= maxIndex) {
-        this.currentIndex = 0;
-      } else {
-        this.currentIndex++;
-      }
-      this.updateSlider();
-    }, this.autoSlideDelay);
-  }
-
-  stopAutoSlide() {
-    if (this.autoSlideInterval) {
-      clearInterval(this.autoSlideInterval);
-      this.autoSlideInterval = null;
-    }
-  }
-
-
-  handleDownload(button) {
-    const filename = button.dataset.file || button.parentElement.dataset.file;
-
-    if (!filename) return;
-
-    // Verifica que el archivo exista haciendo una petición HEAD
-    fetch(filename, { method: 'HEAD' })
-      .then(response => {
-        if (!response.ok) {
-          alert('Archivo no encontrado.');
-          return;
-        }
-
-        // Crear link de descarga
-        const link = document.createElement('a');
-        link.href = filename;
-        link.download = filename.split('/').pop();
-        link.style.display = 'none';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-
-        // Feedback visual
-        const isEpub = filename.endsWith('.epub');
-        const gradient = isEpub
-          ? 'linear-gradient(135deg, #8be9fd 0%, #bd93f9 100%)'
-          : 'linear-gradient(135deg, #50fa7b 0%, #6272a4 100%)';
-
-        button.style.background = gradient;
-        button.style.color = '#fff';
-        button.style.transition = 'background 0.3s ease';
-        button.innerHTML = '¡Descargado!';
-
-        setTimeout(() => {
-          const type = isEpub ? 'EPUB' : 'PDF';
-          button.innerHTML = `${type}<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>`;
-          button.style.background = '';
-          button.style.color = '';
-        }, 2000);
-      })
-      .catch(error => {
-        console.error('Error al verificar el archivo:', error);
-        alert('Ocurrió un error al intentar descargar el archivo.');
+    window.setTimeout(() => {
+      appendMessage("Loto", example.reply, "agent");
+      chatSuggestions.querySelectorAll("button").forEach((suggestion) => {
+        suggestion.disabled = false;
       });
-  }
-}
-
-// Parallax effect on hover
-document.querySelectorAll('.book-card').forEach(card => {
-  card.addEventListener('mousemove', (e) => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-
-    const rotateX = (y - centerY) / 10;
-    const rotateY = (centerX - x) / 10;
-
-    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-10px)`;
+    }, 350);
   });
 
-  card.addEventListener('mouseleave', () => {
-    card.style.transform = '';
-  });
-});
-
-// Initialize slider
-document.addEventListener('DOMContentLoaded', () => {
-  new BookSlider();
-});
-
-
-//Consultoría
-document.addEventListener('DOMContentLoaded', function () {
-  emailjs.init('ZA0UXv9RnQ0HZYFlc'); // Tu PUBLIC KEY
-
-  const form = document.getElementById('consultancyForm');
-  const successMessage = document.getElementById('successMessage');
-  const btnText = document.querySelector('.btn-text');
-  const btnLoader = document.querySelector('.btn-loader');
-
-  // Form submission
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // Mostrar loader
-    btnText.style.display = 'none';
-    btnLoader.style.display = 'inline-block';
-
-    // Enviar con EmailJS
-    emailjs.sendForm('service_eh3uuev', 'template_tx59o9q', this)
-      .then(() => {
-        // Ocultar formulario y mostrar mensaje de éxito
-        form.style.display = 'none';
-        successMessage.style.display = 'block';
-
-        // Restaurar luego de unos segundos
-        setTimeout(() => {
-          form.reset();
-          form.style.display = 'block';
-          successMessage.style.display = 'none';
-          btnText.style.display = 'inline-block';
-          btnLoader.style.display = 'none';
-        }, 5000);
-      })
-      .catch((error) => {
-        alert('Ocurrió un error al enviar: ' + error.text);
-        btnText.style.display = 'inline-block';
-        btnLoader.style.display = 'none';
-      });
-  });
-
-  // Animación flotante de fondo (opcional)
-  setInterval(() => {
-    const gradient = document.querySelector('.background-gradient');
-    if (gradient) {
-      const randomX = Math.random() * 100 - 50;
-      const randomY = Math.random() * 100 - 50;
-      gradient.style.transform = `translate(${randomX}px, ${randomY}px)`;
-    }
-  }, 5000);
+  currentYear.textContent = String(new Date().getFullYear());
 });
