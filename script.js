@@ -20,6 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const catalogEmpty = document.querySelector("#catalog-empty");
   const languageToggle = document.querySelector("#language-toggle");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const siteHeader = document.querySelector(".site-header");
+  const scrollProgressBar = document.querySelector("#scroll-progress-bar");
+  const chatTyping = document.querySelector("#chat-typing");
+  const navLinks = Array.from(document.querySelectorAll(".site-nav > a:not(.nav-cta)"));
 
   if (!(menuToggle instanceof HTMLButtonElement) ||
       !(siteNav instanceof HTMLElement) ||
@@ -40,7 +44,10 @@ document.addEventListener("DOMContentLoaded", () => {
       !(catalogGrid instanceof HTMLElement) ||
       !(catalogResults instanceof HTMLElement) ||
       !(catalogEmpty instanceof HTMLElement) ||
-      !(languageToggle instanceof HTMLButtonElement)) {
+      !(languageToggle instanceof HTMLButtonElement) ||
+      !(siteHeader instanceof HTMLElement) ||
+      !(scrollProgressBar instanceof HTMLElement) ||
+      !(chatTyping instanceof HTMLElement)) {
     throw new Error("No se pudieron inicializar los elementos principales de Gardenia.");
   }
 
@@ -359,6 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
     renderIntegrations();
     updateCatalog();
     chatMessages.innerHTML = `<div class="chat-message message-agent"><span class="message-name">Loto</span><span>${strings.chatWelcome}</span></div>`;
+    setTyping(false);
     chatSuggestions.querySelectorAll("button").forEach((suggestion) => {
       suggestion.disabled = false;
     });
@@ -507,6 +515,111 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  function setTyping(isTyping) {
+    chatTyping.hidden = !isTyping;
+    if (isTyping) {
+      chatMessages.scrollTo({
+        top: chatMessages.scrollHeight,
+        behavior: reducedMotion ? "auto" : "smooth"
+      });
+    }
+  }
+
+  function initScrollEffects() {
+    const revealTargets = Array.from(document.querySelectorAll("[data-reveal]"));
+    const progressTarget = document.documentElement;
+    let pendingFrame = 0;
+
+    const revealVisible = () => {
+      const limit = window.innerHeight * 0.92;
+      revealTargets.forEach((target) => {
+        if (target.classList.contains("is-visible")) {
+          return;
+        }
+        if (target.getBoundingClientRect().top < limit) {
+          target.classList.add("is-visible");
+        }
+      });
+    };
+
+    const updateScrollState = () => {
+      pendingFrame = 0;
+      const scrollable = progressTarget.scrollHeight - window.innerHeight;
+      const progress = scrollable > 0 ? Math.min(window.scrollY / scrollable, 1) : 0;
+      scrollProgressBar.style.transform = `scaleX(${progress})`;
+      siteHeader.classList.toggle("is-scrolled", window.scrollY > 8);
+      revealVisible();
+    };
+
+    const requestUpdate = () => {
+      if (pendingFrame) {
+        return;
+      }
+      pendingFrame = window.requestAnimationFrame(updateScrollState);
+    };
+
+    if (reducedMotion) {
+      document.documentElement.classList.remove("has-reveal");
+      revealTargets.forEach((target) => target.classList.add("is-visible"));
+    } else {
+      revealTargets.forEach((target) => {
+        const siblings = Array.from(target.parentElement?.children ?? []);
+        const position = siblings.indexOf(target);
+        target.style.setProperty("--reveal-delay", `${Math.min(position, 5) * 70}ms`);
+      });
+    }
+
+    updateScrollState();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
+    window.addEventListener("load", requestUpdate);
+  }
+
+  function initSpotlight() {
+    if (reducedMotion) {
+      return;
+    }
+    document.querySelectorAll(".feature-card").forEach((card) => {
+      card.addEventListener("pointermove", (event) => {
+        const rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", `${event.clientX - rect.left}px`);
+        card.style.setProperty("--my", `${event.clientY - rect.top}px`);
+      });
+    });
+  }
+
+  function initActiveNav() {
+    const sections = navLinks
+      .map((link) => document.querySelector(link.getAttribute("href") ?? ""))
+      .filter((section) => section instanceof HTMLElement);
+    if (!sections.length || !("IntersectionObserver" in window)) {
+      return;
+    }
+
+    const setActive = (id) => {
+      navLinks.forEach((link) => {
+        const isActive = link.getAttribute("href") === `#${id}`;
+        link.classList.toggle("is-active", isActive);
+        if (isActive) {
+          link.setAttribute("aria-current", "true");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    };
+
+    const navObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter((entry) => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+      if (visible) {
+        setActive(visible.target.id);
+      }
+    }, { rootMargin: "-45% 0px -45% 0px", threshold: [0, 0.25, 0.5] });
+
+    sections.forEach((section) => navObserver.observe(section));
+  }
+
   menuToggle.addEventListener("click", () => {
     const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
     menuToggle.setAttribute("aria-expanded", String(!isOpen));
@@ -631,8 +744,10 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const responseLanguage = language;
     appendMessage(translations[language].userName, example.prompt, "user");
+    setTyping(true);
 
     window.setTimeout(() => {
+      setTyping(false);
       if (language !== responseLanguage) {
         return;
       }
@@ -640,8 +755,12 @@ document.addEventListener("DOMContentLoaded", () => {
       chatSuggestions.querySelectorAll("button").forEach((suggestion) => {
         suggestion.disabled = false;
       });
-    }, 350);
+    }, reducedMotion ? 120 : 900);
   });
 
   currentYear.textContent = String(new Date().getFullYear());
+  initScrollEffects();
+  initSpotlight();
+  initActiveNav();
+  window.gardeniaReady = true;
 });
